@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/min_padding">
+
+    <Spinner
+        android:id="@+id/editUser_securityQuestion"
+        style="@style/Base.Widget.AppCompat.Spinner"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:padding="10dp"
+        app:layout_constraintBottom_toTopOf="@id/editUser_layAnswer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:entries="@array/security_questions" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/editUser_layAnswer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="16dp"
+        android:hint="@string/editUser_answer"
+        android:padding="@dimen/min_padding"
+        app:layout_constraintBottom_toTopOf="@id/editUser_btnUpdateSecurityCredentials"
+        app:layout_constraintEnd_toEndOf="@id/editUser_securityQuestion"
+        app:layout_constraintStart_toStartOf="@id/editUser_securityQuestion"
+        app:layout_constraintTop_toBottomOf="@id/editUser_securityQuestion"
+        app:passwordToggleEnabled="true">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/editUser_txtAnswer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/text_background"
+            android:inputType="text"
+            android:padding="@dimen/editText_padding" />
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:id="@+id/editUser_btnUpdateSecurityCredentials"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/button_background"
+        android:text="@string/editUser_updateSecurityCredentials"
+        android:textColor="@color/textColor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/editUser_securityQuestion"
+        app:layout_constraintStart_toStartOf="@id/editUser_securityQuestion"
+        app:layout_constraintTop_toBottomOf="@+id/editUser_layAnswer" />
+
+</android.support.constraint.ConstraintLayout>

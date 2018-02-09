@@ -1,0 +1,425 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/editProduct_rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.turkeytech.egranja.activity.EditProductActivity">
+
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/editProduct_appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/editProduct_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize">
+
+            <ImageView
+                android:id="@+id/editProduct_btnToolbarClose"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_close"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:text="@string/editProduct_toolbarTitle"
+                android:textColor="@color/colorWhite"
+                android:textSize="20sp" />
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+    <ProgressBar
+        android:id="@+id/editProduct_progressBar"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-6dp"
+        android:indeterminate="true"
+        android:visibility="gone"
+        app:layout_anchor="@id/editProduct_appBarLayout"
+        app:layout_anchorGravity="bottom"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:visibility="visible" />
+
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="@dimen/default_margin">
+
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/editProduct_layProductName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/activity_margin"
+                android:layout_marginStart="@dimen/activity_margin"
+                android:layout_marginTop="24dp"
+                android:hint="@string/product_productName"
+                android:padding="@dimen/small_padding"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/editProduct_txtProductName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/text_background"
+                    android:inputType="text"
+                    android:padding="@dimen/editText_padding" />
+            </android.support.design.widget.TextInputLayout>
+
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/editProduct_layProductDescription"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/product_productDescription"
+                android:padding="@dimen/small_padding"
+                app:layout_constraintEnd_toEndOf="@id/editProduct_layProductName"
+                app:layout_constraintStart_toStartOf="@id/editProduct_layProductName"
+                app:layout_constraintTop_toBottomOf="@id/editProduct_layProductName">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/editProduct_txtProductDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/text_background"
+                    android:inputType="textMultiLine"
+                    android:padding="@dimen/editText_padding" />
+            </android.support.design.widget.TextInputLayout>
+
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/editProduct_layProductQuantity"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/product_quantity"
+                android:padding="@dimen/small_padding"
+                app:layout_constraintEnd_toStartOf="@id/editProduct_quantityUnit"
+                app:layout_constraintStart_toStartOf="@id/editProduct_layProductName"
+                app:layout_constraintTop_toBottomOf="@id/editProduct_layProductDescription">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/editProduct_txtProductQuantity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/text_background"
+                    android:inputType="number"
+                    android:padding="@dimen/editText_padding" />
+            </android.support.design.widget.TextInputLayout>
+
+
+            <Spinner
+                android:id="@+id/editProduct_quantityUnit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:padding="@dimen/min_padding"
+                app:layout_constraintBottom_toBottomOf="@+id/editProduct_layProductQuantity"
+                app:layout_constraintEnd_toEndOf="@+id/editProduct_layProductName"
+                app:layout_constraintStart_toEndOf="@+id/editProduct_layProductQuantity"
+                app:layout_constraintTop_toTopOf="@+id/editProduct_layProductQuantity" />
+
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/editProduct_layPrice"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/product_price"
+                android:padding="@dimen/small_padding"
+                app:layout_constraintEnd_toEndOf="@id/editProduct_layProductName"
+                app:layout_constraintStart_toStartOf="@id/editProduct_layProductName"
+                app:layout_constraintTop_toBottomOf="@id/editProduct_layProductQuantity">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/editProduct_txtPrice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/text_background"
+                    android:inputType="number"
+                    android:padding="@dimen/editText_padding" />
+            </android.support.design.widget.TextInputLayout>
+
+
+            <View
+                android:id="@+id/editProduct_divider1"
+                android:layout_width="0dp"
+                android:layout_height="0.3dp"
+                android:layout_marginEnd="@dimen/activity_vertical_margin"
+                android:layout_marginStart="@dimen/activity_vertical_margin"
+                android:layout_marginTop="32dp"
+                android:background="@color/textColor"
+                app:layout_constraintEnd_toEndOf="@id/editProduct_layProductName"
+                app:layout_constraintStart_toStartOf="@id/editProduct_layProductName"
+                app:layout_constraintTop_toBottomOf="@id/editProduct_layPrice" />
+
+
+            <Spinner
+                android:id="@+id/editProduct_categories"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:padding="@dimen/min_padding"
+                app:layout_constraintEnd_toEndOf="@+id/editProduct_layPrice"
+                app:layout_constraintStart_toStartOf="@+id/editProduct_layPrice"
+                app:layout_constraintTop_toBottomOf="@id/editProduct_divider1" />
+
+
+            <View
+                android:id="@+id/editProduct_divider2"
+                android:layout_width="0dp"
+                android:layout_height="0.3dp"
+                android:layout_marginEnd="@dimen/activity_vertical_margin"
+                android:layout_marginStart="@dimen/activity_vertical_margin"
+                android:layout_marginTop="16dp"
+                android:background="@color/textColor"
+                app:layout_constraintEnd_toEndOf="@id/editProduct_layProductName"
+                app:layout_constraintStart_toStartOf="@id/editProduct_layProductName"
+                app:layout_constraintTop_toBottomOf="@id/editProduct_categories" />
+
+
+            <TextView
+                android:id="@+id/editProduct_imageInstructionText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/product_imageInstruction"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/editProduct_layProductName"
+                app:layout_constraintStart_toStartOf="@id/editProduct_layProductName"
+                app:layout_constraintTop_toBottomOf="@id/editProduct_divider2" />
+
+
+            <ImageButton
+                android:id="@+id/editProduct_btnAddImage1"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/button_background"
+                android:src="@drawable/ic_add_photo"
+                app:layout_constraintEnd_toStartOf="@id/editProduct_btnAddImage2"
+                app:layout_constraintStart_toStartOf="@id/editProduct_layProductName"
+                app:layout_constraintTop_toBottomOf="@id/editProduct_imageInstructionText"
+                tools:ignore="ContentDescription" />
+
+
+            <ImageButton
+                android:id="@+id/editProduct_btnAddImage2"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/button_background"
+                android:src="@drawable/ic_add_photo"
+                app:layout_constraintEnd_toStartOf="@id/editProduct_btnAddImage3"
+                app:layout_constraintStart_toEndOf="@id/editProduct_btnAddImage1"
+                app:layout_constraintTop_toBottomOf="@id/editProduct_imageInstructionText"
+                tools:ignore="ContentDescription" />
+
+
+            <ImageButton
+                android:id="@+id/editProduct_btnAddImage3"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/button_background"
+                android:src="@drawable/ic_add_photo"
+                app:layout_constraintEnd_toStartOf="@id/editProduct_btnAddImage4"
+                app:layout_constraintStart_toEndOf="@id/editProduct_btnAddImage2"
+                app:layout_constraintTop_toBottomOf="@id/editProduct_imageInstructionText"
+                tools:ignore="ContentDescription" />
+
+
+            <ImageButton
+                android:id="@+id/editProduct_btnAddImage4"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/button_background"
+                android:src="@drawable/ic_add_photo"
+                app:layout_constraintEnd_toEndOf="@id/editProduct_layProductName"
+                app:layout_constraintStart_toEndOf="@id/editProduct_btnAddImage3"
+                app:layout_constraintTop_toBottomOf="@id/editProduct_imageInstructionText"
+                tools:ignore="ContentDescription" />
+
+
+            <View
+                android:id="@+id/editProduct_divider3"
+                android:layout_width="0dp"
+                android:layout_height="0.3dp"
+                android:layout_marginEnd="@dimen/activity_vertical_margin"
+                android:layout_marginStart="@dimen/activity_vertical_margin"
+                android:layout_marginTop="16dp"
+                android:background="@color/textColor"
+                app:layout_constraintEnd_toEndOf="@id/editProduct_layProductName"
+                app:layout_constraintStart_toStartOf="@id/editProduct_layProductName"
+                app:layout_constraintTop_toBottomOf="@id/editProduct_btnAddImage1" />
+
+
+            <TextView
+                android:id="@+id/editProduct_optionalInstructionText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/product_optionalInstruction"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/editProduct_layProductName"
+                app:layout_constraintStart_toStartOf="@id/editProduct_layProductName"
+                app:layout_constraintTop_toBottomOf="@id/editProduct_divider3" />
+
+
+            <Button
+                android:id="@+id/editProduct_btnRecordAudio"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/button_background"
+                android:text="@string/product_startRecordingAudio"
+                android:textColor="@color/textColor"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@id/editProduct_layProductName"
+                app:layout_constraintStart_toStartOf="@id/editProduct_layProductName"
+                app:layout_constraintTop_toBottomOf="@id/editProduct_optionalInstructionText" />
+
+
+            <Button
+                android:id="@+id/editProduct_btnUploadVideo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/button_background"
+                android:text="@string/product_uploadVideo"
+                android:textColor="@color/textColor"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@id/editProduct_layProductName"
+                app:layout_constraintStart_toStartOf="@id/editProduct_layProductName"
+                app:layout_constraintTop_toBottomOf="@id/editProduct_btnRecordAudio" />
+
+
+            <View
+                android:id="@+id/editProduct_divider4"
+                android:layout_width="0dp"
+                android:layout_height="0.3dp"
+                android:layout_marginEnd="@dimen/activity_vertical_margin"
+                android:layout_marginStart="@dimen/activity_vertical_margin"
+                android:layout_marginTop="16dp"
+                android:background="@color/textColor"
+                app:layout_constraintEnd_toEndOf="@id/editProduct_layProductName"
+                app:layout_constraintStart_toStartOf="@id/editProduct_layProductName"
+                app:layout_constraintTop_toBottomOf="@+id/editProduct_btnUploadVideo" />
+
+
+            <TextView
+                android:id="@+id/editProduct_locationInstructionText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/product_locationInstruction"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/editProduct_layProductName"
+                app:layout_constraintStart_toStartOf="@id/editProduct_layProductName"
+                app:layout_constraintTop_toBottomOf="@id/editProduct_divider4" />
+
+
+            <Button
+                android:id="@+id/editProduct_btnCurrentLocation"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/button_background"
+                android:text="@string/product_Location"
+                android:textColor="@color/textColor"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@id/editProduct_layProductName"
+                app:layout_constraintStart_toStartOf="@id/editProduct_layProductName"
+                app:layout_constraintTop_toBottomOf="@id/editProduct_locationInstructionText" />
+
+
+            <View
+                android:id="@+id/editProduct_dividerStart"
+                android:layout_width="0dp"
+                android:layout_height="0.3dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/textColor"
+                app:layout_constraintEnd_toStartOf="@id/editProduct_dividerText"
+                app:layout_constraintStart_toStartOf="@id/editProduct_layProductName"
+                app:layout_constraintTop_toBottomOf="@id/editProduct_btnCurrentLocation"
+                tools:layout_marginStart="@dimen/activity_vertical_margin" />
+
+
+            <TextView
+                android:id="@+id/editProduct_dividerText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="3dp"
+                android:text="@string/product_dividerText"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toStartOf="@id/editProduct_dividerEnd"
+                app:layout_constraintStart_toEndOf="@+id/editProduct_dividerStart"
+                app:layout_constraintTop_toBottomOf="@id/editProduct_btnCurrentLocation" />
+
+
+            <View
+                android:id="@+id/editProduct_dividerEnd"
+                android:layout_width="0dp"
+                android:layout_height="0.3dp"
+                android:layout_marginEnd="@dimen/activity_vertical_margin"
+                android:layout_marginTop="16dp"
+                android:background="@color/textColor"
+                app:layout_constraintEnd_toEndOf="@id/editProduct_layProductName"
+                app:layout_constraintStart_toEndOf="@id/editProduct_dividerText"
+                app:layout_constraintTop_toBottomOf="@id/editProduct_btnCurrentLocation" />
+
+
+            <Button
+                android:id="@+id/editProduct_btnChooseLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/activity_margin"
+                android:layout_marginStart="@dimen/activity_margin"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/button_background"
+                android:text="@string/product_chooseLocation"
+                android:textColor="@color/textColor"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@id/editProduct_layProductName"
+                app:layout_constraintStart_toStartOf="@id/editProduct_layProductName"
+                app:layout_constraintTop_toBottomOf="@id/editProduct_dividerText" />
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v4.widget.NestedScrollView>
+</android.support.design.widget.CoordinatorLayout>

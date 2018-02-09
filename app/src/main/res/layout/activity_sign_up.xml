@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/signUp_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.turkeytech.egranja.activity.SignUpActivity">
+
+    <include layout="@layout/main_toolbar" />
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="@dimen/default_margin">
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/signUp_layFirstName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_margin"
+                android:layout_marginTop="50dp"
+                android:hint="@string/signUp_firstName"
+                android:padding="@dimen/min_padding"
+                app:layout_constraintEnd_toStartOf="@id/signUp_layLastName"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/signUp_txtFirstName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/text_background"
+                    android:inputType="text"
+                    android:padding="@dimen/editText_padding" />
+            </android.support.design.widget.TextInputLayout>
+
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/signUp_layLastName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/activity_margin"
+                android:layout_marginTop="50dp"
+                android:hint="@string/signUp_lastName"
+                android:padding="@dimen/min_padding"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/signUp_layFirstName"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/signUp_txtLastName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/text_background"
+                    android:inputType="text"
+                    android:padding="@dimen/editText_padding" />
+            </android.support.design.widget.TextInputLayout>
+
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/signUp_layNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/activity_margin"
+                android:layout_marginStart="@dimen/activity_margin"
+                android:hint="@string/signUp_number"
+                android:padding="@dimen/min_padding"
+                app:layout_constraintEnd_toEndOf="@id/signUp_layLastName"
+                app:layout_constraintStart_toStartOf="@id/signUp_layFirstName"
+                app:layout_constraintTop_toBottomOf="@id/signUp_layFirstName">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/signUp_txtNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/text_background"
+                    android:inputType="number"
+                    android:padding="@dimen/editText_padding" />
+            </android.support.design.widget.TextInputLayout>
+
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/signUp_layEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/activity_margin"
+                android:layout_marginStart="@dimen/activity_margin"
+                android:hint="@string/signUp_email"
+                android:padding="@dimen/min_padding"
+                app:layout_constraintEnd_toEndOf="@id/signUp_layFirstName"
+                app:layout_constraintStart_toStartOf="@id/signUp_layLastName"
+                app:layout_constraintTop_toBottomOf="@id/signUp_layNumber">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/signUp_txtEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/text_background"
+                    android:inputType="textEmailAddress"
+                    android:padding="@dimen/editText_padding" />
+            </android.support.design.widget.TextInputLayout>
+
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/signUp_layPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/activity_margin"
+                android:layout_marginStart="@dimen/activity_margin"
+                android:hint="@string/signUp_password"
+                android:padding="@dimen/min_padding"
+                app:layout_constraintEnd_toEndOf="@id/signUp_layLastName"
+                app:layout_constraintStart_toStartOf="@id/signUp_layFirstName"
+                app:layout_constraintTop_toBottomOf="@id/signUp_layEmail"
+                app:passwordToggleEnabled="true">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/signUp_txtPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/text_background"
+                    android:inputType="textPassword"
+                    android:padding="@dimen/editText_padding" />
+            </android.support.design.widget.TextInputLayout>
+
+
+            <Spinner
+                android:id="@+id/signUp_securityQuestion"
+                style="@style/Base.Widget.AppCompat.Spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/activity_margin"
+                android:padding="@dimen/min_padding"
+                app:layout_constraintTop_toBottomOf="@id/signUp_layPassword" />
+
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/signUp_layAnswer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/activity_margin"
+                android:layout_marginStart="@dimen/activity_margin"
+                android:hint="@string/signUp_answer"
+                android:padding="@dimen/min_padding"
+                app:layout_constraintEnd_toEndOf="@id/signUp_layLastName"
+                app:layout_constraintStart_toStartOf="@id/signUp_layFirstName"
+                app:layout_constraintTop_toBottomOf="@id/signUp_securityQuestion"
+                app:passwordToggleEnabled="true">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/signUp_txtAnswer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/text_background"
+                    android:inputType="text"
+                    android:padding="@dimen/editText_padding" />
+            </android.support.design.widget.TextInputLayout>
+
+            <Button
+                android:id="@+id/signUp_btnSignUp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/activity_margin"
+                android:layout_marginStart="@dimen/activity_margin"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/button_background"
+                android:text="@string/signUp_signUp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/signUp_layLastName"
+                app:layout_constraintStart_toStartOf="@id/signUp_layFirstName"
+                app:layout_constraintTop_toBottomOf="@+id/signUp_layAnswer"
+                tools:textColor="@color/common_google_signin_btn_text_light_default" />
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v4.widget.NestedScrollView>
+</android.support.design.widget.CoordinatorLayout>

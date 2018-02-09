@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1033408040272",
+    "firebase_url": "https://egranja-0.firebaseio.com",
+    "project_id": "egranja-0",
+    "storage_bucket": "egranja-0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1033408040272:android:e418ff985c326341",
+        "android_client_info": {
+          "package_name": "com.turkeytech.egranja"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1033408040272-pc1muv18o6ujv1orvp69tcjljj4od0l9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.turkeytech.egranja",
+            "certificate_hash": "779b3fc9e3316839f3b12bdea5be02bb45b8c62e"
+          }
+        },
+        {
+          "client_id": "1033408040272-llvl6e8frvbk5a0tk4vv79q71pvf9qho.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAbrvAY__BK4te2-0BjDpPxNuEvM_IjV3o"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1033408040272-llvl6e8frvbk5a0tk4vv79q71pvf9qho.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

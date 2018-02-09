@@ -1,0 +1,3038 @@
+<resources>
+    <string name="app_name">eGranja</string>
+
+    <!-- Home Menu Strings -->
+    <string name="action_search">Search</string>
+    <string name="action_showList">Show as List</string>
+    <string name="action_showGrid">Show as Grid</string>
+
+    <!-- Login Strings -->
+    <string name="login_title">Sign In</string>
+    <string name="login_email">Email Address</string>
+    <string name="login_password">Password</string>
+    <string name="login_loginText">Sign In</string>
+    <string name="login_dividerText">OR</string>
+    <string name="login_signUpText">Sign Up For Account</string>
+    <string name="login_forgotPasswordText">Forgot Password?</string>
+
+    <!-- Sign Up Strings -->
+    <string name="signUp_title">Sign Up</string>
+    <string name="signUp_firstName">First Name</string>
+    <string name="signUp_lastName">Last Name</string>
+    <string name="signUp_number">Number</string>
+    <string name="signUp_email">Email</string>
+    <string name="signUp_password">Password</string>
+    <string name="signUp_answer">Answer</string>
+    <string name="signUp_signUp">Sign Up</string>
+
+    <!-- Edit User Strings -->
+    <string name="editUser_instructionsText">Edit Your Details</string>
+    <string name="editUser_firstName">First Name</string>
+    <string name="editUser_lastName">Last Name</string>
+    <string name="editText_number">Number</string>
+    <string name="editText_email">Email</string>
+    <string name="editUser_password">Password</string>
+    <string name="editUser_oldPassword">Old Password</string>
+    <string name="editUser_confirmPassword">Confirm Password</string>
+    <string name="editUser_updatePassword">Update Password</string>
+    <string name="editUser_answer">Answer</string>
+    <string name="editUser_updateSecurityCredentials">Update Security Credentials</string>
+
+    <!-- Forgot Password Strings -->
+    <string name="forgotPassword_instruction">Verify Your Security Credentials</string>
+    <string name="forgotPassword_email">Email</string>
+    <string name="forgotPassword_answer">Answer</string>
+    <string name="forgotPassword_verify">Verify</string>
+    <string name="forgotPassword_password">Password</string>
+    <string name="forgotPassword_confirmPassword">Confirm Password</string>
+    <string name="forgotPassword_updatePassword">Update Password</string>
+
+    <!-- Add and Edit Product Strings -->
+    <string name="addProduct_title">Add Product</string>
+    <string name="editProduct_title">Edit Product</string>
+    <string name="product_productName">Product Name</string>
+    <string name="product_productDescription">Product Description</string>
+    <string name="product_quantity">Quantity</string>
+    <string name="product_price">Price</string>
+    <string name="product_startRecordingAudio">Start Recording Audio Description</string>
+    <string name="product_stopRecordingAudio">Stop Recording Audio</string>
+    <string name="product_previewAudio">Preview Audio</string>
+    <string name="product_uploadVideo">Upload Video Description</string>
+    <string name="product_previewVideo">Preview Video Description</string>
+    <string name="product_Location">Set Location</string>
+    <string name="product_viewLocation">View Location</string>
+    <string name="product_chooseLocation">Choose Location</string>
+    <string name="product_dividerText">OR</string>
+    <string name="product_imageInstruction">Select Four Images of the Product</string>
+    <string name="product_optionalInstruction">Optional</string>
+    <string name="product_locationInstruction">Location of Product</string>
+
+    <!-- User Detail Strings -->
+    <string name="userDetail_fullName">Full Name</string>
+    <string name="userDetail_number">Number</string>
+    <string name="userDetail_email">Email</string>
+    <string name="viewProduct_moreDescription">More</string>
+    <string name="viewProduct_viewOnMap">View On Map</string>
+    <string name="viewProduct_callFarmer">Call Farmer</string>
+    <string name="viewProduct_MessageFarmer">Message Farmer</string>
+    <string name="viewProduct_descriptionTitle">Product Description</string>
+    <string name="audioPreview_play">Play</string>
+    <string name="audioPreview_pause">Pause</string>
+
+    <!-- Add Product Class -->
+    <!-- Show Image Dialog Method Strings -->
+    <string name="showImageDialog_title">Select Image From</string>
+    <string-array name="showImageDialog_dialogOptions">
+        <item>Gallery</item>
+        <item>Camera</item>
+    </string-array>
+
+    <!-- Select Image From Gallery Method-->
+    <string name="selectImageFromGallery_errorMessage">No Suitable App Found!</string>
+
+    <!-- Show Video Dialog Method Strings -->
+    <string name="showVideoDialog_title">Select Video From</string>
+    <string-array name="showVideoDialog_dialogOptions">
+        <item>Gallery</item>
+        <item>Camera</item>
+    </string-array>
+
+    <!-- Show Video Dialog Method Strings -->
+    <string name="showLocationDialog_title">Set Product Location From</string>
+    <string-array name="showLocationDialog_dialogOptions">
+        <item>Current Location</item>
+        <item>Location List</item>
+    </string-array>
+
+    <!-- Get Last Known Location Method Strings-->
+    <string name="no_geocoder_available">No Geocoder Available</string>
+
+    <!-- Fetch Address Intent Service Strings-->
+    <string name="service_not_available">Service not available</string>
+    <string name="invalid_lat_long_used">Invalid Longitude and/or Latitude value used</string>
+    <string name="no_address_found">No Address Found!</string>
+    <string name="address_found">Address Found!</string>
+
+    <!-- End Of Add Product Class-->
+
+
+    <!-- Security Questions Spinner -->
+    <string-array name="security_questions">
+        <item>Select your security question</item>
+        <item>What is your mother's name?</item>
+        <item>What is your favorite animal?</item>
+        <item>What is your street name?</item>
+        <item>What is the name of your first crush?</item>
+        <item>Who is your favorite school teacher?</item>
+    </string-array>
+
+    <!-- Quantity Unit Spinner-->
+    <string-array name="quantity_units">
+        <item>Select Unit</item>
+        <item>Bag</item>
+        <item>Basket</item>
+        <item>Cup</item>
+        <item>Kilo</item>
+        <item>Sack</item>
+    </string-array>
+
+    <!-- Categories Spinner -->
+    <string-array name="categories_names">
+        <item>Select Category</item>
+        <item>tubers</item>
+        <item>fruits</item>
+        <item>vegetables</item>
+        <item>grains</item>
+        <item>meat</item>
+    </string-array>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="action_upload_title">Upload</string>
+    <string name="addProduct_toolbarTitle">Add New Product</string>
+    <string name="save">save</string>
+    <string name="edit_password">Edit Password</string>
+    <string name="edit_security">Edit Security Details</string>
+    <string name="userDetails_title">Your Details</string>
+    <string name="title_activity_home">eGranja</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="category">Category</string>
+    <string name="my_products">My Products</string>
+    <string name="my_account">My Account</string>
+    <string name="add_product">Add Product</string>
+    <string name="logout">Logout</string>
+    <string name="home">Home</string>
+    <string name="more">More</string>
+
+    <string name="title_text">Google Sign-In\nQuickstart</string>
+
+    <!-- Sign-in status messages -->
+    <string name="signed_in_fmt">Signed in as: %s</string>
+    <string name="signed_in">Signed in</string>
+    <string name="signing_in">Signing in…</string>
+    <string name="signed_out">Signed out</string>
+    <string name="signed_in_err">"Error: please check logs."</string>
+    <string name="error_null_person">
+        Error: Plus.PeopleApi.getCurrentPerson returned null. Ensure that the Google+ API is
+        enabled for your project, you have a properly configured google-services.json file
+        and that your device has an internet connection.
+    </string>
+    <string name="loading">Loading…</string>
+    <string name="auth_code_fmt">Auth Code: %s</string>
+    <string name="id_token_fmt">ID Token: %s</string>
+
+    <!-- Google Play Services error for Toast -->
+    <string name="play_services_error_fmt">Google Play Services Error: %i</string>
+
+    <!-- Button labels -->
+    <string name="sign_out">Sign Out</string>
+    <string name="disconnect">Disconnect</string>
+    <string name="refresh_token">Get Fresh Token</string>
+
+    <!-- Content Description for images -->
+    <string name="desc_google_icon">Google Logo</string>
+
+    <!-- Rationale for asking for Contacts -->
+    <string name="contacts_permission_rationale">Contacts access is needed in order to retrieve your email address.</string>
+
+    <!-- Activity Names and Descriptions -->
+    <string name="name_sign_in_activity">SignInActivity</string>
+    <string name="desc_sign_in_activity">Signing in, signing out, and revoking access.</string>
+    <string name="desc_sign_in_activity_scopes">Signing in, signing out, and revoking access with Google Drive permissions.</string>
+
+    <string name="name_id_token_activity">IdTokenActivity</string>
+    <string name="desc_id_token_activity">Retrieving an ID Token for the user.</string>
+
+    <string name="desc_auth_code_activity">Demonstrate retrieving an auth code for authorizing your server.</string>
+    <string name="name_auth_code_activity">ServerAuthCodeActivity</string>
+
+    <string name="desc_rest_activity">Demonstrate using Google Sign In with a Google REST API</string>
+    <string name="name_rest_activity">RestApiActivity</string>
+
+    <!-- Messages for the Rest API activity -->
+    <string name="connections_fmt">Connections: %1$s</string>
+    <string name="msg_contacts_failed">Get contacts failed.</string>
+
+    <!-- TODO(user): replace with your real server client ID -->
+    <!-- Server Client ID.  This should be a valid Web OAuth 2.0 Client ID obtained
+         from https://console.developers.google.com/ -->
+    <string name="server_client_id">YOUR_SERVER_CLIENT_ID</string>
+    <string name="editProduct_toolbarTitle">Edit Product</string>
+
+
+    <array name="cities">
+        <item>Select City</item>
+        <item>Abaasa</item>
+        <item>Abakrampa</item>
+        <item>Abam</item>
+        <item>Abamasarefan</item>
+        <item>Abandze</item>
+        <item>Abaoba</item>
+        <item>Abasi</item>
+        <item>Abdulaikrom</item>
+        <item>Abeadze-Dominase</item>
+        <item>Abease</item>
+        <item>Abehenease</item>
+        <item>Abekope</item>
+        <item>Abelemkpe</item>
+        <item>Abena Abena</item>
+        <item>Abenabu No. 2</item>
+        <item>Abenase</item>
+        <item>Abene</item>
+        <item>Abesewa</item>
+        <item>Abesim</item>
+        <item>Abetifi</item>
+        <item>Abeyee</item>
+        <item>Abia</item>
+        <item>Abiesewagyaman</item>
+        <item>Abira</item>
+        <item>Abiriw</item>
+        <item>Abisaase</item>
+        <item>Ablornu</item>
+        <item>Aboa Besease</item>
+        <item>Aboabo</item>
+        <item>Aboabo</item>
+        <item>Aboabo No. 2</item>
+        <item>Aboabo No. 4</item>
+        <item>Aboabo-Tetekasu</item>
+        <item>Aboadi</item>
+        <item>Aboadze</item>
+        <item>Aboasa</item>
+        <item>Aboaso</item>
+        <item>Aboasu</item>
+        <item>Abochia</item>
+        <item>Abodom</item>
+        <item>Abodom</item>
+        <item>Abodom</item>
+        <item>Abodom</item>
+        <item>Aboduam</item>
+        <item>Aboenu</item>
+        <item>Abofoo</item>
+        <item>Abofour</item>
+        <item>Aboma</item>
+        <item>Abomanyaw Agbodokope</item>
+        <item>Abomase</item>
+        <item>Abomosarefo</item>
+        <item>Abomosu</item>
+        <item>Abompe</item>
+        <item>Abonsuaso</item>
+        <item>Abontiakoon</item>
+        <item>Abonya</item>
+        <item>Aboo</item>
+        <item>Abor</item>
+        <item>Abora Oboasi</item>
+        <item>Aboransa</item>
+        <item>Abore</item>
+        <item>Aborfu</item>
+        <item>Aborodeano</item>
+        <item>Aboso</item>
+        <item>Abossey Okai</item>
+        <item>Abosso</item>
+        <item>Abosso-Bompieso</item>
+        <item>Abotanso</item>
+        <item>Abrekum</item>
+        <item>Abrem Agona</item>
+        <item>Abrem Berase</item>
+        <item>Abreshia (Abrehya)</item>
+        <item>Abuadi</item>
+        <item>Abuakwa</item>
+        <item>Abuesi</item>
+        <item>Abunyanya</item>
+        <item>Abuo</item>
+        <item>Abuom</item>
+        <item>Abuontem</item>
+        <item>Abura</item>
+        <item>Abura Dunkwa</item>
+        <item>Abura-Dunkwa</item>
+        <item>Aburaso</item>
+        <item>Aburi</item>
+        <item>Aburi - pop. 10071</item>
+        <item>Abutia Kloe</item>
+        <item>Abutia-Kloe</item>
+        <item>Abutia-Teti</item>
+        <item>Abuviekpong</item>
+        <item>Accra new Town</item>
+        <item>Achawa</item>
+        <item>Acherensua</item>
+        <item>Achiase</item>
+        <item>Achiase</item>
+        <item>Achichire</item>
+        <item>Achimfo</item>
+        <item>Achimota</item>
+        <item>Achina</item>
+        <item>Achinakrom</item>
+        <item>Ada</item>
+        <item>Ada-Foah</item>
+        <item>Adaa</item>
+        <item>Adabokrom</item>
+        <item>Adaboya</item>
+        <item>Adadekrom</item>
+        <item>Adafienu</item>
+        <item>Adai</item>
+        <item>Adaklu</item>
+        <item>Adakope</item>
+        <item>Adakulo Kpetoe</item>
+        <item>Adamanso</item>
+        <item>Adamasu/Adams</item>
+        <item>Adamorobe - pop. 1356</item>
+        <item>Adankrono</item>
+        <item>Adankwame</item>
+        <item>Adansi Akrofuom</item>
+        <item>Adansi Praso</item>
+        <item>Adantia</item>
+        <item>Adanwomase</item>
+        <item>Adasawase</item>
+        <item>Adawso</item>
+        <item>Adawukwa</item>
+        <item>Addo Nkwanta</item>
+        <item>Adenta East</item>
+        <item>Adenta West</item>
+        <item>Adibo</item>
+        <item>Adibo</item>
+        <item>Adidakpavui</item>
+        <item>Adidome</item>
+        <item>Adidwan</item>
+        <item>Adiembra</item>
+        <item>Adiembra</item>
+        <item>Adientem</item>
+        <item>Adina</item>
+        <item>Adina</item>
+        <item>Adjakaa-Manso</item>
+        <item>Adjamesu</item>
+        <item>Adjena</item>
+        <item>Adjikpo</item>
+        <item>Adjobue</item>
+        <item>Adjua</item>
+        <item>Adjuafua</item>
+        <item>Adjumadjan</item>
+        <item>Adoagyiri pop. - 13058</item>
+        <item>Adom</item>
+        <item>Adomfe</item>
+        <item>Adonikrom</item>
+        <item>Adonso</item>
+        <item>Adrobaa</item>
+        <item>Aduaben</item>
+        <item>Aduamoa</item>
+        <item>Adubea</item>
+        <item>Adubia</item>
+        <item>Adubiase</item>
+        <item>Adubilliyili</item>
+        <item>Adukrom</item>
+        <item>Adum Banso</item>
+        <item>Adum Dominase</item>
+        <item>Adumadum</item>
+        <item>Adumanya</item>
+        <item>Adumasa</item>
+        <item>Adumoa</item>
+        <item>Adupri</item>
+        <item>Adutor</item>
+        <item>Adwafo</item>
+        <item>Adwamadiem</item>
+        <item>Adwufia</item>
+        <item>Adwum</item>
+        <item>Adwumakase-Kese</item>
+        <item>Adzakoe</item>
+        <item>Adzomanukope</item>
+        <item>Afegame</item>
+        <item>Afere</item>
+        <item>Afiaso</item>
+        <item>Afiefiso</item>
+        <item>Afienya</item>
+        <item>Afife</item>
+        <item>Aflao</item>
+        <item>Afoako</item>
+        <item>Afosu</item>
+        <item>Aframanso</item>
+        <item>Aframso</item>
+        <item>Afrancho</item>
+        <item>Afransie</item>
+        <item>Afrantwo</item>
+        <item>Agate</item>
+        <item>Agavedz</item>
+        <item>Agbagorme</item>
+        <item>AgbagormeAgbogbla</item>
+        <item>Agbakope</item>
+        <item>Agbedrafor</item>
+        <item>Agbekotsekpo</item>
+        <item>Agbeve</item>
+        <item>Agblekpui</item>
+        <item>Agbogbloshie</item>
+        <item>Agbozume</item>
+        <item>Agbozume</item>
+        <item>Agogo</item>
+        <item>Agohoe</item>
+        <item>Agome</item>
+        <item>Agona</item>
+        <item>Agona Fie</item>
+        <item>Agona Menfi</item>
+        <item>Agona Nkwanta</item>
+        <item>Agona Nsaba</item>
+        <item>Agorkpo</item>
+        <item>Agormanya</item>
+        <item>Agormor-Agado</item>
+        <item>Agoroyesum</item>
+        <item>Agortor</item>
+        <item>Agya Atta</item>
+        <item>Agyana</item>
+        <item>Agyeikrom</item>
+        <item>Agyemra</item>
+        <item>Agyina (Ajina)</item>
+        <item>Ahamansu</item>
+        <item>Ahamasu</item>
+        <item>Ahansua and Mesidan</item>
+        <item>Ahemakurom</item>
+        <item>Ahenema Kokoben</item>
+        <item>Ahenkofi Krom</item>
+        <item>Ahenkofikrom</item>
+        <item>Ahenkro</item>
+        <item>Ahenkro</item>
+        <item>Ahibenso</item>
+        <item>Ahinkwa Yiti</item>
+        <item>Ahinsan</item>
+        <item>Ahobre No. 2</item>
+        <item>Ahokwaa</item>
+        <item>Ahoniahoniaso</item>
+        <item>Ahoto</item>
+        <item>Ahunda</item>
+        <item>Ahunta</item>
+        <item>Ahwerase - pop. 1446</item>
+        <item>Ahwerease - pop. 865</item>
+        <item>Ahwerewa</item>
+        <item>Ahwerewam</item>
+        <item>Ahwiam</item>
+        <item>Ahwiam</item>
+        <item>Ahwiren</item>
+        <item>Ahyiaem</item>
+        <item>Ahyiayem and Asukwaa</item>
+        <item>Airport Residential Area</item>
+        <item>Aiyinase</item>
+        <item>Ajumako</item>
+        <item>Ajumako Kwanyako</item>
+        <item>Ajumako-Mando</item>
+        <item>Akaaso</item>
+        <item>Akaniem</item>
+        <item>Akansiren and Wuruyiye</item>
+        <item>Akantansu</item>
+        <item>Akanu</item>
+        <item>Akaporiso</item>
+        <item>Akatachi</item>
+        <item>Akateng</item>
+        <item>Akatiso</item>
+        <item>Akatsi</item>
+        <item>Akim Apapam</item>
+        <item>Akim Oda</item>
+        <item>Akim Osorase</item>
+        <item>Akim Sekyere</item>
+        <item>Akim-Aboabo</item>
+        <item>Akim-Achiase</item>
+        <item>Akim-Akenkauso</item>
+        <item>Akim-Akroso</item>
+        <item>Akim-Anamase</item>
+        <item>Akim-Anyinam</item>
+        <item>Akim-Aperade</item>
+        <item>Akim-Asuboa</item>
+        <item>Akim-Asuoso</item>
+        <item>Akim-Awisa</item>
+        <item>Akim-Eshiem</item>
+        <item>Akim-Manso</item>
+        <item>Akim-Swedru</item>
+        <item>Akim-Wenchi</item>
+        <item>Akoase</item>
+        <item>Akokoa</item>
+        <item>Akokoaseo</item>
+        <item>Akokoma Sisi</item>
+        <item>Akokorfoto</item>
+        <item>Akonoma</item>
+        <item>Akonsia</item>
+        <item>Akontanim</item>
+        <item>Akontombra</item>
+        <item>Akorabo</item>
+        <item>Akoroso</item>
+        <item>Akosombo</item>
+        <item>Akotoe Dorse/Kyerebuanya</item>
+        <item>Akotokyere</item>
+        <item>Akpafu Mempeasem</item>
+        <item>Akpafu Odomi</item>
+        <item>Akpafu Todzi</item>
+        <item>Akpamu</item>
+        <item>Akpandue</item>
+        <item>Akplabanya</item>
+        <item>Akplorlortorkor</item>
+        <item>Akra</item>
+        <item>Akrobi</item>
+        <item>Akrodie</item>
+        <item>Akrofonso</item>
+        <item>Akroforo</item>
+        <item>Akrofrom</item>
+        <item>Akrofufu</item>
+        <item>Akrofuom</item>
+        <item>Akrokerri</item>
+        <item>Akropong</item>
+        <item>Akropong</item>
+        <item>Akropong</item>
+        <item>Akuffo Krodua (F. Kwesi K.)</item>
+        <item>Akum</item>
+        <item>Akuma</item>
+        <item>Akumadan</item>
+        <item>Akumsa-Adumase</item>
+        <item>Akuntuase</item>
+        <item>Akuse</item>
+        <item>Akutuase</item>
+        <item>Akwabooso</item>
+        <item>Akwadum Dorse</item>
+        <item>Akwamufie</item>
+        <item>Akwaseho</item>
+        <item>Akwasiase</item>
+        <item>Akwatia</item>
+        <item>Akwele Nkwanta</item>
+        <item>Akweteman</item>
+        <item>Akwidaa</item>
+        <item>Akwidaa Newtown</item>
+        <item>Akyawkrom</item>
+        <item>Akyeansa</item>
+        <item>Akyem Hemang</item>
+        <item>Akyemfo</item>
+        <item>Akyemfo</item>
+        <item>Akyempim</item>
+        <item>Akyerekyere</item>
+        <item>Akyeremade</item>
+        <item>Alajo</item>
+        <item>Alavanyo Dzogbedze</item>
+        <item>Alavanyo Wudidi</item>
+        <item>Alenda</item>
+        <item>Alikope</item>
+        <item>Allowule</item>
+        <item>Amafie</item>
+        <item>Amakom</item>
+        <item>Amama</item>
+        <item>Amanase</item>
+        <item>Amanfro</item>
+        <item>Amanfrom</item>
+        <item>Amanfrom</item>
+        <item>Amanfrom - pop. 957</item>
+        <item>Amanful</item>
+        <item>Amankwakrom</item>
+        <item>Amanokrom</item>
+        <item>Amantena</item>
+        <item>Amantia</item>
+        <item>Amantin</item>
+        <item>Amasu</item>
+        <item>Amedeka</item>
+        <item>Amedzofe</item>
+        <item>Ametafor</item>
+        <item>Amia</item>
+        <item>Amisano</item>
+        <item>Amoako</item>
+        <item>Amoamang</item>
+        <item>Amoaw</item>
+        <item>Amoma</item>
+        <item>Amonie</item>
+        <item>Amosima</item>
+        <item>Amoya</item>
+        <item>Ampeda</item>
+        <item>Ampenkro</item>
+        <item>Ampenyi</item>
+        <item>Ampeyo</item>
+        <item>Ampeyoo</item>
+        <item>Ampoma</item>
+        <item>Ampunyase</item>
+        <item>Amuana Praso</item>
+        <item>Amuni</item>
+        <item>Anaji</item>
+        <item>Anaji Estate</item>
+        <item>Anakum</item>
+        <item>Ananekrom</item>
+        <item>Aneigo</item>
+        <item>Anfoega</item>
+        <item>Anfoega Adame</item>
+        <item>Anfoega Akukome</item>
+        <item>Angu</item>
+        <item>Anibil</item>
+        <item>Anim Akubrifa</item>
+        <item>Ankaako</item>
+        <item>Ankaase</item>
+        <item>Ankaase</item>
+        <item>Ankaful Village</item>
+        <item>Ankamu</item>
+        <item>Ankan</item>
+        <item>Ankasie</item>
+        <item>Ankra-Muano</item>
+        <item>Ankwa Dobro - pop. 1632</item>
+        <item>Ankwaso</item>
+        <item>Anlo Afiadenyigba</item>
+        <item>Anloga</item>
+        <item>Anoe</item>
+        <item>Anoff - pop. 902</item>
+        <item>Anomabo</item>
+        <item>Antabia</item>
+        <item>Anto</item>
+        <item>Anto Essuekyir</item>
+        <item>Antoa</item>
+        <item>Antoakrom</item>
+        <item>Antwirifo</item>
+        <item>Anum</item>
+        <item>Anum Apapam</item>
+        <item>Anwankwanta</item>
+        <item>Anweaso</item>
+        <item>Anweaso</item>
+        <item>Anwiam</item>
+        <item>Anwiam</item>
+        <item>Anwona Beach Kansaworado</item>
+        <item>Anyaa</item>
+        <item>Anyaboni</item>
+        <item>Anyako</item>
+        <item>Anyamam</item>
+        <item>Anyanso</item>
+        <item>Anyansu</item>
+        <item>Anyanui</item>
+        <item>Anyima</item>
+        <item>Anyinabrim</item>
+        <item>Anyinam</item>
+        <item>Anyinase</item>
+        <item>Anyinasu</item>
+        <item>Anyinasuso</item>
+        <item>Anyinofi</item>
+        <item>Anyirawase</item>
+        <item>Apaah</item>
+        <item>Apagya</item>
+        <item>Apam</item>
+        <item>Apapasu</item>
+        <item>Apataim</item>
+        <item>Apedwa</item>
+        <item>Apeguso</item>
+        <item>Apemenyim</item>
+        <item>Apenkwa</item>
+        <item>Aperade</item>
+        <item>Apese No.2</item>
+        <item>Apesika</item>
+        <item>Apesika</item>
+        <item>Apesokubi</item>
+        <item>Apesokubi</item>
+        <item>Apinamang</item>
+        <item>Apinso</item>
+        <item>Apirede</item>
+        <item>Apitisu</item>
+        <item>Apodabogo</item>
+        <item>Apowa</item>
+        <item>Apremdo</item>
+        <item>Apromase</item>
+        <item>Arigu</item>
+        <item>Asaafa</item>
+        <item>Asaaman</item>
+        <item>Asafo</item>
+        <item>Asafo</item>
+        <item>Asafo</item>
+        <item>Asafo</item>
+        <item>Asakraka</item>
+        <item>Asam</item>
+        <item>Asamama</item>
+        <item>Asaman</item>
+        <item>Asamang</item>
+        <item>Asamankese</item>
+        <item>Asankare</item>
+        <item>Asankran-Bremang</item>
+        <item>Asankran-Saa</item>
+        <item>Asanta</item>
+        <item>Asantekrom</item>
+        <item>Asanti-Kpoeta</item>
+        <item>Asanyansa</item>
+        <item>Asasetere</item>
+        <item>Asasitre Enyinabrim</item>
+        <item>Asato</item>
+        <item>Asato Wawaso</item>
+        <item>Asawasi</item>
+        <item>Asawinso Anhwaso</item>
+        <item>Asebi</item>
+        <item>Asebu</item>
+        <item>Asebu Ekroful</item>
+        <item>Asemasa</item>
+        <item>Asemkrom</item>
+        <item>Asempa Nlaye</item>
+        <item>Asenamaso</item>
+        <item>Asene</item>
+        <item>Asenema</item>
+        <item>Asere</item>
+        <item>Aserewadi</item>
+        <item>Asesewa</item>
+        <item>Ashakoko</item>
+        <item>Ashaley Botwe</item>
+        <item>Ashanti Newtown</item>
+        <item>Ashongman</item>
+        <item>Asiakwa</item>
+        <item>Asiekpe</item>
+        <item>Asikasu</item>
+        <item>Asikuma</item>
+        <item>Asikuma</item>
+        <item>Asikuma</item>
+        <item>Asilevikope</item>
+        <item>Asite Mannnwam</item>
+        <item>Asokore</item>
+        <item>Asokwa</item>
+        <item>Asona</item>
+        <item>Asotwe</item>
+        <item>Assakae</item>
+        <item>Assasan</item>
+        <item>Assin Achiano - pop. 1577</item>
+        <item>Assin Adiembra</item>
+        <item>Assin Akonfudi - pop. 3762</item>
+        <item>Assin Akropong</item>
+        <item>Assin Akyiase</item>
+        <item>Assin Anyinabrim</item>
+        <item>Assin Asamankese</item>
+        <item>Assin Asempaneye - pop. 1588</item>
+        <item>Assin Atonsu - pop. 1441</item>
+        <item>Assin Awsem - pop. 2427</item>
+        <item>Assin Becliadua</item>
+        <item>Assin Breku - pop. 5985</item>
+        <item>Assin Brofoyedur - pop. 1339</item>
+        <item>Assin Dansame - pop. 2561</item>
+        <item>Assin Darmang/Nsuaem</item>
+        <item>Assin Dompem - pop. 2211</item>
+        <item>Assin Endwa - pop. 1422</item>
+        <item>Assin Fosu - pop. 22837</item>
+        <item>Assin Jakai</item>
+        <item>Assin Juaso</item>
+        <item>Assin Kushea</item>
+        <item>Assin Manso</item>
+        <item>Assin Ngresi</item>
+        <item>Assin Nsuta</item>
+        <item>Assin Nyankomasi</item>
+        <item>Assin Ongwa (Aworoso)</item>
+        <item>Assin Praso</item>
+        <item>Assin Wurakese (Assin Worakese)</item>
+        <item>Assorko Essaman</item>
+        <item>Asuadei</item>
+        <item>Asuahyia</item>
+        <item>Asuakwaa</item>
+        <item>Asuansi</item>
+        <item>Asuboa</item>
+        <item>Asuboa</item>
+        <item>Asuboi</item>
+        <item>Asuboni No.3</item>
+        <item>Asuboni Rail</item>
+        <item>Asuderi</item>
+        <item>Asuentaa</item>
+        <item>Asueyi</item>
+        <item>Asukawkaw</item>
+        <item>Asukese No. 2</item>
+        <item>Asumenya</item>
+        <item>Asummura</item>
+        <item>Asunafo</item>
+        <item>Asundua</item>
+        <item>Asunu No.1</item>
+        <item>Asuofua</item>
+        <item>Asuom</item>
+        <item>Asuosu</item>
+        <item>Asuotiano</item>
+        <item>Asutsuare</item>
+        <item>Asutuare</item>
+        <item>Asylum Down</item>
+        <item>Ata Kofi</item>
+        <item>Ataase</item>
+        <item>Atabui</item>
+        <item>Atebubu</item>
+        <item>Atesa</item>
+        <item>Atiankama-Nkwanta</item>
+        <item>Atiavi</item>
+        <item>Atibie</item>
+        <item>Atibie Amanfrom</item>
+        <item>Atidzive</item>
+        <item>Atieku</item>
+        <item>Atikpui</item>
+        <item>Atimatim</item>
+        <item>Atimpoku</item>
+        <item>Atiteti</item>
+        <item>Atobiase</item>
+        <item>Atomfoso</item>
+        <item>Atonsu</item>
+        <item>Atonsu-Agogo</item>
+        <item>Atonsuagya</item>
+        <item>Atorkor</item>
+        <item>Atrobinya</item>
+        <item>Atronie</item>
+        <item>Atronsu</item>
+        <item>Atsieve</item>
+        <item>Atua</item>
+        <item>Atuabo</item>
+        <item>Atuabo</item>
+        <item>Atuna</item>
+        <item>Atwere and Hiakosi</item>
+        <item>Atwereboanda</item>
+        <item>Atwima</item>
+        <item>Atwima Koforidua</item>
+        <item>Atwima-Agogo</item>
+        <item>Avakpedome</item>
+        <item>Avakpo</item>
+        <item>Ave Dakpa</item>
+        <item>Ave-Afiadenyigba</item>
+        <item>Ave-Dakpa</item>
+        <item>Ave-Dzadzepe</item>
+        <item>Ave-Havi</item>
+        <item>Avenor</item>
+        <item>Avenorpedo</item>
+        <item>Avenorpeme</item>
+        <item>Aveyime</item>
+        <item>Aveyime</item>
+        <item>Avoeme</item>
+        <item>Awabre</item>
+        <item>Awaso</item>
+        <item>Awatia</item>
+        <item>Awchana-Yeri</item>
+        <item>Awebo</item>
+        <item>Awemare</item>
+        <item>Awisa</item>
+        <item>Awisam</item>
+        <item>Awoase</item>
+        <item>Awonakrom</item>
+        <item>Aworowa</item>
+        <item>Awoshie</item>
+        <item>Awukugua</item>
+        <item>Awurasa</item>
+        <item>Awutu Bereku</item>
+        <item>Awutu Senya Bawjiase</item>
+        <item>Axim</item>
+        <item>Ayafuri</item>
+        <item>Ayanfure</item>
+        <item>Ayeldu</item>
+        <item>Ayerede</item>
+        <item>Ayernya</item>
+        <item>Ayetepa</item>
+        <item>Ayi Mensa</item>
+        <item>Ayiem</item>
+        <item>Ayiensu</item>
+        <item>Ayigya</item>
+        <item>Ayikuma</item>
+        <item>Ayimom</item>
+        <item>Ayinawafe</item>
+        <item>Ayiribi</item>
+        <item>Ayiribikrom</item>
+        <item>Ayitikope</item>
+        <item>Aymamae</item>
+        <item>Ayomfo</item>
+        <item>Azuleloanu</item>
+        <item>Azuwera</item>
+        <item>Ba</item>
+        <item>Baabiaraneha</item>
+        <item>Baaglo</item>
+        <item>Baantama</item>
+        <item>Babaso</item>
+        <item>Babatokuma</item>
+        <item>Babianihaa</item>
+        <item>Babile</item>
+        <item>Bachalbado</item>
+        <item>Badu</item>
+        <item>Baduli</item>
+        <item>Bagape</item>
+        <item>Bagbiapi</item>
+        <item>Bagmare</item>
+        <item>Bagurugu</item>
+        <item>Baika</item>
+        <item>Bajamse</item>
+        <item>Bakanta</item>
+        <item>Bakoniaba</item>
+        <item>Bakpaba</item>
+        <item>Bale</item>
+        <item>Balfikrom</item>
+        <item>Balungu-Gantorisi</item>
+        <item>Bamboi</item>
+        <item>Bamiankor</item>
+        <item>Banaso</item>
+        <item>Banda</item>
+        <item>Banda</item>
+        <item>Banda Ahenkro</item>
+        <item>Banda Boase</item>
+        <item>Banda Nkwanta</item>
+        <item>Banda-Nkwanta</item>
+        <item>Bandae</item>
+        <item>Bandayili</item>
+        <item>Bangwam</item>
+        <item>Baniko</item>
+        <item>Banka</item>
+        <item>Bankamba</item>
+        <item>Banko</item>
+        <item>Bansa</item>
+        <item>Banso</item>
+        <item>Banso</item>
+        <item>Banso</item>
+        <item>Bantang</item>
+        <item>Bantoma</item>
+        <item>Banu</item>
+        <item>Banu-Bassisan</item>
+        <item>Barae</item>
+        <item>Barekese</item>
+        <item>Barekese</item>
+        <item>Barwa Barracks</item>
+        <item>Basake</item>
+        <item>Basie</item>
+        <item>Basirisan</item>
+        <item>Bassa</item>
+        <item>Batanyaa</item>
+        <item>Battor</item>
+        <item>Battorkope/Kwabia Battor</item>
+        <item>Batume</item>
+        <item>Bau</item>
+        <item>Bawakrom</item>
+        <item>Bawdie</item>
+        <item>Bawdua</item>
+        <item>Bawena</item>
+        <item>Bawiesibai</item>
+        <item>Bawku</item>
+        <item>Bayere-Nkwanta</item>
+        <item>Beahu</item>
+        <item>Bechem</item>
+        <item>Bedeku</item>
+        <item>Bediako</item>
+        <item>Bediakokrom</item>
+        <item>Bedomase</item>
+        <item>Begoro</item>
+        <item>Beku</item>
+        <item>Bekwai</item>
+        <item>Benchema</item>
+        <item>Bende</item>
+        <item>Benehema</item>
+        <item>Benim</item>
+        <item>Benkasem Kuture No. 2</item>
+        <item>Benso</item>
+        <item>Bepoase</item>
+        <item>Bepoase</item>
+        <item>Bepong</item>
+        <item>Beposo</item>
+        <item>Beposo</item>
+        <item>Beposo</item>
+        <item>Berekum</item>
+        <item>Berekuso - pop. 1391</item>
+        <item>Besease</item>
+        <item>Besease</item>
+        <item>Besoro</item>
+        <item>Bethelehem</item>
+        <item>Bethelehem</item>
+        <item>Betiako</item>
+        <item>Bewuanum</item>
+        <item>Beyin</item>
+        <item>Biadam</item>
+        <item>Biaso</item>
+        <item>Bibiani</item>
+        <item>Bielikpang</item>
+        <item>Biemso I</item>
+        <item>Biemso II</item>
+        <item>Bilaw</item>
+        <item>Billaw</item>
+        <item>Bimbago</item>
+        <item>Bimbilla</item>
+        <item>Binaba</item>
+        <item>Binaba Central Kamega</item>
+        <item>Bincheratanga</item>
+        <item>Binduri</item>
+        <item>Binsere</item>
+        <item>Bipoe</item>
+        <item>Birem</item>
+        <item>Biribiwomang</item>
+        <item>Birim Aboe</item>
+        <item>Biriwa</item>
+        <item>Bisa</item>
+        <item>Bisibom</item>
+        <item>Biu</item>
+        <item>Biung</item>
+        <item>Bladjai</item>
+        <item>Blekusu</item>
+        <item>Boafri</item>
+        <item>Boamang</item>
+        <item>Boanim</item>
+        <item>Bobidi Nkwanta</item>
+        <item>Bobikuma</item>
+        <item>Bobriase</item>
+        <item>Bodada</item>
+        <item>Bodi</item>
+        <item>Bodinka</item>
+        <item>Bodomase</item>
+        <item>Bodwase Fantse</item>
+        <item>Bodwesango</item>
+        <item>Bofaso</item>
+        <item>Bofoyili</item>
+        <item>Bogdoo</item>
+        <item>Bogorogo</item>
+        <item>Bogoso</item>
+        <item>Bogyawe</item>
+        <item>Boinso</item>
+        <item>Boizan</item>
+        <item>Bole</item>
+        <item>Bolga-Nkwanta</item>
+        <item>Bolgatanga</item>
+        <item>Boli</item>
+        <item>Bomaa</item>
+        <item>Bomaa</item>
+        <item>Bomburi</item>
+        <item>Bomen</item>
+        <item>Bomfa</item>
+        <item>Bomfa</item>
+        <item>Bomini and Pinihi</item>
+        <item>Bomireso</item>
+        <item>Bompata</item>
+        <item>Bonakye</item>
+        <item>Bonbonayili</item>
+        <item>Bondai</item>
+        <item>Bonga</item>
+        <item>Bongo</item>
+        <item>Bongo-Nyariga</item>
+        <item>Boni (Behenase)</item>
+        <item>Bonia</item>
+        <item>Bonikope Songor</item>
+        <item>Bonkrom</item>
+        <item>Bonkrom</item>
+        <item>Bonsu</item>
+        <item>Bonsu Nkwanta</item>
+        <item>Bonte</item>
+        <item>Bontibor</item>
+        <item>Bontrase</item>
+        <item>Bonuama</item>
+        <item>Bonwire</item>
+        <item>Bonyere</item>
+        <item>Bonyon</item>
+        <item>Boo</item>
+        <item>Booti</item>
+        <item>Bopa</item>
+        <item>Borae No. 2</item>
+        <item>Boro</item>
+        <item>Bortianor</item>
+        <item>Bosikese</item>
+        <item>Boso</item>
+        <item>Bosomoiso</item>
+        <item>Bososo</item>
+        <item>Botodwina</item>
+        <item>Botokrom</item>
+        <item>Bowiri</item>
+        <item>Bowiri Amanforo</item>
+        <item>Brafoyaw</item>
+        <item>Brahabebome</item>
+        <item>Brahoho</item>
+        <item>Brakwa</item>
+        <item>Branam</item>
+        <item>Braso</item>
+        <item>Breku</item>
+        <item>Breman</item>
+        <item>Breman Amanfopong</item>
+        <item>Breman Amoanda</item>
+        <item>Breman Anhwaim</item>
+        <item>Breman Ayipey</item>
+        <item>Breman Baako</item>
+        <item>Breman Bedum</item>
+        <item>Breman Benin</item>
+        <item>Breman Brakwa</item>
+        <item>Breman Fosuansa</item>
+        <item>Breman Jara</item>
+        <item>Breman Kokoso</item>
+        <item>Breman Kuntanase</item>
+        <item>Breman Nwomaso</item>
+        <item>Breman Nyamebekyere</item>
+        <item>Breman Odoben</item>
+        <item>Breme</item>
+        <item>Brenase</item>
+        <item>Brepaw Sisi</item>
+        <item>Bresoano No. 1</item>
+        <item>Bresoano No. 2</item>
+        <item>Brewaniase</item>
+        <item>Brewaniase</item>
+        <item>Brodi</item>
+        <item>Brofoyeduru</item>
+        <item>Brohani</item>
+        <item>Brong Densuso</item>
+        <item>Bronyibima</item>
+        <item>Bronyikrom</item>
+        <item>Brugbani</item>
+        <item>Brumben</item>
+        <item>Brutu</item>
+        <item>Bu</item>
+        <item>Buabin</item>
+        <item>Buabinso</item>
+        <item>Buachipe</item>
+        <item>Buaka</item>
+        <item>Bubuashie</item>
+        <item>Buduburam</item>
+        <item>Buerko</item>
+        <item>Bugbelle</item>
+        <item>Bugri</item>
+        <item>Bugrunu</item>
+        <item>Bugu</item>
+        <item>Bui</item>
+        <item>Buipe</item>
+        <item>Bukanor</item>
+        <item>Bukom</item>
+        <item>Bulenga</item>
+        <item>Buli</item>
+        <item>Bulugu</item>
+        <item>Bungeli</item>
+        <item>Bunkpurugu</item>
+        <item>Bunso</item>
+        <item>Buokrom/Buokrom Estate</item>
+        <item>Buoyem</item>
+        <item>Burai</item>
+        <item>Burma Camp</item>
+        <item>Burukuso</item>
+        <item>Busa</item>
+        <item>Bussie</item>
+        <item>Busua</item>
+        <item>Busuama</item>
+        <item>Busunu</item>
+        <item>Busunya</item>
+        <item>Butie</item>
+        <item>Butumagyebu Effia Nkwanta</item>
+        <item>Buya</item>
+        <item>Camp No. 1</item>
+        <item>Canteen</item>
+        <item>Cape Coast (Cape Vars/Ola)</item>
+        <item>Cape Coast (Pedu/Abora)</item>
+        <item>Cape St. Paul</item>
+        <item>Cape Three Points</item>
+        <item>Chache</item>
+        <item>Chaggu (Chako)</item>
+        <item>Chaisa</item>
+        <item>Chama</item>
+        <item>Chamba</item>
+        <item>Chanayili</item>
+        <item>Chanchangu</item>
+        <item>Changbuni</item>
+        <item>Chantan</item>
+        <item>Chapuri</item>
+        <item>Charia</item>
+        <item>Charkudo</item>
+        <item>Chasia</item>
+        <item>Chatali</item>
+        <item>Chemfe</item>
+        <item>Chemuna</item>
+        <item>Chepuri</item>
+        <item>Cherembo</item>
+        <item>Chereponi</item>
+        <item>Chereponi</item>
+        <item>Chia</item>
+        <item>Chiana</item>
+        <item>Chibrungo</item>
+        <item>Chichari</item>
+        <item>Chinderi</item>
+        <item>Chiok-Alonga Yeri</item>
+        <item>Chiraa</item>
+        <item>Chirano</item>
+        <item>Chirehin</item>
+        <item>Chirifoyili</item>
+        <item>northern Region</item>
+        <item>Chiripo</item>
+        <item>Choo</item>
+        <item>Chorkor</item>
+        <item>Christianborg</item>
+        <item>Chuchuliga Central</item>
+        <item>Coaltar</item>
+        <item>Daaho</item>
+        <item>Dabala</item>
+        <item>Dabala Junction</item>
+        <item>Daboase</item>
+        <item>Daboase Nkwanta (old)</item>
+        <item>Dabogni</item>
+        <item>Dabopi</item>
+        <item>Dabori</item>
+        <item>Daboya</item>
+        <item>Dadease</item>
+        <item>Dadieso</item>
+        <item>Dadiesoaba</item>
+        <item>Dado</item>
+        <item>Dadwen</item>
+        <item>Daffiama</item>
+        <item>Dafo</item>
+        <item>Dafor</item>
+        <item>Dagbiriboari</item>
+        <item>Dagonkadi</item>
+        <item>Dakpam</item>
+        <item>Dalun</item>
+        <item>Dama-Nkwanta</item>
+        <item>Damang</item>
+        <item>Damaniko</item>
+        <item>Damanko</item>
+        <item>Dambai</item>
+        <item>Damongo</item>
+        <item>Dampong</item>
+        <item>Danko</item>
+        <item>Dansoman</item>
+        <item>Dantano</item>
+        <item>Danyame</item>
+        <item>Dapa</item>
+        <item>Dapaah Amanta</item>
+        <item>Darkuman</item>
+        <item>Darmang - pop. 933</item>
+        <item>Darso</item>
+        <item>Dasanyi</item>
+        <item>Datako-Kurbor</item>
+        <item>Datano</item>
+        <item>Datano</item>
+        <item>Dawa</item>
+        <item>Dawadawa</item>
+        <item>Dawhenya</item>
+        <item>Dawhenya New Site</item>
+        <item>Dawu</item>
+        <item>Dawurampong</item>
+        <item>Dawurampong</item>
+        <item>Deabenekrom</item>
+        <item>Debiribi</item>
+        <item>Dededo</item>
+        <item>Dedenya</item>
+        <item>Dedeso</item>
+        <item>Dedeso Wireko</item>
+        <item>Degbila</item>
+        <item>Degwiwu</item>
+        <item>Deme</item>
+        <item>Demon</item>
+        <item>Demon</item>
+        <item>Dena</item>
+        <item>Densubon</item>
+        <item>Dentenso</item>
+        <item>Denu</item>
+        <item>Derma</item>
+        <item>Devego</item>
+        <item>Diabaa</item>
+        <item>Diabakrom</item>
+        <item>Diare</item>
+        <item>Diasempa</item>
+        <item>Diaso</item>
+        <item>Dichemso</item>
+        <item>Digma</item>
+        <item>Dimajan</item>
+        <item>Disiga</item>
+        <item>Dixcove</item>
+        <item>Dodi</item>
+        <item>Dodi Mempeasem</item>
+        <item>Dodi Papase</item>
+        <item>Dodi-Papase</item>
+        <item>Dodo Pepesu</item>
+        <item>Dodo Tamale</item>
+        <item>Dodo-Amanfrom</item>
+        <item>Dodo-fie</item>
+        <item>Dodowa</item>
+        <item>Dogokrom</item>
+        <item>Dokrokyewa</item>
+        <item>Dokutse</item>
+        <item>Domanya</item>
+        <item>Dome</item>
+        <item>Dome</item>
+        <item>Domeabra</item>
+        <item>Domeabra</item>
+        <item>Domeabra</item>
+        <item>Domenase</item>
+        <item>Domfete</item>
+        <item>Domi-Keniago</item>
+        <item>Domiabra</item>
+        <item>Dominase</item>
+        <item>Dominase</item>
+        <item>Dominase</item>
+        <item>Dominase</item>
+        <item>Dominase</item>
+        <item>Dominibo</item>
+        <item>Dompim Bawdie</item>
+        <item>Dompim-Pepesa</item>
+        <item>Dompoase</item>
+        <item>Doninga</item>
+        <item>Donkponkwanta</item>
+        <item>Donkro Nkwanta</item>
+        <item>Donyina</item>
+        <item>Dorfor Adidome</item>
+        <item>Doriman</item>
+        <item>Dormaa-Ahenkro</item>
+        <item>Dormaa-Akwamu (Awiam)</item>
+        <item>Dormabin</item>
+        <item>Dorymu</item>
+        <item>Dotobaa</item>
+        <item>Dove</item>
+        <item>Doweni</item>
+        <item>Drakofe</item>
+        <item>Drobe</item>
+        <item>Drobon</item>
+        <item>Drobonso</item>
+        <item>Dromankese</item>
+        <item>Dromankuma</item>
+        <item>Dua</item>
+        <item>Dua Apuwongo</item>
+        <item>Duabone No. 1</item>
+        <item>Duabone No. 2</item>
+        <item>Duaburoni</item>
+        <item>Duadaso II</item>
+        <item>Duadaso No.1</item>
+        <item>Duakor</item>
+        <item>Duakwa</item>
+        <item>Duayaw-Nkwanta</item>
+        <item>Ducie</item>
+        <item>Duffor</item>
+        <item>Duga-Kpalime</item>
+        <item>Dukusen</item>
+        <item>Dumasua</item>
+        <item>Dumienu</item>
+        <item>Dungu</item>
+        <item>Dunkwa Junction</item>
+        <item>Dunkwa-on-Offin</item>
+        <item>Duong</item>
+        <item>Dutch Komenda</item>
+        <item>Duu</item>
+        <item>Duu</item>
+        <item>Duu</item>
+        <item>Duusi</item>
+        <item>Dwaaho</item>
+        <item>Dwease</item>
+        <item>Dwenase</item>
+        <item>Dwendwenase</item>
+        <item>Dwenem</item>
+        <item>Dwija</item>
+        <item>Dwinyama</item>
+        <item>Dwokwa</item>
+        <item>Dwomo</item>
+        <item>Dzalele</item>
+        <item>Dzana</item>
+        <item>Dzelukope</item>
+        <item>Dzindziso</item>
+        <item>Dzita</item>
+        <item>Dzita-Agbledomi</item>
+        <item>Dzodze</item>
+        <item>Dzogadze</item>
+        <item>Dzogbedze</item>
+        <item>Dzogbedzi</item>
+        <item>Dzolo-Gbogame</item>
+        <item>Dzorwulu</item>
+        <item>Below:</item>
+        <item>East Cantonments</item>
+        <item>East Legon</item>
+        <item>East Legon (Okponglo)</item>
+        <item>East Ridge</item>
+        <item>East Tanokrom</item>
+        <item>Edu</item>
+        <item>Edubia</item>
+        <item>Edumase</item>
+        <item>Edumifa</item>
+        <item>Effia</item>
+        <item>Effia-Kuma</item>
+        <item>Effiduase</item>
+        <item>Effutu</item>
+        <item>Eguafo</item>
+        <item>Eguafo</item>
+        <item>Egyam</item>
+        <item>Egyambra</item>
+        <item>Ehiamankyene</item>
+        <item>Ehiamankyene-Odumase</item>
+        <item>Ehie Tedzewu</item>
+        <item>Eikwe</item>
+        <item>Eikwe</item>
+        <item>Ejian</item>
+        <item>Ejisu</item>
+        <item>Ejura</item>
+        <item>Ejura Nkwanta</item>
+        <item>Ekon</item>
+        <item>Ekoso</item>
+        <item>Ekowso</item>
+        <item>Ekpu</item>
+        <item>Ekrawfo</item>
+        <item>Ekumdipe</item>
+        <item>Ekumpoanu</item>
+        <item>Ekumudi</item>
+        <item>Ekuropong</item>
+        <item>Ekye Amanfrom</item>
+        <item>Ekyiamenfurom</item>
+        <item>Ellenda</item>
+        <item>Elloyin</item>
+        <item>Elluokrom</item>
+        <item>Elmina</item>
+        <item>Elmina-Tetteh Kessim</item>
+        <item>Elubo</item>
+        <item>Enchi</item>
+        <item>Entumbil</item>
+        <item>Enyan Denkyira</item>
+        <item>Enyan-Maim</item>
+        <item>Enyanmanso</item>
+        <item>Enyiresi</item>
+        <item>Eremon Yagra Ku-Ongzigre</item>
+        <item>Eremon-Kuo-Ang (Naburanye)</item>
+        <item>Eremon-Zinpen</item>
+        <item>Esaase</item>
+        <item>Esalikawu</item>
+        <item>Esereso</item>
+        <item>Eshiem</item>
+        <item>Eshiem</item>
+        <item>Esiama</item>
+        <item>Essaman</item>
+        <item>Essaman Junction</item>
+        <item>Essamang</item>
+        <item>Essarkyir Abor</item>
+        <item>Essem</item>
+        <item>Essienimpong</item>
+        <item>Essikando</item>
+        <item>Essipon</item>
+        <item>Essueshia</item>
+        <item>Essuonwin</item>
+        <item>Esuakrom</item>
+        <item>Esumeja</item>
+        <item>Etsi-Sonkwa</item>
+        <item>Ewusiejo</item>
+        <item>Eyisam</item>
+        <item>Ezinlibo</item>
+        <item>Fante New Town</item>
+        <item>Fanti Nyankomasi (Fante Nyankomase)</item>
+        <item>Farifari</item>
+        <item>Fawamam</item>
+        <item>Fawoade</item>
+        <item>Fawohoyeden</item>
+        <item>Fawomang</item>
+        <item>Fawomanye</item>
+        <item>Fena</item>
+        <item>Fenyi Yokoe</item>
+        <item>Feo-Nabisi</item>
+        <item>Fereso No. 2</item>
+        <item>Fesi</item>
+        <item>Fetentaa</item>
+        <item>Fiakonya</item>
+        <item>Fian</item>
+        <item>Fianko</item>
+        <item>Fiankoma</item>
+        <item>Fiapre</item>
+        <item>fiaso</item>
+        <item>Fiave-Dugame</item>
+        <item>Fielmon</item>
+        <item>Fijai</item>
+        <item>Fimbo</item>
+        <item>Finimado</item>
+        <item>Fintey</item>
+        <item>Foase (Foasi)</item>
+        <item>Fodoa</item>
+        <item>Fomena</item>
+        <item>Forifori</item>
+        <item>Forkpe</item>
+        <item>Forty-four</item>
+        <item>Fosu</item>
+        <item>Fotobi - pop. 2008</item>
+        <item>Frankadua</item>
+        <item>Frante</item>
+        <item>Fuchmbluma</item>
+        <item>Fufuo</item>
+        <item>Fulfoso</item>
+        <item>Fulfusu</item>
+        <item>Fumbis-Baansa</item>
+        <item>fumbis-Kasisa</item>
+        <item>Fumbisi</item>
+        <item>Fumbisi-Naadem</item>
+        <item>Fumesua</item>
+        <item>Fumsi</item>
+        <item>Fumso</item>
+        <item>Funko</item>
+        <item>Fuu</item>
+        <item>Below:</item>
+        <item>Ga</item>
+        <item>Gaa</item>
+        <item>Galaka</item>
+        <item>Gambaga</item>
+        <item>Gambia I</item>
+        <item>Gambia II</item>
+        <item>Gambibigo-Azuabisi</item>
+        <item>Garadima</item>
+        <item>Garinkuka</item>
+        <item>Gbal</item>
+        <item>Gbalga</item>
+        <item>Gbambaya</item>
+        <item>Gbandaa</item>
+        <item>Gbandi</item>
+        <item>Gbantala</item>
+        <item>Gbari</item>
+        <item>Gbasinkpa</item>
+        <item>Gbateto</item>
+        <item>Gbedema-Jagsa-Garibiemsa</item>
+        <item>Gbedema-Kunkwak</item>
+        <item>Gbefi-Hoeme</item>
+        <item>Gbefi-Tornu</item>
+        <item>Gbegbeyise</item>
+        <item>Gbegu</item>
+        <item>Gbeini</item>
+        <item>Gbemfo</item>
+        <item>Gbesemi</item>
+        <item>Gbi Wegbe</item>
+        <item>Gbimsi</item>
+        <item>Gbintiri</item>
+        <item>Gbogu</item>
+        <item>Gbrimani</item>
+        <item>Gbulahagu</item>
+        <item>Gbullung</item>
+        <item>Gbulumpe</item>
+        <item>Gbung</item>
+        <item>Gbungbalga</item>
+        <item>Gbungbaliga</item>
+        <item>Geluwei</item>
+        <item>Gigedokum</item>
+        <item>Gitase</item>
+        <item>Gmanicheri</item>
+        <item>Gnani</item>
+        <item>Goaso</item>
+        <item>Goi</item>
+        <item>Goka</item>
+        <item>Gokoron</item>
+        <item>Goli</item>
+        <item>Golokuati</item>
+        <item>Gomoa Feteh</item>
+        <item>Gomoa Otuam</item>
+        <item>Gomoa Tarkwa</item>
+        <item>Gongnia</item>
+        <item>Gonnokrom</item>
+        <item>Googo</item>
+        <item>Gor-Kukani</item>
+        <item>Gore</item>
+        <item>Gorgu</item>
+        <item>Goripie</item>
+        <item>Gorogo</item>
+        <item>Gororo Yikpemeri</item>
+        <item>Goviefe Todzi</item>
+        <item>Gowrie Nayire Central Zoko-Gambrongo-Azaabisi</item>
+        <item>Gowrie-Tingre</item>
+        <item>Gozankope</item>
+        <item>Grube</item>
+        <item>Grubi</item>
+        <item>Guabulga</item>
+        <item>Gulubi</item>
+        <item>Gulubi Quarters</item>
+        <item>Gumari</item>
+        <item>Gumbo</item>
+        <item>Gundaa</item>
+        <item>Gunsi</item>
+        <item>Guri</item>
+        <item>Guru Natinga</item>
+        <item>Gurugu</item>
+        <item>Gushie</item>
+        <item>Gushiegu</item>
+        <item>Gwallu</item>
+        <item>Gwira Banso</item>
+        <item>Gwo</item>
+        <item>Gwosi</item>
+        <item>Gyadem</item>
+        <item>Gyakai</item>
+        <item>Gyakiti (Gyekiti)</item>
+        <item>Gyapa</item>
+        <item>Gyedu</item>
+        <item>Gyedua</item>
+        <item>Gyema</item>
+        <item>Gyenegyene</item>
+        <item>Below:</item>
+        <item>Haatso</item>
+        <item>Half Assini</item>
+        <item>Hamile</item>
+        <item>Hamoro</item>
+        <item>Han</item>
+        <item>Harglakarpe</item>
+        <item>Hatorgodo</item>
+        <item>Hausakope</item>
+        <item>Have</item>
+        <item>Have Etoe</item>
+        <item>Hedzranawo</item>
+        <item>Helekpe</item>
+        <item>Helevi</item>
+        <item>Helu</item>
+        <item>Heluivi</item>
+        <item>Helvetica</item>
+        <item>Helvetica</item>
+        <item>Henyum</item>
+        <item>Hevi (Xevi)</item>
+        <item>Hia</item>
+        <item>Hian</item>
+        <item>Hiawa</item>
+        <item>Hiawoanwu</item>
+        <item>Hikpo</item>
+        <item>Ho</item>
+        <item>Ho</item>
+        <item>Hohoe</item>
+        <item>Honuta</item>
+        <item>Hotopo</item>
+        <item>Huapa</item>
+        <item>Huhunya</item>
+        <item>Humjibre</item>
+        <item>Huni Valley</item>
+        <item>Huntodo</item>
+        <item>Huu</item>
+        <item>Hwdiem</item>
+        <item>Hwenampori</item>
+        <item>Hwidiem</item>
+        <item>Imbraim</item>
+        <item>Immuna</item>
+        <item>Inchaban</item>
+        <item>Independence Avenue</item>
+        <item>Issa</item>
+        <item>Jaba</item>
+        <item>Jadima</item>
+        <item>Jafor</item>
+        <item>Jakobu</item>
+        <item>Jama</item>
+        <item>Jamasi</item>
+        <item>Jamede</item>
+        <item>Jamera</item>
+        <item>Jameso Nkwanta</item>
+        <item>Jamra</item>
+        <item>Jandra</item>
+        <item>Jang</item>
+        <item>Jang</item>
+        <item>Janga</item>
+        <item>Janga</item>
+        <item>Japekrom</item>
+        <item>Jasikan</item>
+        <item>Jato</item>
+        <item>Jawani</item>
+        <item>Jawia</item>
+        <item>Jayondo</item>
+        <item>Jeduako</item>
+        <item>Jeffisi</item>
+        <item>Jegbuni</item>
+        <item>Jeinsusa</item>
+        <item>Jejeti</item>
+        <item>Jema</item>
+        <item>Jema</item>
+        <item>Jemile</item>
+        <item>Jerigu</item>
+        <item>Jewi Wharf</item>
+        <item>Jeyiri</item>
+        <item>Jimbale</item>
+        <item>Jindabuo</item>
+        <item>Jinfranu</item>
+        <item>Jinpasi</item>
+        <item>Jirapa</item>
+        <item>Jisonayili</item>
+        <item>Jogboi</item>
+        <item>Jombo</item>
+        <item>Jomo</item>
+        <item>Jonokponto</item>
+        <item>Juaben</item>
+        <item>Juabeso</item>
+        <item>Juabo</item>
+        <item>Juaho</item>
+        <item>Juali</item>
+        <item>Juansa</item>
+        <item>Juapong</item>
+        <item>Juaso</item>
+        <item>Juaso</item>
+        <item>Jukwa</item>
+        <item>Jukwa</item>
+        <item>Jumo</item>
+        <item>Junle</item>
+        <item>Juo</item>
+        <item>Towns beginning with L</item>
+        <item>First</item>
+        <item>Labadi-Aborm</item>
+        <item>Labo</item>
+        <item>Labolabo</item>
+        <item>Lailai</item>
+        <item>Lakpleku</item>
+        <item>Lambussie</item>
+        <item>Lampel</item>
+        <item>Langa</item>
+        <item>Langantre</item>
+        <item>Langasi</item>
+        <item>Langbensi</item>
+        <item>Langbinsi</item>
+        <item>Langogu</item>
+        <item>Lanja</item>
+        <item>Larabanga</item>
+        <item>Larekago</item>
+        <item>Laribanga</item>
+        <item>Lartebiokorshie</item>
+        <item>Larteh</item>
+        <item>lashibi</item>
+        <item>Lassi</item>
+        <item>Laura</item>
+        <item>Lave</item>
+        <item>Lawra</item>
+        <item>Lego</item>
+        <item>Lekpongunor</item>
+        <item>Lemu Intrubuso</item>
+        <item>Lepusi</item>
+        <item>Likpe Agbozome</item>
+        <item>Likpe bakwa</item>
+        <item>Likpe Bala</item>
+        <item>Likpe Kukurantumi</item>
+        <item>Lilikse</item>
+        <item>Limo</item>
+        <item>Lineso</item>
+        <item>Lingbinsi</item>
+        <item>Link Road</item>
+        <item>Lissa</item>
+        <item>Loagri No. 1</item>
+        <item>Lobi</item>
+        <item>Logba Alapati</item>
+        <item>Loggo</item>
+        <item>Lolobi Kumasi</item>
+        <item>Lolonya</item>
+        <item>Loloto</item>
+        <item>Longoro</item>
+        <item>Lonto</item>
+        <item>Lorlorvor</item>
+        <item>Lotsubuer</item>
+        <item>Lovi</item>
+        <item>Luari</item>
+        <item>Lumpurgo</item>
+        <item>Lungbunga</item>
+        <item>Lungni</item>
+        <item>Lungu</item>
+        <item>Luntni</item>
+        <item>Luom</item>
+        <item>Lzir</item>
+        <item>All Towns A - Z</item>
+        <item>Kaase</item>
+        <item>Kabaka</item>
+        <item>Kabampe</item>
+        <item>Kablima</item>
+        <item>Kabonwele</item>
+        <item>Kabre Akura</item>
+        <item>Kabronu</item>
+        <item>Kade</item>
+        <item>Kadelso</item>
+        <item>Kadema</item>
+        <item>Kadia</item>
+        <item>Kadjanya</item>
+        <item>Kadjebi</item>
+        <item>Kafaba</item>
+        <item>Kafodzidzi</item>
+        <item>Kajaji</item>
+        <item>Kakasunanka II</item>
+        <item>Kakawere</item>
+        <item>Kakomdo</item>
+        <item>Kakorasua</item>
+        <item>Kakpayili (Kapayili)</item>
+        <item>Kakum</item>
+        <item>Kalba</item>
+        <item>Kaleo</item>
+        <item>Kalini</item>
+        <item>Kamgbunli</item>
+        <item>Kamina Barracks</item>
+        <item>Kamsoria</item>
+        <item>Kanania</item>
+        <item>Kananta</item>
+        <item>Kananto</item>
+        <item>Kanda Estate</item>
+        <item>Kandiga-Atibabisi</item>
+        <item>Kandige</item>
+        <item>Kandin</item>
+        <item>Kanga</item>
+        <item>Kaniga-Kurugu</item>
+        <item>Kanjarga-Jiningsa</item>
+        <item>Kanjo</item>
+        <item>Kansere</item>
+        <item>Kanseri</item>
+        <item>Kanvilli</item>
+        <item>Kanyaga</item>
+        <item>Kapro</item>
+        <item>Kapua</item>
+        <item>Karaga</item>
+        <item>Karamenga</item>
+        <item>Karlo</item>
+        <item>Karni</item>
+        <item>Kasa</item>
+        <item>Kasaam</item>
+        <item>Kasei</item>
+        <item>Kasuliyili</item>
+        <item>Kasuridabarshe</item>
+        <item>Katali</item>
+        <item>Katanga</item>
+        <item>Katani</item>
+        <item>Katanka</item>
+        <item>Katape II Suponso</item>
+        <item>Katariga</item>
+        <item>Katayiase</item>
+        <item>Katiajeli</item>
+        <item>Katiu</item>
+        <item>Kato</item>
+        <item>Kawampe</item>
+        <item>Kawanopaado</item>
+        <item>Kayoro</item>
+        <item>Kecheibi</item>
+        <item>Kedzi</item>
+        <item>Kejabill</item>
+        <item>Kemase</item>
+        <item>Kenekope</item>
+        <item>Kengen</item>
+        <item>Kensere</item>
+        <item>Kenten</item>
+        <item>Kentuo</item>
+        <item>Kenyase No. I</item>
+        <item>Kenyasi</item>
+        <item>Kenyasi No. 1</item>
+        <item>Keri</item>
+        <item>Keta</item>
+        <item>Ketan</item>
+        <item>Kete Krachi</item>
+        <item>Kewum</item>
+        <item>Kiape</item>
+        <item>Kibi</item>
+        <item>Kijau Bator</item>
+        <item>Kikam</item>
+        <item>Kikam</item>
+        <item>Kimabui</item>
+        <item>Kintampo</item>
+        <item>Kirenkuase</item>
+        <item>Kissi</item>
+        <item>Kitare</item>
+        <item>Kitase - pop. 1804</item>
+        <item>Klave</item>
+        <item>Klebuse</item>
+        <item>Klefe Achatime</item>
+        <item>Klikor</item>
+        <item>Klo Akwapim Yilo</item>
+        <item>Klo-Agogo</item>
+        <item>Kluma Dorfor</item>
+        <item>Kobedi</item>
+        <item>Kobreso</item>
+        <item>Kobriti</item>
+        <item>Kodee</item>
+        <item>Kodiabe</item>
+        <item>Kodzopi Agotime Afegame</item>
+        <item>Kofi Ackaakrom</item>
+        <item>Kofi Asua</item>
+        <item>Kofi Badu Krom</item>
+        <item>Kofi Djan</item>
+        <item>Kofi pare</item>
+        <item>Kofiase</item>
+        <item>Kofiase</item>
+        <item>Koforidua</item>
+        <item>Koforidua</item>
+        <item>Kogle</item>
+        <item>Kogni</item>
+        <item>Kogri</item>
+        <item>Kogyei</item>
+        <item>Kojokrom</item>
+        <item>Kojokrom</item>
+        <item>Kojokrom-Bronyikrom</item>
+        <item>Kojoperi</item>
+        <item>Kokoado</item>
+        <item>Kokoben</item>
+        <item>Kokoben</item>
+        <item>Kokoben Yapessa</item>
+        <item>Kokofu</item>
+        <item>Kokokrom</item>
+        <item>Kokomlemle</item>
+        <item>Kokoso</item>
+        <item>Kokote</item>
+        <item>Kokrobite</item>
+        <item>Kokuma</item>
+        <item>Kolikpo</item>
+        <item>Kolipong (Namo)</item>
+        <item>Kologo</item>
+        <item>Kologo</item>
+        <item>Kolpong</item>
+        <item>Koluedor</item>
+        <item>Komampa</item>
+        <item>Komenda</item>
+        <item>Komfourkrom</item>
+        <item>Komfueko</item>
+        <item>Kona</item>
+        <item>Konfogsi</item>
+        <item>Kong</item>
+        <item>Kong</item>
+        <item>Kongo</item>
+        <item>Kongo</item>
+        <item>Koni Kablu</item>
+        <item>Koniyaw</item>
+        <item>Konkontekope and Otenkope</item>
+        <item>Konkonuru - pop. 1167</item>
+        <item>Konkori</item>
+        <item>Konongo</item>
+        <item>Konya/Brenhoma</item>
+        <item>Kookoase</item>
+        <item>Kopodor</item>
+        <item>Kopota</item>
+        <item>Korania</item>
+        <item>Koraso</item>
+        <item>Kordiabe</item>
+        <item>Korle Gonno</item>
+        <item>Kormantse</item>
+        <item>Korri Alabyeri</item>
+        <item>Kortorkor</item>
+        <item>Kotito No. 1</item>
+        <item>Kotito No. 2</item>
+        <item>Kotito No. 3</item>
+        <item>Kotobabi</item>
+        <item>Kotokori</item>
+        <item>Kotokrom</item>
+        <item>Kotokuom</item>
+        <item>Kotokuom</item>
+        <item>Kotoso</item>
+        <item>Kotua</item>
+        <item>Koue</item>
+        <item>Kpabi</item>
+        <item>Kpabia</item>
+        <item>Kpadui</item>
+        <item>Kpagto</item>
+        <item>Kpalba</item>
+        <item>Kpalbe</item>
+        <item>Kpalbusi</item>
+        <item>Kpalbutabo (Kumbundo)</item>
+        <item>Kpalgagbini</item>
+        <item>Kpalguni</item>
+        <item>Kpalibe</item>
+        <item>Kpalisogu</item>
+        <item>Kpalsako</item>
+        <item>Kpalung</item>
+        <item>Kpandai</item>
+        <item>Kpando</item>
+        <item>Kpandu Torkor</item>
+        <item>Kpani Fishing Village</item>
+        <item>Kpanjamba</item>
+        <item>Kparekpare</item>
+        <item>Kpari</item>
+        <item>Kparigu</item>
+        <item>Kpasa</item>
+        <item>Kpasenkpe</item>
+        <item>Kpasenkpe</item>
+        <item>Kpatari-Bogu</item>
+        <item>Kpatinga</item>
+        <item>Kpatsiremidor</item>
+        <item>Kpedze</item>
+        <item>Kpedzeglo</item>
+        <item>Kpeegu</item>
+        <item>Kpembe</item>
+        <item>Kpeme</item>
+        <item>Kpendua</item>
+        <item>Kperisi</item>
+        <item>Kpetoe</item>
+        <item>Kpetoe</item>
+        <item>Kpetsu</item>
+        <item>Kpeve</item>
+        <item>Kpeve Newtown</item>
+        <item>Kpoglo</item>
+        <item>Kpohe</item>
+        <item>Kpomkpo</item>
+        <item>Kpone</item>
+        <item>Kpong</item>
+        <item>Kpongu</item>
+        <item>Kpongunor</item>
+        <item>Kpormetey</item>
+        <item>Kraboa Coaltar</item>
+        <item>Krabokese</item>
+        <item>Krabonso</item>
+        <item>Krakrom</item>
+        <item>Kranka</item>
+        <item>Krobo</item>
+        <item>Krobo</item>
+        <item>Krobo Odumase (Odumase Krobo)</item>
+        <item>Krofa</item>
+        <item>Krofofrom</item>
+        <item>Krokosue</item>
+        <item>Kromaim</item>
+        <item>Krumuase</item>
+        <item>Kuano</item>
+        <item>Kubari</item>
+        <item>Kubori</item>
+        <item>Kubouko</item>
+        <item>Kudani</item>
+        <item>Kudani</item>
+        <item>Kuga Kpatuya</item>
+        <item>Kugnani</item>
+        <item>Kugri Natinga</item>
+        <item>Kuhyea</item>
+        <item>Kujopere</item>
+        <item>Kukabila</item>
+        <item>Kukpaligu</item>
+        <item>Kuku Hill</item>
+        <item>Kukuo</item>
+        <item>Kukuom</item>
+        <item>Kukurantumi</item>
+        <item>Kukurantumi</item>
+        <item>Kulfuo Tarsaw</item>
+        <item>Kulkpanga</item>
+        <item>Kulmasa</item>
+        <item>Kulun</item>
+        <item>Kulungugu</item>
+        <item>Kulupene</item>
+        <item>Kumawu</item>
+        <item>Kumbosigo</item>
+        <item>Kumbungu</item>
+        <item>Kumeso</item>
+        <item>Kumfa</item>
+        <item>Kunchoge</item>
+        <item>Kundungu</item>
+        <item>Kunkogu</item>
+        <item>Kunkunso</item>
+        <item>Kunkunzoli</item>
+        <item>Kunkwa</item>
+        <item>Kunsu</item>
+        <item>Kunsu</item>
+        <item>Kuntanase</item>
+        <item>Kuntumbiyili</item>
+        <item>Kuntunso</item>
+        <item>Kunyukuo</item>
+        <item>Kunzokala</item>
+        <item>Kupulima</item>
+        <item>Kusaweu</item>
+        <item>Kusawgu</item>
+        <item>Kusebi</item>
+        <item>Kusi</item>
+        <item>Kusinaba</item>
+        <item>Kute</item>
+        <item>Kutre No. 1</item>
+        <item>Kutukrom</item>
+        <item>Kuunkyeni</item>
+        <item>Kuyuli</item>
+        <item>Kwabedu</item>
+        <item>Kwabenadapaa</item>
+        <item>Kwabenakwa</item>
+        <item>Kwabeng</item>
+        <item>Kwabeng</item>
+        <item>Kwabenya</item>
+        <item>Kwaboanta</item>
+        <item>Kwadaso Nsuom</item>
+        <item>Kwadjonya (Kojonya)</item>
+        <item>Kwadwokurom</item>
+        <item>Kwadwonkromkurom</item>
+        <item>Kwae</item>
+        <item>Kwaekese</item>
+        <item>Kwahu Nsaba</item>
+        <item>Kwahu Praso II</item>
+        <item>Kwahu-Adawso</item>
+        <item>Kwahu-Nkwatia</item>
+        <item>Kwahu-Tafo</item>
+        <item>Kwahudaa</item>
+        <item>Kwaihunu</item>
+        <item>Kwakwanya</item>
+        <item>Kwaman</item>
+        <item>Kwaman</item>
+        <item>Kwamang</item>
+        <item>Kwame Danso</item>
+        <item>Kwame Dwamenakrom</item>
+        <item>Kwame Kwasi</item>
+        <item>Kwamekrom</item>
+        <item>Kwameseikrom</item>
+        <item>Kwamo</item>
+        <item>Kwamoso</item>
+        <item>Kwansakrom</item>
+        <item>Kwanyako</item>
+        <item>Kwapia</item>
+        <item>Kwapong</item>
+        <item>Kwashiebu</item>
+        <item>Kwashieman</item>
+        <item>Kwasiadai</item>
+        <item>Kwaso</item>
+        <item>Kwasu and Subriso</item>
+        <item>Kwatire</item>
+        <item>Kwawu</item>
+        <item>Kweikuma</item>
+        <item>Kwesimintsi</item>
+        <item>Kwesimintsim</item>
+        <item>Kyeakor</item>
+        <item>Kyease (Kyairase)</item>
+        <item>Kyekyebiase</item>
+        <item>Kyekyewere</item>
+        <item>Kyekyewere</item>
+        <item>Kyeremasu</item>
+        <item>Kyiaboso (Chiaboso)</item>
+        <item>Kyinderi</item>
+        <item>Kyiraa</item>
+        <item>Maakro</item>
+        <item>Maame Krobo</item>
+        <item>Maase</item>
+        <item>Maase</item>
+        <item>Maaso</item>
+        <item>Mabang</item>
+        <item>Machekope</item>
+        <item>Madina</item>
+        <item>Mafi Kumase</item>
+        <item>Mafia</item>
+        <item>Makongo</item>
+        <item>Makpayili</item>
+        <item>Maleshegu</item>
+        <item>Mallam</item>
+        <item>Malume</item>
+        <item>Maluwe</item>
+        <item>Mamanso</item>
+        <item>Mamasa</item>
+        <item>Mamfe</item>
+        <item>Mamobi</item>
+        <item>Mampong</item>
+        <item>Mampong</item>
+        <item>Mampong Shai</item>
+        <item>Mamponteng</item>
+        <item>Mampose</item>
+        <item>Mandari</item>
+        <item>Mandela</item>
+        <item>Manfo</item>
+        <item>Mangoase</item>
+        <item>Mangoase</item>
+        <item>Mangochonya Agomeda</item>
+        <item>Manhyia</item>
+        <item>Mankarigu</item>
+        <item>Mankesim</item>
+        <item>Mankoadze (Mankwadze)</item>
+        <item>Mankpan</item>
+        <item>Mankranso</item>
+        <item>Mankrong</item>
+        <item>Mankrong Nkwanta</item>
+        <item>Mankuma</item>
+        <item>Mansing</item>
+        <item>Manso</item>
+        <item>Manso</item>
+        <item>Manso Abore</item>
+        <item>Manso Amenfi</item>
+        <item>Manso Mim</item>
+        <item>Manso-Atwede</item>
+        <item>Manso-Nkwanta</item>
+        <item>Mantseman</item>
+        <item>Mantukwa</item>
+        <item>Manya Kpongunor</item>
+        <item>Masaka</item>
+        <item>Masuo</item>
+        <item>Mataheko</item>
+        <item>Matse</item>
+        <item>Maudaso</item>
+        <item>Mawoekpor Kope</item>
+        <item>Mawuabammu</item>
+        <item>Medoma</item>
+        <item>Medoma and Asokwa</item>
+        <item>Meduma</item>
+        <item>Mehame</item>
+        <item>Mem</item>
+        <item>Mem Kyemfere</item>
+        <item>Mempeasem</item>
+        <item>Mempeasem Boniafo</item>
+        <item>Mengwe</item>
+        <item>Mengwe Goripie</item>
+        <item>Mengye (Menji)</item>
+        <item>Mensonso</item>
+        <item>Menuso</item>
+        <item>Menzenzor-Kakebenzele</item>
+        <item>Mepe</item>
+        <item>Meriche</item>
+        <item>Metiaw</item>
+        <item>Mframa</item>
+        <item>Mfuom</item>
+        <item>Mim</item>
+        <item>Minya</item>
+        <item>Mirigu-Nabaanga</item>
+        <item>Mishuo</item>
+        <item>Moba</item>
+        <item>Mobole</item>
+        <item>Moglaa</item>
+        <item>Moglo</item>
+        <item>Mognori</item>
+        <item>Mogonori</item>
+        <item>Mojina</item>
+        <item>Mole Achubunyor</item>
+        <item>Mollagye</item>
+        <item>Moree</item>
+        <item>Morso</item>
+        <item>Moseaso</item>
+        <item>Moseaso</item>
+        <item>Moseaso</item>
+        <item>Moshimoshi</item>
+        <item>Moteesa-Sinyangsa</item>
+        <item>Motigu</item>
+        <item>Mpakadan Quarters</item>
+        <item>Mpana</item>
+        <item>Mpasaso I Hwbaa</item>
+        <item>Mpasatia</item>
+        <item>Mpassaso II</item>
+        <item>Mpataba</item>
+        <item>Mpatado</item>
+        <item>Mpatasie</item>
+        <item>Mpatoam</item>
+        <item>Mpeam</item>
+        <item>Mpeasem</item>
+        <item>Mpehi</item>
+        <item>Mpentemnserew</item>
+        <item>Mpintsin</item>
+        <item>Mpohor</item>
+        <item>Mpraeso</item>
+        <item>Mpreaso Amanfrom</item>
+        <item>Mumford</item>
+        <item>Mumgu</item>
+        <item>Muna</item>
+        <item>Munyopele</item>
+        <item>Murugu</item>
+        <item>Towns beginning with O</item>
+        <item>First</item>
+        <item>Obawale</item>
+        <item>Obengkrom</item>
+        <item>Obenumase</item>
+        <item>Obo</item>
+        <item>Obogu</item>
+        <item>Obohen</item>
+        <item>Obokor</item>
+        <item>Obomeng</item>
+        <item>Obomeng Odumase</item>
+        <item>Obooho</item>
+        <item>Obosomase</item>
+        <item>Obrachire</item>
+        <item>Obuase</item>
+        <item>Obuasi</item>
+        <item>Obuoho</item>
+        <item>Ocanse Kope</item>
+        <item>Ochiso</item>
+        <item>Odahu/Odaho</item>
+        <item>Odami</item>
+        <item>Odawna</item>
+        <item>Odonkawkrom</item>
+        <item>Odorkor</item>
+        <item>Odotorm</item>
+        <item>Odubi</item>
+        <item>Odumase</item>
+        <item>Odumase</item>
+        <item>Odumase Adele</item>
+        <item>Odumasi</item>
+        <item>Odumasi</item>
+        <item>Odumasi</item>
+        <item>Odumasi</item>
+        <item>Odumasua</item>
+        <item>Oduponkpehe (Kasoa)</item>
+        <item>Ofaada</item>
+        <item>Ofaakor</item>
+        <item>Ofajator</item>
+        <item>Ofankor</item>
+        <item>Ofe</item>
+        <item>Offinso</item>
+        <item>Offinso Old Town</item>
+        <item>Offuman</item>
+        <item>Ofoase</item>
+        <item>Ofoase</item>
+        <item>Ofoase-Kokoben</item>
+        <item>Ofoasekese</item>
+        <item>Oforikrom</item>
+        <item>Oforikrom</item>
+        <item>Ofosu</item>
+        <item>Oframase</item>
+        <item>Ogbojo</item>
+        <item>Ogome</item>
+        <item>Ohiamankyene</item>
+        <item>Ohyiayeanisa</item>
+        <item>Ojobi</item>
+        <item>Okadjakrom</item>
+        <item>Okaekurom</item>
+        <item>Okaishie</item>
+        <item>Okitsew</item>
+        <item>Okomfookrom</item>
+        <item>Okorase</item>
+        <item>Okra Kwadwo</item>
+        <item>Okumaning</item>
+        <item>Okwenya</item>
+        <item>Okyeamekrom</item>
+        <item>Old Asonomaso</item>
+        <item>Old Biaka</item>
+        <item>Old Brosankro</item>
+        <item>Old Dansoman</item>
+        <item>Old Debiso</item>
+        <item>Old Drobo</item>
+        <item>Old Edabo</item>
+        <item>Old Gor</item>
+        <item>Old Kronkrompe</item>
+        <item>Old Makango</item>
+        <item>Old Ningo</item>
+        <item>Old Senchi</item>
+        <item>Old Suame</item>
+        <item>Old Tafo</item>
+        <item>Old Tafo</item>
+        <item>Old Yakase</item>
+        <item>Omankope</item>
+        <item>Omape</item>
+        <item>Omarldo (Omarli)</item>
+        <item>Ongua</item>
+        <item>Onwane</item>
+        <item>Onwi</item>
+        <item>Opeikuma</item>
+        <item>Opijua</item>
+        <item>Opintobeng</item>
+        <item>Opon Valley</item>
+        <item>Oquedzor</item>
+        <item>Osedzi</item>
+        <item>Osei Kojo Krom</item>
+        <item>Osenase</item>
+        <item>Osiem</item>
+        <item>Osino</item>
+        <item>Osofokrom</item>
+        <item>Osramani</item>
+        <item>Osu</item>
+        <item>Osu Ako-Adjei</item>
+        <item>Osu Alata/Ashante</item>
+        <item>Osuwem</item>
+        <item>Otchereso</item>
+        <item>Otekpolu</item>
+        <item>Otenkorang</item>
+        <item>Otijua</item>
+        <item>Otoase</item>
+        <item>Otrokope</item>
+        <item>Otumi</item>
+        <item>Owlo</item>
+        <item>Owuraku - pop. 1010</item>
+        <item>Owusukrom</item>
+        <item>Oyarifa</item>
+        <item>Oyikum</item>
+        <item>Oyoko</item>
+        <item>All Towns A - Z</item>
+        <item>Naamasim</item>
+        <item>Naapaal</item>
+        <item>Nabari</item>
+        <item>Nabolo</item>
+        <item>Nabori</item>
+        <item>Nabu</item>
+        <item>Nabugangn</item>
+        <item>Nabuli</item>
+        <item>Nadiyili</item>
+        <item>Nadowli</item>
+        <item>Nafkoliga</item>
+        <item>Naga</item>
+        <item>Nagbo</item>
+        <item>Nagruma</item>
+        <item>Nahuyili</item>
+        <item>Najong I</item>
+        <item>Najong II</item>
+        <item>Nakolo</item>
+        <item>Nakope</item>
+        <item>Nakpa-Gbeini</item>
+        <item>Nakpachei</item>
+        <item>Nakpali</item>
+        <item>Nakpali (Kworli)</item>
+        <item>Nakpanduri</item>
+        <item>Nakpanzuo</item>
+        <item>Nakpayili</item>
+        <item>Nakpayili</item>
+        <item>Nakudugu</item>
+        <item>Nakwabi</item>
+        <item>Nalerigu</item>
+        <item>Namango</item>
+        <item>Namasua</item>
+        <item>Nambiri</item>
+        <item>Naminboku Nagboo</item>
+        <item>Namong</item>
+        <item>Namoo</item>
+        <item>Nananko</item>
+        <item>Nandom</item>
+        <item>Nangodi</item>
+        <item>Nankese</item>
+        <item>Nankese</item>
+        <item>Nankong-Atinia</item>
+        <item>Nankpawie</item>
+        <item>Nante</item>
+        <item>Nanton</item>
+        <item>Nanton Kurugu</item>
+        <item>Nanvilli</item>
+        <item>Narkwa</item>
+        <item>Naro Norung</item>
+        <item>Nasia</item>
+        <item>Nasuan</item>
+        <item>Natinga</item>
+        <item>Natog</item>
+        <item>Nator</item>
+        <item>Natriku</item>
+        <item>Natugnia Akumbisi</item>
+        <item>Navrongo</item>
+        <item>Nawuhugu</item>
+        <item>Nawuley</item>
+        <item>Nawuni</item>
+        <item>Nayagenia</item>
+        <item>Nayogu</item>
+        <item>Nayoku</item>
+        <item>Nchiraa</item>
+        <item>Nechau (Wechia)</item>
+        <item>Nerebehi</item>
+        <item>New Abirem</item>
+        <item>New Abirem</item>
+        <item>New Abossey Okai</item>
+        <item>New Achimota</item>
+        <item>New Adjena</item>
+        <item>New Agou</item>
+        <item>New Akrade</item>
+        <item>New Amanful</item>
+        <item>New Asonomaso</item>
+        <item>New Ayoma</item>
+        <item>New Brodekwano</item>
+        <item>New Brosankro</item>
+        <item>New Debiso</item>
+        <item>New Dormaa</item>
+        <item>New Drobo</item>
+        <item>New Ebu</item>
+        <item>New Edubiase</item>
+        <item>New Fadama</item>
+        <item>New Fodzoku</item>
+        <item>New Koforidua</item>
+        <item>New Kronkrompe</item>
+        <item>New Longoro (Mentukwa)</item>
+        <item>New Mamprobi</item>
+        <item>New Mangoase</item>
+        <item>New Ningo</item>
+        <item>New Obuasi</item>
+        <item>New Odonase</item>
+        <item>New Senchi</item>
+        <item>New Suame</item>
+        <item>New Subri</item>
+        <item>New Tafo</item>
+        <item>New Takoradi</item>
+        <item>New Techiman</item>
+        <item>New Worabong</item>
+        <item>New Yakase</item>
+        <item>Nframa</item>
+        <item>Ngani</item>
+        <item>Ngmetsokope</item>
+        <item>Ngyiresia</item>
+        <item>Nigeria</item>
+        <item>Nigeria No. 2 (KW. NARTEY)</item>
+        <item>Nii Boi Town</item>
+        <item>Nii Boye Town</item>
+        <item>Nima</item>
+        <item>Nimbare</item>
+        <item>Nintin</item>
+        <item>Nkanchina No. 2</item>
+        <item>Nkanfoa</item>
+        <item>Nkaseim</item>
+        <item>Nkasiem</item>
+        <item>Nkatieso</item>
+        <item>Nkawie</item>
+        <item>Nkawie-Kuma</item>
+        <item>Nkawkaw</item>
+        <item>Nkenikaasu</item>
+        <item>Nkenkasu</item>
+        <item>Nketepa</item>
+        <item>Nkonya Ahenkro</item>
+        <item>Nkonya Ahunjo</item>
+        <item>Nkonya Akloba</item>
+        <item>Nkonya Asakyiri</item>
+        <item>Nkonya Bunbula</item>
+        <item>Nkonya Kejebi</item>
+        <item>Nkonya Ntumda</item>
+        <item>Nkonya Tayi</item>
+        <item>Nkonya Tepo</item>
+        <item>Nkonya Wurupong</item>
+        <item>Nkoranza</item>
+        <item>Nkotompo</item>
+        <item>Nkotumso</item>
+        <item>Nkrankrom</item>
+        <item>Nkrankwanta</item>
+        <item>Nkroful</item>
+        <item>Nkronso</item>
+        <item>Nkronua</item>
+        <item>Nkronua Atifi</item>
+        <item>Nkukua Bouho</item>
+        <item>Nkum</item>
+        <item>Nkurakan</item>
+        <item>Nkwaben</item>
+        <item>Nkwabeng</item>
+        <item>Nkwaboso/Akwaboso</item>
+        <item>Nkwaeso</item>
+        <item>Nkwanda No. 1</item>
+        <item>Nkwanda No.2</item>
+        <item>Nkwankwanua</item>
+        <item>Nkwanta</item>
+        <item>Nkwanta</item>
+        <item>Nkwanta</item>
+        <item>Nkwanta Nado</item>
+        <item>Nkwanta-Shama</item>
+        <item>Nkwantakese</item>
+        <item>Nkwantakese Nkwanta</item>
+        <item>Nkwantanag</item>
+        <item>Nkwantanum-Esiam</item>
+        <item>Nkwateng</item>
+        <item>Nkwatia</item>
+        <item>Nkyeraa</item>
+        <item>Nobekaw</item>
+        <item>Nobewam</item>
+        <item>Nogokpo</item>
+        <item>North Dzorwulu</item>
+        <item>North Kaneshie</item>
+        <item>North Labone</item>
+        <item>Npuasu</item>
+        <item>Nsaba</item>
+        <item>Nsakye</item>
+        <item>Nsapor</item>
+        <item>Nsawam</item>
+        <item>Nsawkaw</item>
+        <item>Nsawora</item>
+        <item>Nsein</item>
+        <item>Nsesereso</item>
+        <item>Nsinsin</item>
+        <item>Nsogyaso</item>
+        <item>Nsuaem</item>
+        <item>Nsuaem No. 2</item>
+        <item>Nsuatre</item>
+        <item>Nsuhia</item>
+        <item>Nsuogya (Asodja)</item>
+        <item>Nsuta</item>
+        <item>Nsuta</item>
+        <item>Nsuta</item>
+        <item>Nsuta</item>
+        <item>Nsutam</item>
+        <item>Ntafrewaso</item>
+        <item>Ntankoful</item>
+        <item>Ntankoro</item>
+        <item>Ntereso</item>
+        <item>Nteso No. 1 (Amokrom)</item>
+        <item>Ntinankor</item>
+        <item>Ntoaso - pop. 936</item>
+        <item>Ntom</item>
+        <item>Ntonaboma</item>
+        <item>Ntonso</item>
+        <item>Ntotroso</item>
+        <item>Ntranoa</item>
+        <item>Ntronam</item>
+        <item>Ntronang</item>
+        <item>Ntunkumso</item>
+        <item>Ntwaaban</item>
+        <item>Nuamakrom Mampona</item>
+        <item>Nuaso</item>
+        <item>Nuba</item>
+        <item>Numereso</item>
+        <item>Nungua</item>
+        <item>Nungua East</item>
+        <item>Nungua Old Town</item>
+        <item>Nungua-Zongo</item>
+        <item>Nvellenu-Bawia</item>
+        <item>Nwawansua</item>
+        <item>Nwereme</item>
+        <item>Nwiniso (Winiso) No. 3</item>
+        <item>Nyaboe</item>
+        <item>Nyakrom</item>
+        <item>Nyambong</item>
+        <item>Nyame Bekyere</item>
+        <item>Nyameadom</item>
+        <item>Nyamease</item>
+        <item>Nyamebekyere</item>
+        <item>Nyamedom</item>
+        <item>Nyameso</item>
+        <item>Nyamiani</item>
+        <item>Nyanfeku-Ekrofur</item>
+        <item>Nyankontreh</item>
+        <item>Nyankpala</item>
+        <item>Nyankpala</item>
+        <item>Nyankrom</item>
+        <item>Nyanyano</item>
+        <item>Nyeko</item>
+        <item>Nyenase</item>
+        <item>Nyensugi</item>
+        <item>Nyigbenya/Tsopoli</item>
+        <item>Nyimeti</item>
+        <item>Nyinahin</item>
+        <item>Nyinasin</item>
+        <item>Nyirisia</item>
+        <item>Nyive</item>
+        <item>Nyivil</item>
+        <item>Nyoglo</item>
+        <item>Nyoli (Yipehiboa)</item>
+        <item>Nyoli No. 1</item>
+        <item>Nyolugu</item>
+        <item>Nyomoase</item>
+        <item>Nyomoasu</item>
+        <item>Nyong Guma</item>
+        <item>Nyong Nayili</item>
+        <item>Nyuinyui Nos. 1 and 2</item>
+        <item>Pabire</item>
+        <item>Paga</item>
+        <item>Pai Katanga</item>
+        <item>Paikatanga</item>
+        <item>Pakpem</item>
+        <item>Pakro - pop. 2580</item>
+        <item>Pakyi No.1</item>
+        <item>Pakyi No.2</item>
+        <item>Palangasi</item>
+        <item>Palari</item>
+        <item>Pampawie</item>
+        <item>Pankese</item>
+        <item>Pankrono</item>
+        <item>Pankrono</item>
+        <item>Panyani</item>
+        <item>Papase</item>
+        <item>Parembo-Sawaba</item>
+        <item>Pataban</item>
+        <item>Patakro</item>
+        <item>Pawa</item>
+        <item>Peblastre</item>
+        <item>Pechi</item>
+        <item>Peki</item>
+        <item>Peki Adzokoe</item>
+        <item>Peki Avetile</item>
+        <item>Peki Blengo Kpodzi</item>
+        <item>Peki Dzake</item>
+        <item>Peki Dzake Dzemeni</item>
+        <item>Peki Sanga</item>
+        <item>Peki Tsame</item>
+        <item>Peki Wudome</item>
+        <item>Pekyerekye</item>
+        <item>Pelungo</item>
+        <item>Pelungu</item>
+        <item>Pemanasi</item>
+        <item>Penyi</item>
+        <item>Pepease</item>
+        <item>Pepease</item>
+        <item>Perisi</item>
+        <item>Petriensa</item>
+        <item>Piase</item>
+        <item>Pigu</item>
+        <item>Piina</item>
+        <item>Piong</item>
+        <item>Pishigu</item>
+        <item>Pisie</item>
+        <item>Pleyo Okper</item>
+        <item>Poano</item>
+        <item>Poase</item>
+        <item>Podoe</item>
+        <item>Pokrom - pop. 2181</item>
+        <item>Pokuase</item>
+        <item>Pokukrom</item>
+        <item>Police Headquarters Area</item>
+        <item>Polmakom</item>
+        <item>Pomaakrom</item>
+        <item>Pomadze</item>
+        <item>Pomposo</item>
+        <item>Pong (Kpung)</item>
+        <item>Pong-Tamale</item>
+        <item>Ponponyya Puorkpe</item>
+        <item>Poponya</item>
+        <item>Portor</item>
+        <item>Posmonu</item>
+        <item>Potrikrom</item>
+        <item>Pra River</item>
+        <item>Pramkese</item>
+        <item>Pramposo</item>
+        <item>Pramso</item>
+        <item>Prang</item>
+        <item>Praso</item>
+        <item>Premuase</item>
+        <item>Prestea</item>
+        <item>Prestea-Nkwanta</item>
+        <item>Primase</item>
+        <item>Princess Town</item>
+        <item>Pudua</item>
+        <item>Puduya</item>
+        <item>Puffien Baagangn</item>
+        <item>Pukper</item>
+        <item>Pulo</item>
+        <item>Pumo</item>
+        <item>Pumpuni</item>
+        <item>Punikrom</item>
+        <item>Punyoro</item>
+        <item>Pupuni</item>
+        <item>Pusiga</item>
+        <item>Pusuga</item>
+        <item>Pusupu</item>
+        <item>Pute</item>
+        <item>Pwalugu</item>
+        <item>First</item>
+        <item>Ridge</item>
+        <item>Ringway Estates</item>
+        <item>Roman Ridge</item>
+        <item>Saaman</item>
+        <item>Saamang</item>
+        <item>Saani</item>
+        <item>Sabare No. 1</item>
+        <item>Sabiye</item>
+        <item>Saboba</item>
+        <item>Sabon-Gida</item>
+        <item>Sabonjida</item>
+        <item>Sabronum</item>
+        <item>Sabuli</item>
+        <item>Sabusa</item>
+        <item>Sabzundi</item>
+        <item>Safo</item>
+        <item>Sagadugu</item>
+        <item>Sahara</item>
+        <item>Saihe</item>
+        <item>Sakala</item>
+        <item>Sakaman</item>
+        <item>Sakode-Etae</item>
+        <item>Sakogu</item>
+        <item>sakom</item>
+        <item>Sakpa</item>
+        <item>Sakpe</item>
+        <item>Salaga</item>
+        <item>Salkpang</item>
+        <item>Saltpond</item>
+        <item>Salwa</item>
+        <item>Samambow</item>
+        <item>Samang Yapala</item>
+        <item>Samanga</item>
+        <item>Samanhyia</item>
+        <item>Sambo</item>
+        <item>Sambrun</item>
+        <item>Sambu</item>
+        <item>Sambuli</item>
+        <item>Samene</item>
+        <item>Samenye</item>
+        <item>Samoa</item>
+        <item>Sampa</item>
+        <item>Sampemo</item>
+        <item>Sampraso</item>
+        <item>Sampronso</item>
+        <item>SamreBoi</item>
+        <item>Samtemo</item>
+        <item>Sandema-Fiisa</item>
+        <item>Sandema-Kandema-Kawansa</item>
+        <item>Sandema-Nyansa</item>
+        <item>Sandu</item>
+        <item>Sang</item>
+        <item>Sangbaa</item>
+        <item>Sangbaka</item>
+        <item>Sangbana</item>
+        <item>Sanguyili (Sanguli)</item>
+        <item>Sankana</item>
+        <item>Sankor</item>
+        <item>Sankore</item>
+        <item>Sankpala</item>
+        <item>Sansu</item>
+        <item>Santa Maria</item>
+        <item>Santijan</item>
+        <item>Santrokofi Benua</item>
+        <item>Sanzule</item>
+        <item>Sapelliga Natinga</item>
+        <item>Sapiegu</item>
+        <item>Sarakyi Akuraa</item>
+        <item>Saranouse</item>
+        <item>Saripere</item>
+        <item>Saru</item>
+        <item>Sasekpe</item>
+        <item>Sasieme</item>
+        <item>Saskai</item>
+        <item>Savelugu</item>
+        <item>Sawankyi/Afrefreso</item>
+        <item>Sawer</item>
+        <item>Sawla</item>
+        <item>Sawua</item>
+        <item>Sayerano</item>
+        <item>Sefwi Anhwiaso</item>
+        <item>Sefwi Bekwai</item>
+        <item>Sefwi Buako</item>
+        <item>Sefwi Dwinase</item>
+        <item>Sefwi-Wiawso</item>
+        <item>Segbasi</item>
+        <item>Sege Junction</item>
+        <item>Seikwa</item>
+        <item>Sekesua</item>
+        <item>Seketia</item>
+        <item>Sekondi</item>
+        <item>Sekpe</item>
+        <item>Sekyere</item>
+        <item>Sekyere Krobo</item>
+        <item>Sekyere-Heman</item>
+        <item>Sekyerekrom</item>
+        <item>Sekyidumase</item>
+        <item>Sekyikrom - pop. 1509</item>
+        <item>Sempe New Town</item>
+        <item>Sempoah</item>
+        <item>Senase</item>
+        <item>Senchi</item>
+        <item>Seneso</item>
+        <item>Seneso</item>
+        <item>Senfi</item>
+        <item>Seniagya</item>
+        <item>Senkye (Senchi)</item>
+        <item>Senkyiem</item>
+        <item>Senya</item>
+        <item>Senya Bereku</item>
+        <item>Seo-Asabagabisi (Wabisi)</item>
+        <item>Sepase</item>
+        <item>Seri Kperee</item>
+        <item>Seripe</item>
+        <item>Sese</item>
+        <item>Seseamam</item>
+        <item>Sewum</item>
+        <item>Shai Hills</item>
+        <item>Shama</item>
+        <item>Sheaga</item>
+        <item>Sheki</item>
+        <item>Sherigu Dorungu-Agobgabis</item>
+        <item>Shia</item>
+        <item>Shiabu</item>
+        <item>Shiega</item>
+        <item>Shiega Gbane</item>
+        <item>Shieni</item>
+        <item>Shintoli</item>
+        <item>Shishegu</item>
+        <item>Sibi Central</item>
+        <item>Sibi Hill Top</item>
+        <item>Sibon Gida</item>
+        <item>Sienkyem</item>
+        <item>Sikaa</item>
+        <item>Silibele</item>
+        <item>Simlibogu</item>
+        <item>Simpa-Pepesa</item>
+        <item>Sinebaga</item>
+        <item>Singa</item>
+        <item>Siniensi-Kaasa</item>
+        <item>Sinyangsa-Badomsa I</item>
+        <item>Sirigu-Guwonko</item>
+        <item>Siriminchu</item>
+        <item>Siybele</item>
+        <item>Sobiba</item>
+        <item>Soe Soboko</item>
+        <item>Sogakope</item>
+        <item>Sokode Gbogame</item>
+        <item>Sokora Wonoo</item>
+        <item>Sokpoe</item>
+        <item>Soma</item>
+        <item>Somanya</item>
+        <item>Sombisi</item>
+        <item>Sombo</item>
+        <item>Somey</item>
+        <item>Songutsokpa Big-Ada</item>
+        <item>Soo</item>
+        <item>Sorbele</item>
+        <item>Sorri</item>
+        <item>Sota</item>
+        <item>South Amanhoma</item>
+        <item>South Labadi</item>
+        <item>South Odorkor</item>
+        <item>South Senchi</item>
+        <item>South Shiashie</item>
+        <item>Sovie</item>
+        <item>Sowatey</item>
+        <item>Sowotuom</item>
+        <item>Sowutuom</item>
+        <item>Srogbae</item>
+        <item>Srogbe</item>
+        <item>Subinso No. 2</item>
+        <item>Subompang</item>
+        <item>Subri</item>
+        <item>Subri Nkwanta/kojina</item>
+        <item>Subriso</item>
+        <item>Suggo (Suke)</item>
+        <item>Suhum</item>
+        <item>Sui</item>
+        <item>Suma-Ahenkro</item>
+        <item>Suminakese</item>
+        <item>Sumiso</item>
+        <item>Sumpuoyiri/Berinya</item>
+        <item>Sumsei</item>
+        <item>Sung</item>
+        <item>Sunsan</item>
+        <item>Sunyani</item>
+        <item>Supomu Dunkwa</item>
+        <item>Supunso</item>
+        <item>Surano</item>
+        <item>Surukrom</item>
+        <item>Susuanso</item>
+        <item>Swedru</item>
+        <item>T/Junction</item>
+        <item>Taali</item>
+        <item>Tabeasi</item>
+        <item>Tabora</item>
+        <item>Tachikope</item>
+        <item>Tadieso</item>
+        <item>Tadzevu</item>
+        <item>Taenso</item>
+        <item>Taffiasi</item>
+        <item>Tahgasia</item>
+        <item>Tahima</item>
+        <item>Taifa</item>
+        <item>Tainano</item>
+        <item>Takinta</item>
+        <item>Takla Gbogame</item>
+        <item>Takofiano</item>
+        <item>Takorade</item>
+        <item>Takoradi</item>
+        <item>Takorowase</item>
+        <item>Takpo</item>
+        <item>Takyimang</item>
+        <item>Tali</item>
+        <item>Tamale</item>
+        <item>Tamaligu</item>
+        <item>Tamatoku</item>
+        <item>Tampala</item>
+        <item>Tampion</item>
+        <item>Tampulingu</item>
+        <item>Tamso</item>
+        <item>Tanamdo</item>
+        <item>Tanaya</item>
+        <item>Tandan</item>
+        <item>Tanina</item>
+        <item>Tano Odumase</item>
+        <item>Tanoboase</item>
+        <item>Tanodumase</item>
+        <item>Tanokrom</item>
+        <item>Tanom</item>
+        <item>Tanoso</item>
+        <item>Tanoso</item>
+        <item>Tantali</item>
+        <item>Tantra Hill</item>
+        <item>Tantum (Otuam)</item>
+        <item>Tantuo</item>
+        <item>Tapa Abotoase</item>
+        <item>Tapa Amanfrom</item>
+        <item>Tapa Amanya</item>
+        <item>Tapomo</item>
+        <item>Tarikpaa</item>
+        <item>Tarkwa Atoabo</item>
+        <item>Tarkwa Maakro</item>
+        <item>Tarongo</item>
+        <item>Tatale</item>
+        <item>Tato Battor</item>
+        <item>Teachekrom</item>
+        <item>Teacher Mante</item>
+        <item>Tease</item>
+        <item>Tebeso No. 1</item>
+        <item>Tebeso No. 2</item>
+        <item>Techigu</item>
+        <item>Techiman</item>
+        <item>Techiman</item>
+        <item>Techimantia</item>
+        <item>Teekyere</item>
+        <item>Tefle</item>
+        <item>Tegbi</item>
+        <item>Teleku Bokazo</item>
+        <item>Tema</item>
+        <item>Tema Community Eight</item>
+        <item>Tema Community Eleven</item>
+        <item>Tema Community Five</item>
+        <item>Tema Community Four</item>
+        <item>Tema community Nine</item>
+        <item>Tema Community one</item>
+        <item>Tema Community Seven</item>
+        <item>Tema Community Six</item>
+        <item>Tema community Three</item>
+        <item>Tema Community Two Sakumono</item>
+        <item>Tema Newtown</item>
+        <item>Tenfianu</item>
+        <item>Tepa</item>
+        <item>Terchire</item>
+        <item>Tesano</item>
+        <item>Teselima</item>
+        <item>Teselima</item>
+        <item>Teshie new Town</item>
+        <item>Teshie-Nungua Estates</item>
+        <item>Tetema</item>
+        <item>Tetrem</item>
+        <item>Tibung</item>
+        <item>Tiiwi</item>
+        <item>Tijo</item>
+        <item>Tikobo No. 1</item>
+        <item>Tikobo No. 2</item>
+        <item>Tikrom</item>
+        <item>Tili Natinga</item>
+        <item>Tindan</item>
+        <item>Tindonsobulugu</item>
+        <item>Tinga</item>
+        <item>Tingoli</item>
+        <item>Tinguri</item>
+        <item>Tinjase</item>
+        <item>Tinkong</item>
+        <item>Tintale</item>
+        <item>Tintang</item>
+        <item>Tizza</item>
+        <item>Toase</item>
+        <item>Todome</item>
+        <item>Toh-Kpalime</item>
+        <item>Toklokpo</item>
+        <item>Tokpo No. 1</item>
+        <item>Tokpo No. 2</item>
+        <item>Tokuroano</item>
+        <item>Tolon</item>
+        <item>Tombo</item>
+        <item>Tome Kokoduor</item>
+        <item>Tonde</item>
+        <item>Tong</item>
+        <item>Tongo</item>
+        <item>Tongo Beo</item>
+        <item>Tongo Wakii</item>
+        <item>Tontokrom</item>
+        <item>Topremang</item>
+        <item>Torgorme</item>
+        <item>Torsa</item>
+        <item>Torve</item>
+        <item>Totimekope</item>
+        <item>Totope</item>
+        <item>Towoboase</item>
+        <item>Toyanyili</item>
+        <item>Traduom</item>
+        <item>Trawa</item>
+        <item>Trede</item>
+        <item>Trimukyea</item>
+        <item>Trom</item>
+        <item>Tromeso</item>
+        <item>Tsiame</item>
+        <item>Tsibu</item>
+        <item>Tsito</item>
+        <item>Tsrate</item>
+        <item>Tsrefe</item>
+        <item>Tsumkpo</item>
+        <item>Tugu</item>
+        <item>Tugu</item>
+        <item>Tuluwe</item>
+        <item>Tuluwe</item>
+        <item>Tumfakura</item>
+        <item>Tumu</item>
+        <item>Tuna</item>
+        <item>Tunu and Fuveme</item>
+        <item>Tuo-Tan Gabisi</item>
+        <item>Tuobodom</item>
+        <item>Turumi</item>
+        <item>Tutio</item>
+        <item>Tutu</item>
+        <item>Tutukpene</item>
+        <item>Tuwuo</item>
+        <item>Twabidi</item>
+        <item>Tweapease</item>
+        <item>Tweapease</item>
+        <item>Twedie</item>
+        <item>Twenene</item>
+        <item>Twifo Aduabeng</item>
+        <item>Twifo Agona Denkyira Odumase</item>
+        <item>Twifo Ayiase</item>
+        <item>Twifo Hemang</item>
+        <item>Twifo Praso</item>
+        <item>Twifo-Mampong</item>
+        <item>Tzemeni</item>
+        <item>First</item>
+        <item>Ugando</item>
+        <item>Ullo (Vlo)</item>
+        <item>Upper Gaane</item>
+        <item>Upper Nanson</item>
+        <item>UssherTown</item>
+    </array>
+
+</resources>
