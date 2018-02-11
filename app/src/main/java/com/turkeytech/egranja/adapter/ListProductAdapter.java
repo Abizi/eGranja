@@ -2,6 +2,7 @@ package com.turkeytech.egranja.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -14,15 +15,20 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.turkeytech.egranja.R;
 import com.turkeytech.egranja.activity.EditProductActivity;
+import com.turkeytech.egranja.activity.HomeActivity;
 import com.turkeytech.egranja.model.Product;
 
 import java.util.ArrayList;
 
 import static com.turkeytech.egranja.session.Constants.CATEGORIES_NODE;
+import static com.turkeytech.egranja.session.Constants.HOME_SCREEN;
+import static com.turkeytech.egranja.session.Constants.NAV_PRODUCTS;
 import static com.turkeytech.egranja.session.Constants.PRODUCTS_NODE;
 import static com.turkeytech.egranja.session.Constants.PRODUCT_ID;
 
@@ -129,7 +135,16 @@ public class ListProductAdapter
                                     DatabaseReference ref = FirebaseDatabase
                                             .getInstance()
                                             .getReference();
-                                    ref.child(PRODUCTS_NODE).child(product.getProductId()).removeValue();
+                                    ref.child(PRODUCTS_NODE)
+                                            .child(product.getProductId())
+                                            .removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            Intent intent = new Intent(mContext, HomeActivity.class);
+                                            intent.putExtra(HOME_SCREEN, NAV_PRODUCTS);
+                                            mContext.startActivity(intent);
+                                        }
+                                    });
                                     ref.child(CATEGORIES_NODE).child(product.getCategory()).child(product.getProductId()).removeValue();
                                     break;
                                 case R.id.action_edit_product:

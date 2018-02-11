@@ -18,8 +18,24 @@
             android:layout_width="match_parent"
             android:layout_height="?android:attr/actionBarSize"
             android:fitsSystemWindows="true"
-            app:layout_collapseMode="pin"
-            app:title="Product Details" />
+            app:layout_collapseMode="pin">
+
+            <ImageView
+                android:id="@+id/productDetail_btnToolbarBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_back_white"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:text="Product Details"
+                android:textColor="@color/colorWhite"
+                android:textSize="21sp" />
+        </android.support.v7.widget.Toolbar>
+
     </android.support.design.widget.AppBarLayout>
 
     <ProgressBar

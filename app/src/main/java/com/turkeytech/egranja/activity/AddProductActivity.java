@@ -1489,12 +1489,12 @@ public class AddProductActivity extends AppCompatActivity implements
             mQuantity = mTextProductQuantity.getText().toString().trim();
             mQuantityUnit = mSpinQuantityUnit.getSelectedItem().toString();
             String price = mTextProductPrice.getText().toString().trim();
-            if (!price.contains(".")) price += price + ".00";
+            if (!price.contains(".")) price = price + ".00";
             if (price.contains(".")) {
                 String[] x = price.split("\\.");
 
                 if (x[1].length() > 2) {
-                    x[1] = x[1].substring(0, 1);
+                    x[1] = x[1].substring(0, 2);
                     price = x[0].concat("." + x[1]);
                 } else  if (x[1].length() == 1) {
                     price = x[0].concat("." + x[1] + "0");
@@ -1676,11 +1676,13 @@ public class AddProductActivity extends AppCompatActivity implements
                     mDatabaseCategory.child(product.getCategory()).child(newKey).setValue(true);
 
                     mBuilderSuccess.setContentText("Your Product Uploaded Successfully!");
+                    mBuilderSuccess.setProgress(0, 0, false);
                     mNotifyMgr.notify(MY_NOTIFICATION, mBuilderSuccess.build());
 
                 } else {
                     showMessage("Error: " + task.getException().getMessage());
                     mBuilderSuccess.setContentText("Your Product Upload Failed!");
+                    mBuilderSuccess.setProgress(0, 0, false);
                     mNotifyMgr.notify(MY_NOTIFICATION, mBuilderSuccess.build());
                 }
 
@@ -1691,6 +1693,7 @@ public class AddProductActivity extends AppCompatActivity implements
             @Override
             public void onFailure(@NonNull Exception e) {
                 mBuilderSuccess.setContentText("Your Product Upload Failed!");
+                mBuilderSuccess.setProgress(0, 0, false);
                 mNotifyMgr.notify(MY_NOTIFICATION, mBuilderSuccess.build());
             }
         });

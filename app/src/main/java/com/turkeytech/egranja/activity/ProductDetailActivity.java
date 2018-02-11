@@ -238,7 +238,7 @@ public class ProductDetailActivity extends AppCompatActivity {
     @OnClick(R.id.productDetail_btnMessage)
     public void onMessageButtonClick() {
 
-        Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("msg", mProduct.getUsernum(), null));
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.fromParts("sms", mProduct.getUsernum(), null));
 
         if (intent.resolveActivity(getPackageManager()) != null) {
 
@@ -267,4 +267,9 @@ public class ProductDetailActivity extends AppCompatActivity {
 
     }
 
+    @OnClick(R.id.productDetail_btnToolbarBack)
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
 }

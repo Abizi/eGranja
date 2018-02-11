@@ -10,15 +10,17 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:theme="@style/ThemeOverlay.AppCompat.Dark"
-    android:background="@drawable/side_nav_bar">
+    android:background="@drawable/side_nav_bar"
+    tools:showIn="@layout/activity_home">
 
     <ImageView
         android:id="@+id/navHeader_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="80dp"
+        android:layout_marginStart="-16dp"
+        android:layout_height="80dp"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
         tools:ignore="ContentDescription"
-        tools:srcCompat="@mipmap/ic_launcher_round" />
+        android:src="@drawable/icon4" />
 
     <TextView
         android:id="@+id/navHeader_name"

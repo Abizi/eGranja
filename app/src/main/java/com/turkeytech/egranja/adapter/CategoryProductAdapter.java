@@ -1,12 +1,14 @@
 package com.turkeytech.egranja.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -15,6 +17,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.turkeytech.egranja.R;
+import com.turkeytech.egranja.activity.MoreActivity;
 import com.turkeytech.egranja.model.Product;
 
 import java.util.ArrayList;
@@ -83,6 +86,7 @@ public class CategoryProductAdapter
             setCategoryName(mCategoryName);
             setSubtitle(mCategoryName);
             setProducts(mContext);
+            setMoreClick(mContext, mCategoryName);
         }
 
         void setCategoryName(String categoryName) {
@@ -144,6 +148,18 @@ public class CategoryProductAdapter
                                 }
                             }
                     );
+        }
+
+        void setMoreClick(final Context context, final String mCategoryName){
+            Button more = mView.findViewById(R.id.holderCategory_btnMore);
+            more.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(context, MoreActivity.class);
+                    intent.putExtra(PRODUCTS_CATEGORY, mCategoryName);
+                    context.startActivity(intent);
+                }
+            });
         }
     }
 }

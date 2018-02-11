@@ -235,6 +235,16 @@ public class EditProductActivity extends AppCompatActivity implements
     private NotificationCompat.Builder mBuilderSuccess;
     private NotificationManager mNotifyMgr;
 
+    // Image Verification Variables
+    private boolean isImage1Set;
+    private boolean isImage2Set;
+    private boolean isImage3Set;
+    private boolean isImage4Set;
+    private boolean isImage1Database;
+    private boolean isImage2Database;
+    private boolean isImage3Database;
+    private boolean isImage4Database;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -288,15 +298,26 @@ public class EditProductActivity extends AppCompatActivity implements
                 mOldPrice = product.getPrice();
                 mOldCategory = product.getCategory();
                 mOldLocation = product.getLocation();
+                mLocation = mOldLocation;
 
                 mOldImageFile1 = product.getImage1();
+                isImage1Database = true;
+                isImage1Set = true;
                 mOldImageFile2 = product.getImage2();
+                isImage2Database = true;
+                isImage2Set = true;
                 mOldImageFile3 = product.getImage3();
+                isImage3Database = true;
+                isImage3Set = true;
+
                 mOldImageFile4 = product.getImage4();
+                isImage4Database = true;
+                isImage4Set = true;
 
                 mOldAudioFile = product.getAudio();
                 mOldVideoFile = product.getVideo();
 
+                updateUI();
                 updateUiFromDatabse();
             }
 
@@ -337,11 +358,40 @@ public class EditProductActivity extends AppCompatActivity implements
     public void imageButtonClicked(final ImageButton button) {
 
         AlertDialog.Builder imageDialogBuilder = new AlertDialog.Builder(this);
-        imageDialogBuilder.setMessage("Replace Image?");
+        imageDialogBuilder.setTitle("Replace Image?");
+        imageDialogBuilder.setMessage("Clicking 'Yes' will delete the previous image!");
         imageDialogBuilder.setCancelable(true);
         imageDialogBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
+
+                switch (button.getId()) {
+                    case R.id.editProduct_btnAddImage1:
+                        mImageButton1.setImageResource(R.drawable.ic_add_photo);
+                        mOldImageFile1 = null;
+                        isImage1Database = false;
+                        isImage1Set = false;
+                        break;
+                    case R.id.editProduct_btnAddImage2:
+                        mImageButton2.setImageResource(R.drawable.ic_add_photo);
+                        mOldImageFile2 = null;
+                        isImage2Database = false;
+                        isImage1Set = false;
+                        break;
+                    case R.id.editProduct_btnAddImage3:
+                        mImageButton3.setImageResource(R.drawable.ic_add_photo);
+                        mOldImageFile3 = null;
+                        isImage3Database = false;
+                        isImage1Set = false;
+                        break;
+                    case R.id.editProduct_btnAddImage4:
+                        mImageButton4.setImageResource(R.drawable.ic_add_photo);
+                        mOldImageFile4 = null;
+                        isImage4Database = false;
+                        isImage1Set = false;
+                        break;
+                }
+
                 doImageStuff(button);
             }
         });
@@ -565,6 +615,7 @@ public class EditProductActivity extends AppCompatActivity implements
                 mCurrentPhotoUri = imageUri;
                 mImageFileUri1 = mCurrentPhotoUri;
                 mCurrentPhotoUri = null;
+                isImage1Set = true;
                 break;
 
             case R.id.editProduct_btnAddImage2:
@@ -572,6 +623,7 @@ public class EditProductActivity extends AppCompatActivity implements
                 mCurrentPhotoUri = imageUri;
                 mImageFileUri2 = mCurrentPhotoUri;
                 mCurrentPhotoUri = null;
+                isImage2Set = true;
                 break;
 
             case R.id.editProduct_btnAddImage3:
@@ -579,6 +631,7 @@ public class EditProductActivity extends AppCompatActivity implements
                 mCurrentPhotoUri = imageUri;
                 mImageFileUri3 = mCurrentPhotoUri;
                 mCurrentPhotoUri = null;
+                isImage3Set = true;
                 break;
 
             case R.id.editProduct_btnAddImage4:
@@ -586,6 +639,7 @@ public class EditProductActivity extends AppCompatActivity implements
                 mCurrentPhotoUri = imageUri;
                 mImageFileUri4 = mCurrentPhotoUri;
                 mCurrentPhotoUri = null;
+                isImage4Set = true;
                 break;
         }
     }
@@ -596,21 +650,25 @@ public class EditProductActivity extends AppCompatActivity implements
             case R.id.editProduct_btnAddImage1:
                 mImageButton1.setImageResource(R.drawable.ic_add_photo);
                 mImageFileUri1 = null;
+                isImage1Set = false;
                 break;
 
             case R.id.editProduct_btnAddImage2:
                 mImageButton2.setImageResource(R.drawable.ic_add_photo);
                 mImageFileUri2 = null;
+                isImage2Set = false;
                 break;
 
             case R.id.editProduct_btnAddImage3:
                 mImageButton3.setImageResource(R.drawable.ic_add_photo);
                 mImageFileUri3 = null;
+                isImage3Set = false;
                 break;
 
             case R.id.editProduct_btnAddImage4:
                 mImageButton4.setImageResource(R.drawable.ic_add_photo);
                 mImageFileUri4 = null;
+                isImage4Set = false;
                 break;
         }
     }
@@ -1201,6 +1259,26 @@ public class EditProductActivity extends AppCompatActivity implements
     @OnClick(R.id.editProduct_btnCurrentLocation)
     public void onCurrentLocationClick() {
 
+        AlertDialog.Builder imageDialogBuilder = new AlertDialog.Builder(this);
+        imageDialogBuilder.setMessage("Change Location?");
+        imageDialogBuilder.setCancelable(true);
+        imageDialogBuilder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                doLocationStuff();
+            }
+        });
+        imageDialogBuilder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        });
+
+        imageDialogBuilder.show();
+    }
+
+    private void doLocationStuff() {
         if (hasLocation()) {
 
             showConfirmLocationPopup();
@@ -1536,19 +1614,19 @@ public class EditProductActivity extends AppCompatActivity implements
             showMessage("Category Not Set!");
             isUploading = false;
             return false;
-        } else if (mImageFileUri1 == null) {
+        } else if (isImage1Set) {
             showMessage("Image Not Set!");
             isUploading = false;
             return false;
-        } else if (mImageFileUri2 == null) {
+        } else if (isImage2Set) {
             showMessage("Image Not Set!");
             isUploading = false;
             return false;
-        } else if (mImageFileUri3 == null) {
+        } else if (isImage3Set) {
             showMessage("Image Not Set!");
             isUploading = false;
             return false;
-        } else if (mImageFileUri4 == null) {
+        } else if (isImage4Set) {
             showMessage("Image Not Set!");
             isUploading = false;
             return false;
@@ -1562,12 +1640,12 @@ public class EditProductActivity extends AppCompatActivity implements
             mQuantity = mTextProductQuantity.getText().toString().trim();
             mQuantityUnit = mSpinQuantityUnit.getSelectedItem().toString();
             String price = mTextProductPrice.getText().toString().trim();
-            if (!price.contains(".")) price += price + ".00";
+            if (!price.contains(".")) price = price + ".00";
             if (price.contains(".")) {
                 String[] x = price.split("\\.");
 
                 if (x[1].length() > 2) {
-                    x[1] = x[1].substring(0, 1);
+                    x[1] = x[1].substring(0, 2);
                     price = x[0].concat("." + x[1]);
                 } else if (x[1].length() == 1) {
                     price = x[0].concat("." + x[1] + "0");
@@ -1577,6 +1655,10 @@ public class EditProductActivity extends AppCompatActivity implements
             }
             mPrice = Double.parseDouble(price);
             mCategory = mSpinCategory.getSelectedItem().toString();
+
+            if (mProductName.equals(mOldProductName)) {
+
+            }
 
             mImagesList = new Uri[]{mImageFileUri1, mImageFileUri2, mImageFileUri3, mImageFileUri4};
 
@@ -1825,16 +1907,16 @@ public class EditProductActivity extends AppCompatActivity implements
     // Update the UI
     private void updateUI() {
 
-        if (mImageFileUri1 != null) {
+        if (mImageFileUri1 != null || mOldImageFile1 != null) {
             mImageButton1.setImageResource(R.drawable.ic_check);
         }
-        if (mImageFileUri2 != null) {
+        if (mImageFileUri2 != null || mOldImageFile2 != null) {
             mImageButton2.setImageResource(R.drawable.ic_check);
         }
-        if (mImageFileUri3 != null) {
+        if (mImageFileUri3 != null || mOldImageFile3 != null) {
             mImageButton3.setImageResource(R.drawable.ic_check);
         }
-        if (mImageFileUri4 != null) {
+        if (mImageFileUri4 != null || mOldImageFile4 != null) {
             mImageButton4.setImageResource(R.drawable.ic_check);
         }
         if (mAudioFilePath != null) {
@@ -1848,7 +1930,7 @@ public class EditProductActivity extends AppCompatActivity implements
         }
     }
 
-    private void updateUiFromDatabse(){
+    private void updateUiFromDatabse() {
         mTextProductName.setText(mOldProductName);
         mTextProductDescription.setText(mOldDescription);
         mTextProductQuantity.setText(mOldQuantity.split(" ")[0]);

@@ -1,6 +1,7 @@
 package com.turkeytech.egranja.activity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.CoordinatorLayout;
@@ -207,7 +208,7 @@ public class EditUserActivity extends AppCompatActivity {
         editSecurityBuilder.setView(view);
 
 
-        // Show audioPopup's dialog interface
+        // Show audioPopup'savePossible dialog interface
 
         final AlertDialog editSecurityPopUp = editSecurityBuilder.create();
 
@@ -292,7 +293,8 @@ public class EditUserActivity extends AppCompatActivity {
 
     private void saveDetails() {
 
-        if (s()) {
+        if (savePossible()) {
+            mProgressBar.setVisibility(View.VISIBLE);
             mCurrentUser.updateEmail(mNewEmail)
                     .addOnCompleteListener(
                             new OnCompleteListener<Void>() {
@@ -300,10 +302,18 @@ public class EditUserActivity extends AppCompatActivity {
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if (task.isSuccessful()) {
 
-                                        HashMap<String, String> details = new HashMap<>();
+                                        HashMap<String, Object> details = new HashMap<>();
                                         details.put(USERS_NAME, mNewFirstName + " " + mNewLastName);
                                         details.put(USERS_NUMBER, mNewNumber);
 
+                                        mDatabaseUser.updateChildren(details).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<Void> task) {
+                                                mProgressBar.setVisibility(View.GONE);
+                                                startActivity(new Intent(EditUserActivity.this, UserDetailActivity.class));
+                                                finish();
+                                            }
+                                        });
 
                                     }
                                 }
@@ -319,7 +329,7 @@ public class EditUserActivity extends AppCompatActivity {
         }
     }
 
-    private boolean s() {
+    private boolean savePossible() {
 
         mNewFirstName = mTextFirstName.getText().toString().trim();
         mNewLastName = mTextLastName.getText().toString().trim();

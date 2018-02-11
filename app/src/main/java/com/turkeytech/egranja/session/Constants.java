@@ -41,6 +41,9 @@ public final class Constants {
 
     public static final String HOME_SCREEN = "screen";
 
+    public static final String FULL_SCREEN_IMAGE = "full screen image";
+    public static final String FULL_SCREEN_IMAGE_LIST = "full screen image";
+
 
     public static final String ANONYMOUS = "anonymous";
     public static final String PRODUCT_ID = "product_id";
