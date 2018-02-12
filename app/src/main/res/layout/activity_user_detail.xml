@@ -16,8 +16,8 @@
         <android.support.design.widget.CollapsingToolbarLayout
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:fitsSystemWindows="true"
             android:background="@drawable/cool_theme"
+            android:fitsSystemWindows="true"
             app:contentScrim="@color/colorPrimary"
             app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
 
@@ -26,7 +26,8 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                app:layout_collapseMode="pin">
+                app:layout_collapseMode="pin"
+                app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
                 <ImageView
                     android:id="@+id/userDetail_btnToolbarBack"
@@ -96,7 +97,7 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
                     android:textSize="16sp"
-                    app:layout_constraintBottom_toTopOf="@+id/userDetail_number"
+                    app:layout_constraintBottom_toTopOf="@id/userDetail_number"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/userDetail_imgName"
                     app:layout_constraintTop_toTopOf="parent" />

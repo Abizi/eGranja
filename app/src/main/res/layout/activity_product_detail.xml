@@ -18,7 +18,8 @@
             android:layout_width="match_parent"
             android:layout_height="?android:attr/actionBarSize"
             android:fitsSystemWindows="true"
-            app:layout_collapseMode="pin">
+            app:layout_collapseMode="pin"
+            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
             <ImageView
                 android:id="@+id/productDetail_btnToolbarBack"
@@ -47,7 +48,7 @@
         android:indeterminate="true"
         android:visibility="visible"
         app:layout_anchorGravity="bottom"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -97,9 +98,9 @@
                     android:id="@+id/productDetail_txtFarmName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/productDetail_imgProductImage"
                     android:layout_below="@id/productDetail_txtCategory"
                     android:layout_margin="5dp"
-                    android:layout_alignBottom="@id/productDetail_imgProductImage"
                     android:layout_toEndOf="@id/productDetail_imgProductImage"
                     tools:text="From John Doe" />
             </RelativeLayout>
@@ -245,13 +246,13 @@
                         style="@style/Widget.AppCompat.ButtonBar"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_message"
-                        android:tint="@color/colorAccent"
                         android:layout_alignParentEnd="true"
                         android:layout_marginBottom="5dp"
                         android:layout_marginEnd="10dp"
                         android:layout_marginStart="10dp"
                         android:layout_marginTop="5dp"
+                        android:src="@drawable/ic_message"
+                        android:tint="@color/colorAccent"
                         tools:ignore="ContentDescription" />
                 </RelativeLayout>
 
@@ -405,8 +406,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="9dp"
                         android:background="@drawable/button_background"
-                        android:text="@string/product_startRecordingAudio"
-                        android:textColor="@color/textColor"
+                        android:text="@string/product_AudioDescription"
+                        android:textColor="@color/textColorCustom"
                         android:textSize="14sp" />
                 </LinearLayout>
 
@@ -429,8 +430,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="9dp"
                         android:background="@drawable/button_background"
-                        android:text="@string/product_previewVideo"
-                        android:textColor="@color/textColor"
+                        android:text="@string/product_VideoDescription"
+                        android:textColor="@color/textColorCustom"
                         android:textSize="14sp" />
                 </LinearLayout>
             </LinearLayout>

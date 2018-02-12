@@ -3038,5 +3038,8 @@
     <string name="title_activity_splash_screen">SplashScreenActivity</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="product_AudioDescription">Audio Description</string>
+    <string name="product_VideoDescription">Video Description</string>
 
 </resources>

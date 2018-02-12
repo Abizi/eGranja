@@ -53,7 +53,7 @@
         android:layout_marginTop="16dp"
         android:background="@drawable/button_background"
         android:text="@string/editUser_updateSecurityCredentials"
-        android:textColor="@color/textColor"
+        android:textColor="@color/textColorCustom"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/editUser_securityQuestion"
         app:layout_constraintStart_toStartOf="@id/editUser_securityQuestion"

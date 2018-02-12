@@ -14,7 +14,8 @@
         <android.support.v7.widget.Toolbar
             android:id="@+id/editProduct_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize">
+            android:layout_height="?attr/actionBarSize"
+            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
             <ImageView
                 android:id="@+id/fullScreenImage_btnToolbarBack"

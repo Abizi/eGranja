@@ -23,6 +23,6 @@
             android:layout_margin="@dimen/activity_vertical_margin"
             android:background="@drawable/button_background"
             android:textSize="14sp"
-            android:textColor="@color/textColor"
+            android:textColor="@color/textColorCustom"
             android:text="Dismiss" />
     </LinearLayout>

@@ -16,7 +16,8 @@
         <android.support.v7.widget.Toolbar
             android:id="@+id/addProduct_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize">
+            android:layout_height="?attr/actionBarSize"
+            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
             <ImageView
                 android:id="@+id/addProduct_btnToolbarClose"
@@ -45,8 +46,8 @@
         android:visibility="gone"
         app:layout_anchor="@id/addProduct_appBarLayout"
         app:layout_anchorGravity="bottom"
-        tools:visibility="visible"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:visibility="visible" />
 
 
     <android.support.v4.widget.NestedScrollView
@@ -305,7 +306,7 @@
                 android:layout_marginTop="16dp"
                 android:background="@drawable/button_background"
                 android:text="@string/product_startRecordingAudio"
-                android:textColor="@color/textColor"
+                android:textColor="@color/textColorCustom"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="@id/addProduct_layProductName"
                 app:layout_constraintStart_toStartOf="@id/addProduct_layProductName"
@@ -319,7 +320,7 @@
                 android:layout_marginTop="8dp"
                 android:background="@drawable/button_background"
                 android:text="@string/product_uploadVideo"
-                android:textColor="@color/textColor"
+                android:textColor="@color/textColorCustom"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="@id/addProduct_layProductName"
                 app:layout_constraintStart_toStartOf="@id/addProduct_layProductName"
@@ -348,7 +349,7 @@
                 android:layout_marginTop="16dp"
                 android:text="@string/product_locationInstruction"
                 android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="@+id/addProduct_layProductName"
+                app:layout_constraintEnd_toEndOf="@id/addProduct_layProductName"
                 app:layout_constraintStart_toStartOf="@id/addProduct_layProductName"
                 app:layout_constraintTop_toBottomOf="@id/addProduct_divider4" />
 
@@ -361,67 +362,13 @@
                 android:layout_marginTop="16dp"
                 android:background="@drawable/button_background"
                 android:text="@string/product_Location"
-                android:textColor="@color/textColor"
+                android:textColor="@color/textColorCustom"
                 android:textSize="14sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@id/addProduct_layProductName"
                 app:layout_constraintStart_toStartOf="@id/addProduct_layProductName"
                 app:layout_constraintTop_toBottomOf="@id/addProduct_locationInstructionText" />
 
-            <!--
-                        <View
-                            android:id="@+id/addProduct_dividerStart"
-                            android:layout_width="0dp"
-                            android:layout_height="0.3dp"
-                            android:layout_marginStart="16dp"
-                            android:layout_marginTop="16dp"
-                            android:background="@color/textColor"
-                            app:layout_constraintEnd_toStartOf="@id/addProduct_dividerText"
-                            app:layout_constraintStart_toStartOf="@id/addProduct_layProductName"
-                            app:layout_constraintTop_toBottomOf="@id/addProduct_btnCurrentLocation"
-                            tools:layout_marginStart="@dimen/activity_vertical_margin" />
-
-
-                        <TextView
-                            android:id="@+id/addProduct_dividerText"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="8dp"
-                            android:layout_marginStart="8dp"
-                            android:layout_marginTop="3dp"
-                            android:text="@string/product_dividerText"
-                            android:textSize="20sp"
-                            app:layout_constraintEnd_toStartOf="@id/addProduct_dividerEnd"
-                            app:layout_constraintStart_toEndOf="@+id/addProduct_dividerStart"
-                            app:layout_constraintTop_toBottomOf="@id/addProduct_btnCurrentLocation" />
-
-
-                        <View
-                            android:id="@+id/addProduct_dividerEnd"
-                            android:layout_width="0dp"
-                            android:layout_height="0.3dp"
-                            android:layout_marginEnd="@dimen/activity_vertical_margin"
-                            android:layout_marginTop="16dp"
-                            android:background="@color/textColor"
-                            app:layout_constraintEnd_toEndOf="@id/addProduct_layProductName"
-                            app:layout_constraintStart_toEndOf="@id/addProduct_dividerText"
-                            app:layout_constraintTop_toBottomOf="@id/addProduct_btnCurrentLocation" />
-
-
-                        <Button
-                            android:id="@+id/addProduct_btnChooseLocation"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="@dimen/activity_margin"
-                            android:layout_marginStart="@dimen/activity_margin"
-                            android:layout_marginTop="3dp"
-                            android:background="@drawable/button_background"
-                            android:text="@string/product_chooseLocation"
-                            android:textColor="@color/textColor"
-                            android:textSize="14sp"
-                            app:layout_constraintEnd_toEndOf="@id/addProduct_layProductName"
-                            app:layout_constraintStart_toStartOf="@id/addProduct_layProductName"
-                            app:layout_constraintTop_toBottomOf="@id/addProduct_dividerText" />-->
         </android.support.constraint.ConstraintLayout>
     </android.support.v4.widget.NestedScrollView>
 </android.support.design.widget.CoordinatorLayout>

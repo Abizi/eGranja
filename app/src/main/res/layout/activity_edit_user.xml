@@ -16,7 +16,8 @@
         <android.support.v7.widget.Toolbar
             android:id="@+id/editUser_toolbar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize">
+            android:layout_height="?attr/actionBarSize"
+            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
             <ImageView
                 android:id="@+id/editUser_btnToolbarClose"
@@ -29,7 +30,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
-                android:text="Hitler eee!"
+                android:text="@string/edit_profile"
                 android:textColor="@color/colorWhite"
                 android:textSize="20sp" />
         </android.support.v7.widget.Toolbar>
