@@ -1,5 +1,6 @@
 package com.turkeytech.egranja.fragment;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -48,6 +49,7 @@ public class HomeFragment extends Fragment {
     private ArrayList<Product> mProducts;
     private HomeProductAdapter mAdapter;
     private int mSpanCount;
+    private Activity mActivity;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -76,6 +78,8 @@ public class HomeFragment extends Fragment {
         mRecyclerView = view.findViewById(R.id.homeFragment_recyclerView);
         mRecyclerView.hasFixedSize();
 
+
+        mActivity = getActivity();
 
         mSpanCount = (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) ? 3 : 2;
 
@@ -114,7 +118,7 @@ public class HomeFragment extends Fragment {
                         }
                         mRecyclerView.setAdapter(mAdapter);
 
-                        //getActivity().findViewById(R.id.main_ProgressBar).setVisibility(View.GONE);
+                        mActivity.findViewById(R.id.main_ProgressBar).setVisibility(View.GONE);
                     }
 
                     @Override

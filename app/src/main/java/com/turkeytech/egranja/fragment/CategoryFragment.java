@@ -1,5 +1,6 @@
 package com.turkeytech.egranja.fragment;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -30,6 +31,7 @@ public class CategoryFragment extends Fragment {
     private ArrayList<String> mCategories;
     private HashMap<String, ArrayList<String>> mMap;
     private RecyclerView mRecyclerView;
+    private Activity mActivity;
 
     public CategoryFragment() {
         // Required empty public constructor
@@ -54,8 +56,11 @@ public class CategoryFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+
+        mActivity = getActivity();
+
         mRecyclerView = view.findViewById(R.id.categoryFragment_recyclerView);
-        getActivity().findViewById(R.id.main_ProgressBar).setVisibility(View.VISIBLE);
+        mActivity.findViewById(R.id.main_ProgressBar).setVisibility(View.VISIBLE);
         getDataSource();
         Log.i(TAG, "onViewCreated: All thing here are done.");
     }
@@ -86,6 +91,8 @@ public class CategoryFragment extends Fragment {
                 Log.i(TAG, "onViewCreated: mCategories: " + mCategories);
                 Log.i(TAG, "onViewCreated: mMap: " + mMap);
                 mRecyclerView.setAdapter(new CategoryProductAdapter(getContext(), mCategories));
+
+                mActivity.findViewById(R.id.main_ProgressBar).setVisibility(View.GONE);
             }
 
             @Override
