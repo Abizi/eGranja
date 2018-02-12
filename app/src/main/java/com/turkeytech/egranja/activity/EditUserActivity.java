@@ -38,6 +38,7 @@ import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 import static com.turkeytech.egranja.session.Constants.USERS_ANSWER;
 import static com.turkeytech.egranja.session.Constants.USERS_NAME;
@@ -364,5 +365,11 @@ public class EditUserActivity extends AppCompatActivity {
             return true;
         }
 
+    }
+
+    @OnClick(R.id.editUser_btnToolbarClose)
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
     }
 }
