@@ -77,7 +77,7 @@ public class UserDetailActivity extends AppCompatActivity {
             mAppBarLayout.setVisibility(View.VISIBLE);
             mNestedScrollView.setVisibility(View.VISIBLE);
             mFab.setVisibility(View.VISIBLE);
-            findViewById(R.id.signUp_noData).setVisibility(View.GONE);
+            findViewById(R.id.userDetail_noData).setVisibility(View.GONE);
 
             initFirebase();
 
@@ -86,7 +86,7 @@ public class UserDetailActivity extends AppCompatActivity {
             mAppBarLayout.setVisibility(View.GONE);
             mNestedScrollView.setVisibility(View.GONE);
             mFab.setVisibility(View.GONE);
-            findViewById(R.id.signUp_noData).setVisibility(View.VISIBLE);
+            findViewById(R.id.userDetail_noData).setVisibility(View.VISIBLE);
         }
     }
 

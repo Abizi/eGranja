@@ -93,7 +93,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
             mAppBarLayout.setVisibility(View.VISIBLE);
             mProgressBar.setVisibility(View.VISIBLE);
             mNestedScrollView.setVisibility(View.VISIBLE);
-            findViewById(R.id.editUser_noData).setVisibility(View.GONE);
+            findViewById(R.id.forgotPassword_noData).setVisibility(View.GONE);
 
 
             mCurrentUser = FirebaseAuth.getInstance().getCurrentUser();
@@ -107,7 +107,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
             mAppBarLayout.setVisibility(View.GONE);
             mProgressBar.setVisibility(View.GONE);
             mNestedScrollView.setVisibility(View.GONE);
-            findViewById(R.id.editUser_noData).setVisibility(View.VISIBLE);
+            findViewById(R.id.forgotPassword_noData).setVisibility(View.VISIBLE);
         }
     }
 
