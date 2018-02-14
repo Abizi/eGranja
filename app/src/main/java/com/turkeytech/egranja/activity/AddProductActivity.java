@@ -19,6 +19,7 @@ import android.os.Handler;
 import android.os.ResultReceiver;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
+import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputEditText;
@@ -27,6 +28,7 @@ import android.support.v4.app.DialogFragment;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.FileProvider;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -70,6 +72,7 @@ import com.turkeytech.egranja.fragment.DialogLocationFragment;
 import com.turkeytech.egranja.model.Product;
 import com.turkeytech.egranja.service.FetchAddressIntentService;
 import com.turkeytech.egranja.session.Constants;
+import com.turkeytech.egranja.util.NetworkHelper;
 
 import java.io.File;
 import java.io.IOException;
@@ -120,6 +123,12 @@ public class AddProductActivity extends AppCompatActivity implements
     private static final int MY_NOTIFICATION = 900;
 
     protected Location mLastLocation;
+
+    @BindView(R.id.addProduct_appBarLayout)
+    AppBarLayout mAppBarLayout;
+
+    @BindView(R.id.addProduct_nestedScrollView)
+    NestedScrollView mNestedScrollView;
 
     @BindView(R.id.addProduct_toolbar)
     Toolbar mToolbar;
@@ -216,6 +225,7 @@ public class AddProductActivity extends AppCompatActivity implements
     private boolean isUploading;
     private NotificationCompat.Builder mBuilderSuccess;
     private NotificationManager mNotifyMgr;
+    private Bundle mSavedInstanceState;
 
 
     @Override
@@ -225,35 +235,58 @@ public class AddProductActivity extends AppCompatActivity implements
 
         ButterKnife.bind(this);
 
-        if (savedInstanceState != null) {
-            updateValuesFromBundle(savedInstanceState);
+        mSavedInstanceState = savedInstanceState;
+        start(mSavedInstanceState);
+
+    }
+
+    private void start(Bundle savedInstanceState) {
+        if (NetworkHelper.hasNetwork(this)) {
+
+            mAppBarLayout.setVisibility(View.VISIBLE);
+            mProgressBar.setVisibility(View.VISIBLE);
+            mNestedScrollView.setVisibility(View.VISIBLE);
+            findViewById(R.id.addProduct_noData).setVisibility(View.GONE);
+
+
+            if (savedInstanceState != null) {
+                updateValuesFromBundle(savedInstanceState);
+            }
+
+            setSupportActionBar(mToolbar);
+            assert getSupportActionBar() != null;
+            getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+            initSpinners();
+
+            mAuth = FirebaseAuth.getInstance();
+            mCurrentUser = mAuth.getCurrentUser();
+            mStorage = FirebaseStorage.getInstance().getReference();
+            mDatabaseProduct = FirebaseDatabase.getInstance().getReference().child(PRODUCTS_NODE);
+            mDatabaseCategory = FirebaseDatabase.getInstance().getReference().child(CATEGORIES_NODE);
+            mDatabaseUser = FirebaseDatabase.getInstance().getReference().child(USERS_NODE).child(mCurrentUser.getUid());
+
+            mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+            mResultReceiver = new AddressResultReceiver(new Handler());
+
+
+            mBuilderSuccess = new NotificationCompat.Builder(this)
+                    .setSmallIcon(R.drawable.ic_upload)
+                    .setContentTitle("Product Upload")
+                    .setContentText("Uploading Product");
+
+            mNotifyMgr = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        } else {
+            mAppBarLayout.setVisibility(View.GONE);
+            mProgressBar.setVisibility(View.GONE);
+            mNestedScrollView.setVisibility(View.GONE);
+            findViewById(R.id.addProduct_noData).setVisibility(View.VISIBLE);
         }
+    }
 
-
-        setSupportActionBar(mToolbar);
-        assert getSupportActionBar() != null;
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
-
-        initSpinners();
-
-        mAuth = FirebaseAuth.getInstance();
-        mCurrentUser = mAuth.getCurrentUser();
-        mStorage = FirebaseStorage.getInstance().getReference();
-        mDatabaseProduct = FirebaseDatabase.getInstance().getReference().child(PRODUCTS_NODE);
-        mDatabaseCategory = FirebaseDatabase.getInstance().getReference().child(CATEGORIES_NODE);
-        mDatabaseUser = FirebaseDatabase.getInstance().getReference().child(USERS_NODE).child(mCurrentUser.getUid());
-
-        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
-        mResultReceiver = new AddressResultReceiver(new android.os.Handler());
-
-
-        mBuilderSuccess = new NotificationCompat.Builder(this)
-                .setSmallIcon(R.drawable.ic_upload)
-                .setContentTitle("Product Upload")
-                .setContentText("Uploading Product");
-
-        mNotifyMgr = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-
+    @OnClick(R.id.retry_button)
+    public void retry(){
+        start(mSavedInstanceState);
     }
 
     private void initSpinners() {

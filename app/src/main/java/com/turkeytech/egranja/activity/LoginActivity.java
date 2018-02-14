@@ -4,9 +4,11 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputEditText;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
@@ -22,6 +24,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthInvalidUserException;
 import com.turkeytech.egranja.R;
+import com.turkeytech.egranja.util.NetworkHelper;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -35,6 +38,12 @@ import static com.turkeytech.egranja.session.Constants.LOGIN_SENDER;
 public class LoginActivity extends AppCompatActivity {
 
 //    private static final String TAG = "SignInActivity";
+
+    @BindView(R.id.login_appBarLayout)
+    AppBarLayout mAppBarLayout;
+
+    @BindView(R.id.login_nestedScrollView)
+    NestedScrollView mNestedScrollView;
 
     @BindView(R.id.login_rootLayout)
     CoordinatorLayout rootLayout;
@@ -67,20 +76,45 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+
         ButterKnife.bind(this);
 
-        sender = getIntent().getStringExtra(LOGIN_SENDER);
+        start();
+    }
 
-        mAuth = FirebaseAuth.getInstance();
-        mAuthListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+    private void start() {
+        if (NetworkHelper.hasNetwork(this)) {
 
-                if (firebaseAuth.getCurrentUser() != null) {
-                    backToSender();
+            mNestedScrollView.setVisibility(View.VISIBLE);
+            mAppBarLayout.setVisibility(View.VISIBLE);
+            mProgressBar.setVisibility(View.VISIBLE);
+            findViewById(R.id.login_noDaata).setVisibility(View.GONE);
+
+
+            sender = getIntent().getStringExtra(LOGIN_SENDER);
+
+            mAuth = FirebaseAuth.getInstance();
+            mAuthListener = new FirebaseAuth.AuthStateListener() {
+                @Override
+                public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+
+                    if (firebaseAuth.getCurrentUser() != null) {
+                        backToSender();
+                    }
                 }
-            }
-        };
+            };
+        } else {
+            mAppBarLayout.setVisibility(View.GONE);
+            mNestedScrollView.setVisibility(View.GONE);
+            mProgressBar.setVisibility(View.GONE);
+            findViewById(R.id.login_noDaata).setVisibility(View.VISIBLE);
+        }
+    }
+
+    @OnClick(R.id.retry_button)
+    public void retry(){
+        start();
     }
 
     @Override

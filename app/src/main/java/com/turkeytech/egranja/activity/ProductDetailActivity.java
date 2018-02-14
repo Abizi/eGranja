@@ -3,9 +3,11 @@ package com.turkeytech.egranja.activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -26,6 +28,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.turkeytech.egranja.R;
 import com.turkeytech.egranja.adapter.ImageAdapter;
 import com.turkeytech.egranja.model.Product;
+import com.turkeytech.egranja.util.NetworkHelper;
 
 import java.util.ArrayList;
 
@@ -37,6 +40,12 @@ import static com.turkeytech.egranja.session.Constants.PRODUCTS_NODE;
 import static com.turkeytech.egranja.session.Constants.PRODUCT_ID;
 
 public class ProductDetailActivity extends AppCompatActivity {
+
+    @BindView(R.id.productDetail_appBarLayout)
+    AppBarLayout mAppBarLayout;
+
+    @BindView(R.id.productDetail_nestedScrollView)
+    NestedScrollView mNestedScrollView;
 
     @BindView(R.id.productDetail_toolbar)
     Toolbar mToolbar;
@@ -91,18 +100,42 @@ public class ProductDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_detail);
+
         ButterKnife.bind(this);
 
-        mRecyclerViewImages.setLayoutManager(
-                        new LinearLayoutManager(
-                                this,
-                                LinearLayoutManager.HORIZONTAL,
-                                false
-                        )
-        );
-        images = new ArrayList<>();
-        bottomSheetHack();
-        updateUi(getIntent().getStringExtra(PRODUCT_ID));
+        start();
+    }
+
+    private void start() {
+        if (NetworkHelper.hasNetwork(this)) {
+
+            mAppBarLayout.setVisibility(View.VISIBLE);
+            mNestedScrollView.setVisibility(View.VISIBLE);
+            mProgressBar.setVisibility(View.VISIBLE);
+            findViewById(R.id.productDetail_noData).setVisibility(View.GONE);
+
+            mRecyclerViewImages.setLayoutManager(
+                            new LinearLayoutManager(
+                                    this,
+                                    LinearLayoutManager.HORIZONTAL,
+                                    false
+                            )
+            );
+            images = new ArrayList<>();
+            bottomSheetHack();
+            updateUi(getIntent().getStringExtra(PRODUCT_ID));
+        } else {
+            mAppBarLayout.setVisibility(View.GONE);
+            mNestedScrollView.setVisibility(View.GONE);
+            mProgressBar.setVisibility(View.GONE);
+            findViewById(R.id.productDetail_bottomSheet).setVisibility(View.GONE);
+            findViewById(R.id.productDetail_noData).setVisibility(View.VISIBLE);
+        }
+    }
+
+    @OnClick(R.id.retry_button)
+    public void retry(){
+        start();
     }
 
     private DatabaseReference getDatabase() {

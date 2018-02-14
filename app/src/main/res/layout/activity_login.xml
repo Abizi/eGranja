@@ -6,7 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".activity.LoginActivity">
 
+    <include layout="@layout/zz_no_data"
+        android:id="@+id/login_noDaata"
+        android:visibility="gone"/>
+
     <android.support.design.widget.AppBarLayout
+        android:id="@+id/login_appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -46,6 +51,7 @@
         tools:visibility="visible" />
 
     <android.support.v4.widget.NestedScrollView
+        android:id="@+id/login_nestedScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">

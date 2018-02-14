@@ -5,12 +5,15 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputEditText;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -26,6 +29,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.turkeytech.egranja.R;
 import com.turkeytech.egranja.model.User;
+import com.turkeytech.egranja.util.NetworkHelper;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -37,6 +41,12 @@ public class SignUpActivity extends AppCompatActivity {
 
     @BindView(R.id.signUp_root)
     CoordinatorLayout rootLayout;
+
+    @BindView(R.id.signUp_appBarLayout)
+    AppBarLayout mAppBarLayout;
+
+    @BindView(R.id.signUp_nestedScrollView)
+    NestedScrollView mNestedScrollView;
 
     @BindView(R.id.signUp_txtFirstName)
     TextInputEditText mTextFirstName;
@@ -80,17 +90,38 @@ public class SignUpActivity extends AppCompatActivity {
 
         ButterKnife.bind(this);
 
-        mAuth = FirebaseAuth.getInstance();
-        mDatabase = FirebaseDatabase.getInstance().getReference();
+        start();
+    }
+
+    private void start() {
+        if (NetworkHelper.hasNetwork(this)) {
+
+            mAppBarLayout.setVisibility(View.VISIBLE);
+            mNestedScrollView.setVisibility(View.VISIBLE);
+            findViewById(R.id.signUp_noData).setVisibility(View.GONE);
+
+            mAuth = FirebaseAuth.getInstance();
+            mDatabase = FirebaseDatabase.getInstance().getReference();
 
 
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
-                this,
-                R.array.security_questions,
-                android.R.layout.simple_list_item_1
-        );
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        mSpinSecurityQuestion.setAdapter(adapter);
+            ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
+                    this,
+                    R.array.security_questions,
+                    android.R.layout.simple_list_item_1
+            );
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            mSpinSecurityQuestion.setAdapter(adapter);
+        } else {
+            mAppBarLayout.setVisibility(View.GONE);
+            mNestedScrollView.setVisibility(View.GONE);
+            findViewById(R.id.signUp_noData).setVisibility(View.VISIBLE);
+        }
+    }
+
+
+    @OnClick(R.id.retry_button)
+    public void retry(){
+        start();
     }
 
     @OnClick(R.id.signUp_btnSignUp)

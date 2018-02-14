@@ -7,10 +7,14 @@
     android:layout_height="match_parent"
     tools:context="com.turkeytech.egranja.activity.AddProductActivity">
 
+    <include layout="@layout/zz_no_data"
+        android:id="@+id/addProduct_noData"
+        android:visibility="gone"/>
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/addProduct_appBarLayout"
         android:layout_width="match_parent"
+        tools:visibility="gone"
         android:layout_height="wrap_content">
 
         <android.support.v7.widget.Toolbar
@@ -47,12 +51,14 @@
         app:layout_anchor="@id/addProduct_appBarLayout"
         app:layout_anchorGravity="bottom"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:visibility="visible" />
+        tools:visibility="gone" />
 
 
     <android.support.v4.widget.NestedScrollView
+        android:id="@+id/addProduct_nestedScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        tools:visibility="gone"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
 

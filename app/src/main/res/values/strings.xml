@@ -131,6 +131,7 @@
         <item>Select Unit</item>
         <item>Bag</item>
         <item>Basket</item>
+        <item>Box</item>
         <item>Cup</item>
         <item>Kilo</item>
         <item>Sack</item>
@@ -139,11 +140,11 @@
     <!-- Categories Spinner -->
     <string-array name="categories_names">
         <item>Select Category</item>
-        <item>tubers</item>
-        <item>fruits</item>
-        <item>vegetables</item>
-        <item>grains</item>
-        <item>meat</item>
+        <item>Tubers</item>
+        <item>Fruits</item>
+        <item>Vegetables</item>
+        <item>Grains</item>
+        <item>Meat</item>
     </string-array>
 
 

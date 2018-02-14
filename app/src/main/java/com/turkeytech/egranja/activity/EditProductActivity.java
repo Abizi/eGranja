@@ -18,6 +18,7 @@ import android.os.Handler;
 import android.os.ResultReceiver;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
+import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputEditText;
@@ -26,6 +27,7 @@ import android.support.v4.app.DialogFragment;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.FileProvider;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -68,6 +70,7 @@ import com.turkeytech.egranja.fragment.DialogLocationFragment;
 import com.turkeytech.egranja.model.Product;
 import com.turkeytech.egranja.service.FetchAddressIntentService;
 import com.turkeytech.egranja.session.Constants;
+import com.turkeytech.egranja.util.NetworkHelper;
 
 import java.io.File;
 import java.io.IOException;
@@ -119,6 +122,12 @@ public class EditProductActivity extends AppCompatActivity implements
     private static final int MY_NOTIFICATION = 900;
 
     protected Location mLastLocation;
+
+    @BindView(R.id.editProduct_nestedScrollView)
+    NestedScrollView mNestedScrollView;
+
+    @BindView(R.id.editProduct_appBarLayout)
+    AppBarLayout mAppBarLayout;
 
     @BindView(R.id.editProduct_toolbar)
     Toolbar mToolbar;
@@ -244,6 +253,7 @@ public class EditProductActivity extends AppCompatActivity implements
     private boolean isImage2Database;
     private boolean isImage3Database;
     private boolean isImage4Database;
+    private Bundle mSavedInstanceState;
 
 
     @Override
@@ -253,79 +263,102 @@ public class EditProductActivity extends AppCompatActivity implements
 
         ButterKnife.bind(this);
 
-        if (savedInstanceState != null) {
-            updateValuesFromBundle(savedInstanceState);
+        mSavedInstanceState = savedInstanceState;
+        start(mSavedInstanceState);
+    }
+
+    private void start(Bundle savedInstanceState) {
+        if (NetworkHelper.hasNetwork(this)) {
+
+            mAppBarLayout.setVisibility(View.VISIBLE);
+            mProgressBar.setVisibility(View.VISIBLE);
+            mNestedScrollView.setVisibility(View.VISIBLE);
+            findViewById(R.id.editProduct_noData).setVisibility(View.GONE);
+
+            if (savedInstanceState != null) {
+                updateValuesFromBundle(savedInstanceState);
+            }
+
+
+            final String product_Id = getIntent().getStringExtra(PRODUCT_ID);
+
+            setSupportActionBar(mToolbar);
+            assert getSupportActionBar() != null;
+            getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+            initSpinners();
+
+            mAuth = FirebaseAuth.getInstance();
+            mCurrentUser = mAuth.getCurrentUser();
+            mStorage = FirebaseStorage.getInstance().getReference();
+            mDatabaseProduct = FirebaseDatabase.getInstance().getReference().child(PRODUCTS_NODE);
+            mDatabaseCategory = FirebaseDatabase.getInstance().getReference().child(CATEGORIES_NODE);
+            mDatabaseUser = FirebaseDatabase.getInstance().getReference().child(USERS_NODE).child(mCurrentUser.getUid());
+
+            mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+            mResultReceiver = new AddressResultReceiver(new Handler());
+
+
+            mBuilderSuccess = new NotificationCompat.Builder(this)
+                    .setSmallIcon(R.drawable.ic_launcher_foreground)
+                    .setContentTitle("Product Upload")
+                    .setContentText("Uploading Product");
+
+            mNotifyMgr = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+
+            mDatabaseProduct.child(product_Id).addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    Product product = dataSnapshot.getValue(Product.class);
+
+                    assert product != null;
+
+                    mOldProductName = product.getName();
+                    mOldDescription = product.getDescription();
+                    mOldQuantity = product.getQuantity();
+                    mOldQuantityUnit = product.getQuantity();
+                    mOldPrice = product.getPrice();
+                    mOldCategory = product.getCategory();
+                    mOldLocation = product.getLocation();
+                    mLocation = mOldLocation;
+
+                    mOldImageFile1 = product.getImage1();
+                    isImage1Database = true;
+                    isImage1Set = true;
+                    mOldImageFile2 = product.getImage2();
+                    isImage2Database = true;
+                    isImage2Set = true;
+                    mOldImageFile3 = product.getImage3();
+                    isImage3Database = true;
+                    isImage3Set = true;
+
+                    mOldImageFile4 = product.getImage4();
+                    isImage4Database = true;
+                    isImage4Set = true;
+
+                    mOldAudioFile = product.getAudio();
+                    mOldVideoFile = product.getVideo();
+
+                    updateUI();
+                    updateUiFromDatabse();
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+        }else {
+            mAppBarLayout.setVisibility(View.GONE);
+            mProgressBar.setVisibility(View.GONE);
+            mNestedScrollView.setVisibility(View.GONE);
+            findViewById(R.id.editProduct_noData).setVisibility(View.VISIBLE);
         }
+    }
 
-
-        final String product_Id = getIntent().getStringExtra(PRODUCT_ID);
-
-        setSupportActionBar(mToolbar);
-        assert getSupportActionBar() != null;
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
-
-        initSpinners();
-
-        mAuth = FirebaseAuth.getInstance();
-        mCurrentUser = mAuth.getCurrentUser();
-        mStorage = FirebaseStorage.getInstance().getReference();
-        mDatabaseProduct = FirebaseDatabase.getInstance().getReference().child(PRODUCTS_NODE);
-        mDatabaseCategory = FirebaseDatabase.getInstance().getReference().child(CATEGORIES_NODE);
-        mDatabaseUser = FirebaseDatabase.getInstance().getReference().child(USERS_NODE).child(mCurrentUser.getUid());
-
-        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
-        mResultReceiver = new AddressResultReceiver(new android.os.Handler());
-
-
-        mBuilderSuccess = new NotificationCompat.Builder(this)
-                .setSmallIcon(R.drawable.ic_launcher_foreground)
-                .setContentTitle("Product Upload")
-                .setContentText("Uploading Product");
-
-        mNotifyMgr = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-
-        mDatabaseProduct.child(product_Id).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                Product product = dataSnapshot.getValue(Product.class);
-
-                assert product != null;
-
-                mOldProductName = product.getName();
-                mOldDescription = product.getDescription();
-                mOldQuantity = product.getQuantity();
-                mOldQuantityUnit = product.getQuantity();
-                mOldPrice = product.getPrice();
-                mOldCategory = product.getCategory();
-                mOldLocation = product.getLocation();
-                mLocation = mOldLocation;
-
-                mOldImageFile1 = product.getImage1();
-                isImage1Database = true;
-                isImage1Set = true;
-                mOldImageFile2 = product.getImage2();
-                isImage2Database = true;
-                isImage2Set = true;
-                mOldImageFile3 = product.getImage3();
-                isImage3Database = true;
-                isImage3Set = true;
-
-                mOldImageFile4 = product.getImage4();
-                isImage4Database = true;
-                isImage4Set = true;
-
-                mOldAudioFile = product.getAudio();
-                mOldVideoFile = product.getVideo();
-
-                updateUI();
-                updateUiFromDatabse();
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
+    @OnClick(R.id.retry_button)
+    public void retry(){
+        start(mSavedInstanceState);
     }
 
     private void initSpinners() {

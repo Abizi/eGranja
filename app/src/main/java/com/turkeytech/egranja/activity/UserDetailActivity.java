@@ -2,9 +2,11 @@ package com.turkeytech.egranja.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -20,6 +22,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.turkeytech.egranja.R;
 import com.turkeytech.egranja.model.User;
+import com.turkeytech.egranja.util.NetworkHelper;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -33,6 +36,12 @@ public class UserDetailActivity extends AppCompatActivity {
 
     @BindView(R.id.userDetail_root)
     CoordinatorLayout rootLayout;
+
+    @BindView(R.id.userDetail_appBarLayout)
+    AppBarLayout mAppBarLayout;
+
+    @BindView(R.id.userDetail_nestedScrollView)
+    NestedScrollView mNestedScrollView;
 
     @BindView(R.id.userDetail_progressBar)
     ProgressBar mProgressBar;
@@ -59,9 +68,31 @@ public class UserDetailActivity extends AppCompatActivity {
 
         ButterKnife.bind(this);
 
-        initFirebase();
+        start();
+    }
 
-        fillUiFromDatabase();
+    private void start() {
+        if (NetworkHelper.hasNetwork(this)) {
+
+            mAppBarLayout.setVisibility(View.VISIBLE);
+            mNestedScrollView.setVisibility(View.VISIBLE);
+            mFab.setVisibility(View.VISIBLE);
+            findViewById(R.id.signUp_noData).setVisibility(View.GONE);
+
+            initFirebase();
+
+            fillUiFromDatabase();
+        } else {
+            mAppBarLayout.setVisibility(View.GONE);
+            mNestedScrollView.setVisibility(View.GONE);
+            mFab.setVisibility(View.GONE);
+            findViewById(R.id.signUp_noData).setVisibility(View.VISIBLE);
+        }
+    }
+
+    @OnClick(R.id.retry_button)
+    public void retry(){
+        start();
     }
 
     private void initFirebase() {

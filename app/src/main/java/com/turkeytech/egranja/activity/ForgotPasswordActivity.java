@@ -3,10 +3,12 @@ package com.turkeytech.egranja.activity;
 import android.annotation.SuppressLint;
 import android.app.NotificationManager;
 import android.support.annotation.NonNull;
+import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputEditText;
 import android.support.v4.app.NotificationCompat;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -29,6 +31,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.turkeytech.egranja.R;
 import com.turkeytech.egranja.model.User;
+import com.turkeytech.egranja.util.NetworkHelper;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -39,6 +42,13 @@ import static com.turkeytech.egranja.session.Constants.USERS_NODE;
 public class ForgotPasswordActivity extends AppCompatActivity {
 
     private static final int MY_NOTIFICATION = 901;
+
+    @BindView(R.id.forgotPassword_nestedScrollView)
+    NestedScrollView mNestedScrollView;
+
+    @BindView(R.id.forgotPassword_appBarLayout)
+    AppBarLayout mAppBarLayout;
+
     @BindView(R.id.forgotPassword_root)
     CoordinatorLayout mRootLayout;
 
@@ -74,14 +84,38 @@ public class ForgotPasswordActivity extends AppCompatActivity {
 
         ButterKnife.bind(this);
 
-        mCurrentUser = FirebaseAuth.getInstance().getCurrentUser();
-
-        mBuilderSuccess = new NotificationCompat.Builder(this)
-                .setSmallIcon(R.drawable.ic_upload)
-                .setContentText("Updating Password");
-
-        mNotifyMgr = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        start();
     }
+
+    private void start() {
+        if (NetworkHelper.hasNetwork(this)) {
+
+            mAppBarLayout.setVisibility(View.VISIBLE);
+            mProgressBar.setVisibility(View.VISIBLE);
+            mNestedScrollView.setVisibility(View.VISIBLE);
+            findViewById(R.id.editUser_noData).setVisibility(View.GONE);
+
+
+            mCurrentUser = FirebaseAuth.getInstance().getCurrentUser();
+
+            mBuilderSuccess = new NotificationCompat.Builder(this)
+                    .setSmallIcon(R.drawable.ic_upload)
+                    .setContentText("Updating Password");
+
+            mNotifyMgr = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        } else {
+            mAppBarLayout.setVisibility(View.GONE);
+            mProgressBar.setVisibility(View.GONE);
+            mNestedScrollView.setVisibility(View.GONE);
+            findViewById(R.id.editUser_noData).setVisibility(View.VISIBLE);
+        }
+    }
+
+    @OnClick(R.id.retry_button)
+    public void retry(){
+        start();
+    }
+
 
     private DatabaseReference getUserReference() {
         return FirebaseDatabase

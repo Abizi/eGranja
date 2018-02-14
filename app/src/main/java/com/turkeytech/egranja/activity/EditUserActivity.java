@@ -4,9 +4,11 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputEditText;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -32,6 +34,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.turkeytech.egranja.R;
 import com.turkeytech.egranja.model.User;
+import com.turkeytech.egranja.util.NetworkHelper;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -50,6 +53,12 @@ public class EditUserActivity extends AppCompatActivity {
     private static final String TAG = "xix: EditUser";
 
 //    public static final String TAG = "xix: EditUserActivity";
+
+    @BindView(R.id.editUser_appBarLayout)
+    AppBarLayout mAppBarLayout;
+
+    @BindView(R.id.editUser_nestedScrollView)
+    NestedScrollView mNestedScrollView;
 
     @BindView(R.id.editUser_toolbar)
     Toolbar mToolbar;
@@ -79,6 +88,7 @@ public class EditUserActivity extends AppCompatActivity {
 
     private FirebaseUser mCurrentUser;
     private DatabaseReference mDatabaseUser;
+    private Bundle mSavedInstanceState;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,16 +97,40 @@ public class EditUserActivity extends AppCompatActivity {
 
         ButterKnife.bind(this);
 
-        setSupportActionBar(mToolbar);
-        assert getSupportActionBar() != null;
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        mSavedInstanceState = savedInstanceState;
+        start(mSavedInstanceState);
+    }
 
-        initFirebase();
+    private void start(Bundle savedInstanceState) {
+        if (NetworkHelper.hasNetwork(this)) {
 
-        if (savedInstanceState == null) {
-            fillUiFromDatabase();
+            mAppBarLayout.setVisibility(View.VISIBLE);
+            mProgressBar.setVisibility(View.VISIBLE);
+            mNestedScrollView.setVisibility(View.VISIBLE);
+            findViewById(R.id.editUser_noData).setVisibility(View.GONE);
+
+            setSupportActionBar(mToolbar);
+            assert getSupportActionBar() != null;
+            getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+            initFirebase();
+
+            if (savedInstanceState == null) {
+                fillUiFromDatabase();
+            }
+        } else {
+            mAppBarLayout.setVisibility(View.GONE);
+            mProgressBar.setVisibility(View.GONE);
+            mNestedScrollView.setVisibility(View.GONE);
+            findViewById(R.id.editUser_noData).setVisibility(View.VISIBLE);
         }
     }
+
+    @OnClick(R.id.retry_button)
+    public void retry(){
+        start(mSavedInstanceState);
+    }
+
 
     private void initFirebase() {
         FirebaseAuth mAuth = FirebaseAuth.getInstance();

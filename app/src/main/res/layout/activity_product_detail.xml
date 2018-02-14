@@ -6,7 +6,12 @@
     android:layout_height="match_parent"
     tools:context=".activity.ProductDetailActivity">
 
+    <include layout="@layout/zz_no_data"
+        android:id="@+id/productDetail_noData"
+        android:visibility="gone"/>
+
     <android.support.design.widget.AppBarLayout
+        android:id="@+id/productDetail_appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fitsSystemWindows="true"
@@ -51,6 +56,7 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
     <android.support.v4.widget.NestedScrollView
+        android:id="@+id/productDetail_nestedScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">

@@ -99,60 +99,77 @@ public class HomeActivity extends AppCompatActivity
         setContentView(R.layout.activity_home);
         ButterKnife.bind(this);
 
-        // Replace action bar and set custom mToolbar as actionbar
-        setSupportActionBar(mToolbar);
+        start();
 
-
-        // Setting up the Up button
-        assert getSupportActionBar() != null;
-        getSupportActionBar().setHomeButtonEnabled(true);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowTitleEnabled(true);
-
-
-        initDrawerItems();
-
-        setScreen(getIntent().getStringExtra(HOME_SCREEN));
-
-        // Initialize Firebase Auth
-        FirebaseAuth mFirebaseAuth = FirebaseAuth.getInstance();
-        mFirebaseUser = mFirebaseAuth.getCurrentUser();
-
-        if (mFirebaseUser != null) {
-
-            mNavigationView.inflateMenu(R.menu.activity_main_drawer_in);
-
-            FirebaseDatabase
-                    .getInstance()
-                    .getReference()
-                    .child(USERS_NODE)
-                    .child(mFirebaseUser.getUid())
-                    .addValueEventListener(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(DataSnapshot dataSnapshot) {
-                            User user = dataSnapshot.getValue(User.class);
-                            mFullName.setText(user.getName());
-                            mEmail.setText(mFirebaseUser.getEmail());
-                        }
-
-                        @Override
-                        public void onCancelled(DatabaseError databaseError) {
-
-                        }
-                    });
-
-            if (mFirebaseUser.getPhotoUrl() != null) {
-                Glide.with(this).load(mFirebaseUser.getPhotoUrl().toString()).into(mImage);
-            }
-
-        } else {
-            mFullName.setText(ANONYMOUS);
-            mNavigationView.inflateMenu(R.menu.activity_main_drawer_out);
-        }
-
-        NetworkHelper.hasNetwork(this);
     }
 
+    private void start() {
+        if (NetworkHelper.hasNetwork(this)) {
+
+
+            rootLayout.setVisibility(View.VISIBLE);
+            findViewById(R.id.main_noData).setVisibility(View.GONE);
+
+            // Replace action bar and set custom mToolbar as actionbar
+            setSupportActionBar(mToolbar);
+
+
+            // Setting up the Up button
+            assert getSupportActionBar() != null;
+            getSupportActionBar().setHomeButtonEnabled(true);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowTitleEnabled(true);
+
+
+            initDrawerItems();
+
+            setScreen(getIntent().getStringExtra(HOME_SCREEN));
+
+            // Initialize Firebase Auth
+            FirebaseAuth mFirebaseAuth = FirebaseAuth.getInstance();
+            mFirebaseUser = mFirebaseAuth.getCurrentUser();
+
+            if (mFirebaseUser != null) {
+
+                mNavigationView.inflateMenu(R.menu.activity_main_drawer_in);
+
+                FirebaseDatabase
+                        .getInstance()
+                        .getReference()
+                        .child(USERS_NODE)
+                        .child(mFirebaseUser.getUid())
+                        .addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot dataSnapshot) {
+                                User user = dataSnapshot.getValue(User.class);
+                                mFullName.setText(user.getName());
+                                mEmail.setText(mFirebaseUser.getEmail());
+                            }
+
+                            @Override
+                            public void onCancelled(DatabaseError databaseError) {
+
+                            }
+                        });
+
+                if (mFirebaseUser.getPhotoUrl() != null) {
+                    Glide.with(this).load(mFirebaseUser.getPhotoUrl().toString()).into(mImage);
+                }
+
+            } else {
+                mFullName.setText(ANONYMOUS);
+                mNavigationView.inflateMenu(R.menu.activity_main_drawer_out);
+            }
+        } else {
+            rootLayout.setVisibility(View.GONE);
+            findViewById(R.id.main_noData).setVisibility(View.VISIBLE);
+        }
+    }
+
+    @OnClick(R.id.retry_button)
+    public void retry(){
+        start();
+    }
 
     private void initDrawerItems() {
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(

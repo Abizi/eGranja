@@ -2,11 +2,14 @@ package com.turkeytech.egranja.activity;
 
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.support.design.widget.AppBarLayout;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -18,6 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.turkeytech.egranja.R;
 import com.turkeytech.egranja.adapter.HomeProductAdapter;
 import com.turkeytech.egranja.model.Product;
+import com.turkeytech.egranja.util.NetworkHelper;
 
 import java.util.ArrayList;
 
@@ -31,6 +35,12 @@ import static com.turkeytech.egranja.session.Constants.PRODUCTS_NODE;
 public class MoreActivity extends AppCompatActivity {
 
     private static final String TAG = "xix: MoreActivity";
+
+    @BindView(R.id.more_appBarLayout)
+    AppBarLayout mAppBarLayout;
+
+    @BindView(R.id.more_frameLayout)
+    FrameLayout mFrameLayout;
 
     @BindView(R.id.more_progressBar)
     ProgressBar mProgressBar;
@@ -47,15 +57,38 @@ public class MoreActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_more);
+
         ButterKnife.bind(this);
 
-        mRecyclerView.hasFixedSize();
+        start();
+    }
 
-        mSpanCount = (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) ? 3 : 2;
+    private void start() {
+        if (NetworkHelper.hasNetwork(this)) {
 
-        String categoryName = getIntent().getStringExtra(PRODUCTS_CATEGORY);
-        mToolbarText.setText(categoryName);
-        setProductDataSource(categoryName);
+            mAppBarLayout.setVisibility(View.VISIBLE);
+            mFrameLayout.setVisibility(View.VISIBLE);
+            mProgressBar.setVisibility(View.VISIBLE);
+            findViewById(R.id.more_noData).setVisibility(View.GONE);
+
+            mRecyclerView.hasFixedSize();
+
+            mSpanCount = (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) ? 3 : 2;
+
+            String categoryName = getIntent().getStringExtra(PRODUCTS_CATEGORY);
+            mToolbarText.setText(categoryName);
+            setProductDataSource(categoryName);
+        } else {
+            mAppBarLayout.setVisibility(View.GONE);
+            mFrameLayout.setVisibility(View.GONE);
+            mProgressBar.setVisibility(View.GONE);
+            findViewById(R.id.more_noData).setVisibility(View.VISIBLE);
+        }
+    }
+
+    @OnClick(R.id.retry_button)
+    public void retry(){
+        start();
     }
 
     private DatabaseReference getDatabaseReference() {

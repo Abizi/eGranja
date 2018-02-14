@@ -13,6 +13,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
+    <include layout="@layout/zz_no_data"
+        android:id="@+id/main_noData"
+        android:visibility="gone"/>
+
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view"
         android:layout_width="wrap_content"
