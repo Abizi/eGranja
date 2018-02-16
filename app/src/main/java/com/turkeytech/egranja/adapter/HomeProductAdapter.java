@@ -164,8 +164,16 @@ public class HomeProductAdapter extends RecyclerView.Adapter<HomeProductAdapter.
         void setPrice(String price) {
             TextView priceText = mView.findViewById(R.id.holderProductItem_productPrice);
 
-            if (!price.contains("."))
+            if (!price.contains(".")) {
                 price += ".00";
+            } else if(price.contains(".")){
+                String[] x = price.split("\\.");
+                if (x[1].length() == 1){
+                    x[1] += "0";
+
+                    price = x[0] + "." + x[1];
+                }
+            }
 
             String priceConcat = "Price: GhC " + price;
             priceText.setText(priceConcat);

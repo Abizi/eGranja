@@ -2,6 +2,7 @@ package com.turkeytech.egranja.activity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.AppBarLayout;
@@ -17,16 +18,15 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ProgressBar;
-import android.widget.Spinner;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -37,17 +37,14 @@ import com.turkeytech.egranja.model.User;
 import com.turkeytech.egranja.util.NetworkHelper;
 
 import java.util.HashMap;
-import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-import static com.turkeytech.egranja.session.Constants.USERS_ANSWER;
 import static com.turkeytech.egranja.session.Constants.USERS_NAME;
 import static com.turkeytech.egranja.session.Constants.USERS_NODE;
 import static com.turkeytech.egranja.session.Constants.USERS_NUMBER;
-import static com.turkeytech.egranja.session.Constants.USERS_QUESTION;
 
 public class EditUserActivity extends AppCompatActivity {
     private static final String TAG = "xix: EditUser";
@@ -72,9 +69,6 @@ public class EditUserActivity extends AppCompatActivity {
     @BindView(R.id.editUser_txtFirstName)
     TextInputEditText mTextFirstName;
 
-    @BindView(R.id.editUser_txtLastName)
-    TextInputEditText mTextLastName;
-
     @BindView(R.id.editUser_txtNumber)
     TextInputEditText mTextNumber;
 
@@ -82,7 +76,6 @@ public class EditUserActivity extends AppCompatActivity {
     TextInputEditText mTextEmail;
 
     private String mNewFirstName;
-    private String mNewLastName;
     private String mNewNumber;
     private String mNewEmail;
 
@@ -127,7 +120,7 @@ public class EditUserActivity extends AppCompatActivity {
     }
 
     @OnClick(R.id.retry_button)
-    public void retry(){
+    public void retry() {
         start(mSavedInstanceState);
     }
 
@@ -146,9 +139,9 @@ public class EditUserActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
 
                 User user = dataSnapshot.getValue(User.class);
-                mTextFirstName.setText(user.getName().split(" ")[0]);
-                mTextLastName.setText(user.getName().split(" ")[1]);
+                mTextFirstName.setText(mCurrentUser.getDisplayName());
                 mTextEmail.setText(mCurrentUser.getEmail());
+                assert user !=  null;
                 mTextNumber.setText(user.getNumber());
 
             }
@@ -223,81 +216,6 @@ public class EditUserActivity extends AppCompatActivity {
         editPasswordPopUp.show();
     }
 
-    private void showEditSecurityPopup() {
-
-        // Create a builder for editSecurityPopup
-        AlertDialog.Builder editSecurityBuilder = new AlertDialog.Builder(this);
-
-
-        // Give audioPopup a title of 'Edit Your Security Credentials'
-        editSecurityBuilder.setTitle("Edit Your Security Credentials");
-        editSecurityBuilder.setMessage("You may update either question or answer or both.");
-
-
-        // Inflate the view to be used with the editSecurityPopup
-        @SuppressLint("InflateParams")
-        View view = getLayoutInflater().inflate(R.layout.popup_edit_user_security_question, null);
-
-        // Set the inflated view as the content for
-        // editSecurityPopup
-        editSecurityBuilder.setView(view);
-
-
-        // Show audioPopup'savePossible dialog interface
-
-        final AlertDialog editSecurityPopUp = editSecurityBuilder.create();
-
-
-        // Initialize the views in the inflated layout
-        final TextInputEditText textAnswer = view.findViewById(R.id.editUser_txtAnswer);
-        final Spinner questions = view.findViewById(R.id.editUser_securityQuestion);
-
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
-                this,
-                R.array.security_questions,
-                android.R.layout.simple_list_item_1
-        );
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        questions.setAdapter(adapter);
-
-        Button updateSecurity = view.findViewById(R.id.editUser_btnUpdateSecurityCredentials);
-        updateSecurity.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                String answer = textAnswer.getText().toString().trim();
-
-                boolean hasAnswer = !TextUtils.isEmpty(answer);
-                boolean hasQuestion = questions.getSelectedItemId() != 0;
-
-                if (hasAnswer || hasQuestion) {
-
-                    Map<String, Object> credentials = new HashMap<>();
-
-                    if (hasQuestion) {
-                        credentials.put(USERS_QUESTION, questions.getSelectedItem().toString());
-                    }
-                    if (hasAnswer) {
-                        credentials.put(USERS_ANSWER, answer);
-                    }
-
-                    mDatabaseUser.updateChildren(credentials, new DatabaseReference.CompletionListener() {
-                        @Override
-                        public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
-                            if (databaseError == null) {
-                                mProgressBar.setVisibility(View.GONE);
-                            }
-                        }
-                    });
-                    editSecurityPopUp.dismiss();
-                    mProgressBar.setVisibility(View.VISIBLE);
-                }
-
-            }
-        });
-
-        editSecurityPopUp.show();
-    }
 
     private void showMessage(String message) {
         Snackbar.make(rootLayout, message, Snackbar.LENGTH_LONG).show();
@@ -319,9 +237,6 @@ public class EditUserActivity extends AppCompatActivity {
             case R.id.action_edit_password:
                 showEditPasswordPopup();
                 break;
-            case R.id.action_edit_security_question:
-                showEditSecurityPopup();
-                break;
         }
         return true;
     }
@@ -330,6 +245,10 @@ public class EditUserActivity extends AppCompatActivity {
 
         if (savePossible()) {
             mProgressBar.setVisibility(View.VISIBLE);
+            UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                    .setDisplayName(mNewFirstName)
+                    .build();
+            mCurrentUser.updateProfile(profileUpdates);
             mCurrentUser.updateEmail(mNewEmail)
                     .addOnCompleteListener(
                             new OnCompleteListener<Void>() {
@@ -338,7 +257,6 @@ public class EditUserActivity extends AppCompatActivity {
                                     if (task.isSuccessful()) {
 
                                         HashMap<String, Object> details = new HashMap<>();
-                                        details.put(USERS_NAME, mNewFirstName + " " + mNewLastName);
                                         details.put(USERS_NUMBER, mNewNumber);
 
                                         mDatabaseUser.updateChildren(details).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -367,7 +285,6 @@ public class EditUserActivity extends AppCompatActivity {
     private boolean savePossible() {
 
         mNewFirstName = mTextFirstName.getText().toString().trim();
-        mNewLastName = mTextLastName.getText().toString().trim();
         mNewNumber = mTextNumber.getText().toString().trim();
         mNewEmail = mTextEmail.getText().toString().trim();
 
@@ -377,12 +294,6 @@ public class EditUserActivity extends AppCompatActivity {
         } else if (mNewFirstName.split(" ").length > 1) {
             mTextFirstName.setError("Enter Your First Name Only!");
             return true;
-        } else if (TextUtils.isEmpty(mNewLastName)) {
-            mTextLastName.setError("No Last Name Given!");
-            return false;
-        } else if (mNewLastName.split(" ").length > 1) {
-            mTextLastName.setError("Enter Your Last Name Only!");
-            return false;
         } else if (TextUtils.isEmpty(mNewNumber)) {
             mTextNumber.setError("No Number Given!");
             return false;

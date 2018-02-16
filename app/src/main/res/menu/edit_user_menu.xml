@@ -11,8 +11,4 @@
         android:id="@+id/action_edit_password"
         android:title="@string/edit_password"
         app:showAsAction="never" />
-    <item
-        android:id="@+id/action_edit_security_question"
-        android:title="@string/edit_security"
-        app:showAsAction="never" />
 </menu>

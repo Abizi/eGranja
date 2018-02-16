@@ -82,11 +82,12 @@
                 android:id="@+id/editUser_layFirstName"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
                 android:layout_marginStart="@dimen/activity_margin"
                 android:layout_marginTop="50dp"
                 android:hint="@string/editUser_firstName"
                 android:padding="@dimen/min_padding"
-                app:layout_constraintEnd_toStartOf="@id/editUser_layLastName"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/editUser_txtInstruction">
 
@@ -100,26 +101,7 @@
             </android.support.design.widget.TextInputLayout>
 
 
-            <android.support.design.widget.TextInputLayout
-                android:id="@+id/editUser_layLastName"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/activity_margin"
-                android:layout_marginTop="50dp"
-                android:hint="@string/editUser_lastName"
-                android:padding="@dimen/min_padding"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/editUser_layFirstName"
-                app:layout_constraintTop_toBottomOf="@id/editUser_txtInstruction">
 
-                <android.support.design.widget.TextInputEditText
-                    android:id="@+id/editUser_txtLastName"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/text_background"
-                    android:inputType="text"
-                    android:padding="@dimen/editText_padding" />
-            </android.support.design.widget.TextInputLayout>
 
 
             <android.support.design.widget.TextInputLayout
@@ -130,7 +112,7 @@
                 android:layout_marginStart="@dimen/activity_margin"
                 android:hint="@string/editText_number"
                 android:padding="@dimen/min_padding"
-                app:layout_constraintEnd_toEndOf="@id/editUser_layLastName"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@id/editUser_layFirstName"
                 app:layout_constraintTop_toBottomOf="@id/editUser_layFirstName">
 
@@ -153,7 +135,7 @@
                 android:hint="@string/editText_email"
                 android:padding="@dimen/min_padding"
                 app:layout_constraintEnd_toEndOf="@id/editUser_layFirstName"
-                app:layout_constraintStart_toStartOf="@id/editUser_layLastName"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/editUser_layNumber">
 
                 <android.support.design.widget.TextInputEditText

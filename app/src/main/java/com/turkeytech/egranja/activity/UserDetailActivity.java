@@ -109,7 +109,7 @@ public class UserDetailActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
 
                 User user = dataSnapshot.getValue(User.class);
-                mName.setText(user.getName());
+                mName.setText(mCurrentUser.getDisplayName());
                 mEmail.setText(mCurrentUser.getEmail());
                 mNumber.setText(user.getNumber());
 

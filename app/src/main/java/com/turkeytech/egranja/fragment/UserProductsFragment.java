@@ -70,6 +70,7 @@ public class UserProductsFragment extends Fragment {
         mRecyclerView = view.findViewById(R.id.userProductFragment_recyclerView);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         mActivity = getActivity();
+        mActivity.findViewById(R.id.main_fab).setVisibility(View.GONE);
         getDataSource();
     }
 

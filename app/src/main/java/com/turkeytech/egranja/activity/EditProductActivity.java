@@ -214,10 +214,10 @@ public class EditProductActivity extends AppCompatActivity implements
     private String mOldLocation;
 
     //Image Values
-    private String mOldImageFile1;
-    private String mOldImageFile2;
-    private String mOldImageFile3;
-    private String mOldImageFile4;
+    private String mImageFile1Url;
+    private String mImageFile2Url;
+    private String mImageFile3Url;
+    private String mImageFile4Url;
 
     //Optional Values
     private String mOldAudioFile;
@@ -322,17 +322,19 @@ public class EditProductActivity extends AppCompatActivity implements
                     mOldLocation = product.getLocation();
                     mLocation = mOldLocation;
 
-                    mOldImageFile1 = product.getImage1();
+                    mImageFile1Url = product.getImage1();
                     isImage1Database = true;
                     isImage1Set = true;
-                    mOldImageFile2 = product.getImage2();
+
+                    mImageFile2Url = product.getImage2();
                     isImage2Database = true;
                     isImage2Set = true;
-                    mOldImageFile3 = product.getImage3();
+
+                    mImageFile3Url = product.getImage3();
                     isImage3Database = true;
                     isImage3Set = true;
 
-                    mOldImageFile4 = product.getImage4();
+                    mImageFile4Url = product.getImage4();
                     isImage4Database = true;
                     isImage4Set = true;
 
@@ -348,7 +350,7 @@ public class EditProductActivity extends AppCompatActivity implements
 
                 }
             });
-        }else {
+        } else {
             mAppBarLayout.setVisibility(View.GONE);
             mProgressBar.setVisibility(View.GONE);
             mNestedScrollView.setVisibility(View.GONE);
@@ -357,7 +359,7 @@ public class EditProductActivity extends AppCompatActivity implements
     }
 
     @OnClick(R.id.retry_button)
-    public void retry(){
+    public void retry() {
         start(mSavedInstanceState);
     }
 
@@ -401,25 +403,25 @@ public class EditProductActivity extends AppCompatActivity implements
                 switch (button.getId()) {
                     case R.id.editProduct_btnAddImage1:
                         mImageButton1.setImageResource(R.drawable.ic_add_photo);
-                        mOldImageFile1 = null;
+                        mImageFile1Url = null;
                         isImage1Database = false;
                         isImage1Set = false;
                         break;
                     case R.id.editProduct_btnAddImage2:
                         mImageButton2.setImageResource(R.drawable.ic_add_photo);
-                        mOldImageFile2 = null;
+                        mImageFile2Url = null;
                         isImage2Database = false;
                         isImage1Set = false;
                         break;
                     case R.id.editProduct_btnAddImage3:
                         mImageButton3.setImageResource(R.drawable.ic_add_photo);
-                        mOldImageFile3 = null;
+                        mImageFile3Url = null;
                         isImage3Database = false;
                         isImage1Set = false;
                         break;
                     case R.id.editProduct_btnAddImage4:
                         mImageButton4.setImageResource(R.drawable.ic_add_photo);
-                        mOldImageFile4 = null;
+                        mImageFile4Url = null;
                         isImage4Database = false;
                         isImage1Set = false;
                         break;
@@ -676,7 +678,6 @@ public class EditProductActivity extends AppCompatActivity implements
                 break;
         }
     }
-    // End of Image Capturing Section
 
     private void removeImage() {
         switch (mCurrentImageButtonId) {
@@ -705,10 +706,14 @@ public class EditProductActivity extends AppCompatActivity implements
                 break;
         }
     }
+    // End of Image Capturing Section
+
 
     // Audio Recording Section
     @OnClick(R.id.editProduct_btnRecordAudio)
     public void onAudioRecordClick() {
+
+
 
         if (isRecordingAudio) {
 
@@ -1621,6 +1626,32 @@ public class EditProductActivity extends AppCompatActivity implements
     }
 
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.add_product_menu, menu);
+        return true;
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_upload:
+                upload();
+                break;
+        }
+        return true;
+    }
+
+
+    @OnClick(R.id.editProduct_btnToolbarClose)
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
+
+
+    // Start uploading things
     public boolean allDataSet() {
 
         if (TextUtils.isEmpty(mTextProductName.getText())) {
@@ -1699,40 +1730,14 @@ public class EditProductActivity extends AppCompatActivity implements
         }
     }
 
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.add_product_menu, menu);
-        return true;
-    }
-
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_upload:
-                upload();
-                break;
-        }
-        return true;
-    }
-
-    @OnClick(R.id.editProduct_btnToolbarClose)
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-    }
-
     private void upload() {
 
         if (isUploading) {
-            showMessage("Product is uploading...");
+            showMessage("Product is updating...");
         } else {
             isUploading = true;
 
             if (allDataSet()) {
-//                mProgressBar.setVisibility(View.VISIBLE);
-
 
                 Intent intent = new Intent(EditProductActivity.this, HomeActivity.class);
                 intent.putExtra(HOME_SCREEN, NAV_PRODUCTS);
@@ -1742,39 +1747,85 @@ public class EditProductActivity extends AppCompatActivity implements
                 mBuilderSuccess.setProgress(0, 0, true);
                 mNotifyMgr.notify(MY_NOTIFICATION, mBuilderSuccess.build());
 
-                for (final Uri imageUri : mImagesList) {
-
-                    StorageReference imagesFilepath = mStorage
-                            .child("images").child(UUID.randomUUID().toString());
-
-                    imagesFilepath.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-
-                            if (imageUri == mImageFileUri1) {
-
-                                mImageFileUri1 = taskSnapshot.getDownloadUrl();
-
-                            } else if (imageUri == mImageFileUri2) {
-
-                                mImageFileUri2 = taskSnapshot.getDownloadUrl();
-
-                            } else if (imageUri == mImageFileUri3) {
-
-                                mImageFileUri3 = taskSnapshot.getDownloadUrl();
-
-                            } else if (imageUri == mImageFileUri4) {
-
-                                mImageFileUri4 = taskSnapshot.getDownloadUrl();
-                                addAudioData();
-                            }
-                        }
-                    });
-
-                }
+                writeImage1();
             }
         }
+
+
     }
+
+    private void writeImage1() {
+
+        if (!isImage1Database) {
+
+            StorageReference imagesFilepath = mStorage.child("images").child(UUID.randomUUID().toString());
+            imagesFilepath.putFile(mImagesList[0]).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+
+                    mImageFile1Url = taskSnapshot.getDownloadUrl().toString();
+                    writeImage2();
+                }
+            });
+        } else {
+            writeImage2();
+        }
+    }
+
+    private void writeImage2() {
+
+        if (!isImage2Database) {
+
+            StorageReference imagesFilepath = mStorage.child("images").child(UUID.randomUUID().toString());
+            imagesFilepath.putFile(mImagesList[1]).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+
+                    mImageFile2Url = taskSnapshot.getDownloadUrl().toString();
+                    writeImage3();
+                }
+            });
+        } else {
+            writeImage3();
+        }
+    }
+
+    private void writeImage3() {
+
+        if (!isImage3Database) {
+
+            StorageReference imagesFilepath = mStorage.child("images").child(UUID.randomUUID().toString());
+            imagesFilepath.putFile(mImagesList[2]).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+
+                    mImageFile3Url = taskSnapshot.getDownloadUrl().toString();
+                    writeImage4();
+                }
+            });
+        } else {
+            writeImage4();
+        }
+    }
+
+    private void writeImage4() {
+
+        if (!isImage4Database) {
+
+            StorageReference imagesFilepath = mStorage.child("images").child(UUID.randomUUID().toString());
+            imagesFilepath.putFile(mImagesList[3]).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                @Override
+                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+
+                    mImageFile4Url = taskSnapshot.getDownloadUrl().toString();
+                    addAudioData();
+                }
+            });
+        } else {
+addAudioData();
+        }
+    }
+
 
     private void addAudioData() {
         if (mAudioFilePath != null) {
@@ -1940,16 +1991,16 @@ public class EditProductActivity extends AppCompatActivity implements
     // Update the UI
     private void updateUI() {
 
-        if (mImageFileUri1 != null || mOldImageFile1 != null) {
+        if (mImageFileUri1 != null || mImageFile1Url != null) {
             mImageButton1.setImageResource(R.drawable.ic_check);
         }
-        if (mImageFileUri2 != null || mOldImageFile2 != null) {
+        if (mImageFileUri2 != null || mImageFile2Url != null) {
             mImageButton2.setImageResource(R.drawable.ic_check);
         }
-        if (mImageFileUri3 != null || mOldImageFile3 != null) {
+        if (mImageFileUri3 != null || mImageFile3Url != null) {
             mImageButton3.setImageResource(R.drawable.ic_check);
         }
-        if (mImageFileUri4 != null || mOldImageFile4 != null) {
+        if (mImageFileUri4 != null || mImageFile4Url != null) {
             mImageButton4.setImageResource(R.drawable.ic_check);
         }
         if (mAudioFilePath != null) {
